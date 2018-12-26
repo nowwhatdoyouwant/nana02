@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <!--移动端用1:1的比例换算px-->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <title>Title</title>
+    <!--<link href="dist/css/bootstrap.min.css" rel="stylesheet">-->
+    <!--<script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>-->
+    <!--<script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>-->
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            color: #ffffff;
+        }
+        ul{
+            list-style: none;
+        }
+        .header{
+            border-bottom: 1px solid #707070;
+            width: 100%;
+            height: 76px;
+            background: #ffffff;
+            /*box-shadow:5px 5px 5px #c3c4c7;*/
+            font-size: 0;
+        }
+        .header-logo{
+            font-size: 16px;
+            width: 220px;
+            text-align: center;
+            height: 74px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .header-logo>img{
+            height: 74px;
+            vertical-align: middle;
+        }
+        .header-logo>i{
+            font-size: 18px;
+            color: black;
+        }
+        .header-a{
+            display: inline-block;
+            width: 25px;
+            height: 28px;
+            border-top: 3px solid #563e3c;
+            vertical-align: middle;
+            margin-left: 75px;
+            margin-top: 15px;
+            /*line-height: 28px;*/
+            font-size: 16px;
+            cursor: pointer;
+
+        }
+        .header-a div{
+            border-top: 3px solid #563e3c;
+            margin-top: 3px;
+            transition: all .2s linear;
+
+        }
+        .header-b{
+            display: inline-block;
+            width: 150px;
+            height: 78px;
+            text-align: center;
+            margin-right: 100px;
+            font-size: 16px;
+            vertical-align: middle;
+            float: right;
+            position: relative;
+        }
+        .header-b>img{
+            line-height: 78px;
+            margin: 22px 5px;
+            cursor: pointer;
+        }
+        .header-b-1,.header-b-2,.header-b-3{
+            display: inline-block;
+            height: 76px;
+            width: 40px;
+            line-height: 100px;
+        }
+        .header-b-1>img,.header-b-2>img,.header-b-3>img{
+            width: 25px;
+        }
+        .header-b-1:hover{
+            background: #f1f3f4;
+        }
+        .header-b-2:hover{
+            background: #f1f3f4;
+        }
+        .header-b-3:hover{
+            background: #f1f3f4;
+        }
+        .header-c{
+            height: 28px;
+            font-size: 16px;
+            line-height: 28px;
+            text-align: center;
+            cursor: pointer;
+            display: block;
+        }
+        .header-c:hover{
+            color: white;
+            background: #563e3c;
+        }
+        .dis-1,.dis-2,.dis-3{
+            border: 1px solid rgba(0, 0, 0, .15);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 155px;
+            line-height: 0;
+            height: 200px;
+            margin-left: -48px;
+            transition: all 0.3s linear;
+            overflow: hidden;
+            opacity: 0;
+            -webkit-box-shadow: 2px 3px 4px rgba(0, 0, 0, .175);
+            visibility: hidden;
+            background: #ffffff;
+            transform: rotateY(-90deg);
+            margin-top: 2px;
+        }
+        .header-b .dis-2{
+            margin-left: -4px;
+        }
+        .header-b .dis-3{
+            margin-left: 45px;
+        }
+        .h5{
+            background: #fdc8c6;
+            height: 25px;
+            text-align: left;
+            line-height: 25px;
+            border-bottom: 1px solid #707070;
+        }
+        .h5>img{
+            margin-top: -5px;
+            vertical-align: middle;
+        }
+        .sec-1{
+            float: left;
+            width: 320px;
+            height: 720px;
+            /*border: 1px solid red;*/
+            padding-top: 80px;
+            background: #2a2f43;
+            overflow: hidden;
+            transition: all .3s linear;
+        }
+        .sec-1-a>img{
+            vertical-align: middle;
+            margin-left: 20px;
+        }
+        .sec-1-a{
+            height: 52px;
+            display: flex;
+            justify-content: start;
+        }
+        .sec-1-a>span{
+            padding-left: 60px;
+            color: white;
+            width: 185px;
+            display: inline-block;
+            line-height: 52px;
+            height: 52px;
+            font-weight: 500;
+        }
+        .nav-a{
+            padding-top: 50px;
+            text-align: left;
+            letter-spacing: 5px;
+            font-size: 18px;
+            /*transform: translateY(20px);*/
+        }
+        .sec-1>.nav-a>ul>li{
+            height: 60px;
+            width: 320px;
+            /*margin-top: 20px;*/
+
+        }
+        .nav-a>ul{
+            background: #2a2f43;
+        }
+        .sec-1>.nav-a>ul>li:hover{
+            background: #707070;
+            /*color: #ffffff;*/
+        }
+        .sec-1>.nav-a>ul>li:hover.sec-1>.nav-a>ul>li>a{
+            color: white;
+        }
+        .sec-1>.nav-a>ul>li>a{
+            /*margin-left: 80px;*/
+            display: block;
+            line-height: 60px;
+        }
+        .sec-1>.nav-a>ul>li>a>img{
+            vertical-align: middle;
+            width: 25px;
+            padding: 0 30px;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        @media (min-width: 1201px) {
+            iframe{
+                width: 80%;
+            }
+            .sec-1{
+                width: 320px;
+            }
+        }
+        @media (max-width: 1200px) {
+            iframe{
+                width: 80%;
+            }
+            .sec-1{
+                width: 220px;
+            }
+        }
+        iframe{
+            border: none;
+            height: 795px;
+            /*width: 100%;*/
+        }
+        .img{
+            height: 76px;
+        }
+        .shuru{
+            display: inline-block;
+            margin-left: 500px;
+            width: 350px;
+            /*border: 1px solid #707070;*/
+            vertical-align: middle;
+            position: relative;
+
+        }
+        .fa-search{
+            color: #888888;
+            position: absolute;
+            font-size: 20px;
+            right:50px;
+            top:5px;
+        }
+        .shuru>input{
+            /*border: none;*/
+            border-radius: 20px;
+            vertical-align: middle;
+            width: 300px;
+            margin-left: 10px;
+            height: 27px;
+            border: 1px solid #707070;
+            outline:0
+        }
+        .shuru>img{
+            width: 25px;
+            margin-left: -30px;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+        .dis-1-a>li,.dis-2-a>li{
+            width: 155px;
+            height: 30px;
+            text-align: left;
+            line-height: 30px;
+            font-weight: 500;
+        }
+        .dis-1-a>li:hover{
+            background: #f1f3f4;
+        }
+        .dis-2-a>li:hover{
+            background: #f1f3f4;
+        }
+        .span1111{
+            margin-left: 10px;
+        }
+        .span22{
+            margin-left: 15px ;
+            display: inline-block;
+            width: 48px;
+            text-align: center;
+        }
+        .butt{
+            margin-left:15px;
+            border: none;
+        }
+        .span33{
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <div class="header-logo">
+        <img src="img/logo.png" class="img">
+        <i>夏贝贝幼儿园</i>
+    </div>
+    <div class="header-a">
+        <div class="div1"></div>
+        <div class="div2"></div>
+        <div class="div3"></div>
+    </div>
+    <div class="shuru">
+        <input type="text" class="input11" placeholder="Search...">
+        <a href="" target="myiframe" id="a1" onclick="bb()"><i class="fa fa-search" aria-hidden="true"></i></a>
+    </div>
+
+    <div class="header-b">
+        <div class="header-b-1">
+            <img src="img/邮件.png" alt="">
+        </div>
+        <div class="dis-1">
+            <h5 class="h5">
+                <img src="img/收件箱.png" alt="">
+                <span class="span1111">收件箱</span>
+            </h5>
+            <ul class="dis-1-a"></ul>
+        </div>
+        <div  class="header-b-2">
+            <img src="img/211铃铛.png" alt="">
+        </div>
+        <div class="dis-2">
+            <h5 class="h5">
+                <img src="img/QQ图片20181214111245.png" alt="">
+                <span class="span1111">通知</span>
+            </h5>
+            <ul class="dis-2-a"></ul>
+        </div>
+        <div  class="header-b-3">
+            <img src="img/shezhi%20(1).png" alt="">
+        </div>
+        <div class="dis-3">
+            <span class="header-c">退出登录</span>
+        </div>
+    </div>
+</header>
+<section class="sec-1">
+    <div class="sec-1-a">
+        <img src="img/a.png" alt="">
+        <span id="span">Mr.chen</span>
+    </div>
+    <nav class="nav-a">
+        <ul>
+            <li class="cl" onclick="aa(this)">
+                <a href="dapaetment-manag.html" target="myiframe"><img src="icon_unw6kif2s8/bumen.svg" alt="">部门管理</a>
+            </li>
+            <li class="cl" onclick="aa(this)">
+                <a href="teachermange.html" target="myiframe"><img src="icon_unw6kif2s8/jiaoshi.svg" alt="">教职工管理</a>
+            </li>
+            <li class="cl" onclick="aa(this)">
+                <a href="classes.html" target="myiframe"><img src="icon_unw6kif2s8/banji.svg" alt="">班级管理</a>
+            </li>
+            <li class="cl" onclick="aa(this)">
+                <a href="student.html" target="myiframe"><img src="icon_unw6kif2s8/xuesheng.svg" alt="">学生管理</a>
+            </li>
+            <li class="cl" onclick="aa(this)">
+                <a href="quanxianguanli.html" target="myiframe"><img src="icon_unw6kif2s8/zhaopian.svg" alt="">照片墙</a>
+            </li>
+            <!--<li class="cl" onclick="aa(this)">-->
+                <!--<a href="#"><img src="icon_unw6kif2s8/denglu.svg" alt="">登录</a>-->
+            <!--</li>-->
+            <li class="cl" onclick="aa(this)">
+                <a href="考勤管理.html" target="myiframe"><img src="icon_unw6kif2s8/kaoqing.svg" alt="">考勤管理</a>
+            </li>
+            <li class="cl" onclick="aa(this)">
+                <a href="发布公告.html" target="myiframe"><img src="icon_unw6kif2s8/gonggao.svg" alt="">公告管理</a>
+            </li>
+            <li class="cl" onclick="aa(this)">
+                <a href="zhaopianqiang.html" target="myiframe"><img src="icon_unw6kif2s8/denglu.svg" alt="">权限管理</a>
+            </li>
+        </ul>
+    </nav>
+</section>
+<iframe src="shouye.html" name="myiframe" scrolling = "auto"></iframe>
+<script src="jquery-3.3.1.min.js"></script>
+<script>
+    $(".header-a").click(function () {
+        if ($(".sec-1").css("width") == "320px"){
+            $(".sec-1").css("width","80");
+            $(".header-a").css("border","none");
+            $(".div3").css("display","none");
+            $(".div2").css("transform", "rotate(90deg)");
+            $(".div1").css("transform", "translateY(7px)");
+            $("#span").css("display","none")
+        }else if($(".sec-1").css("width") == "80px"){
+            $(".sec-1").css("width","320px");
+            $(".header-a").css("border-top","3px solid #563e3c");
+            $(".div3").css("display","block");
+            $(".div2").css("transform", "rotate(0deg)");
+            $(".div1").css("transform", "translateY(0px)");
+            $("#span").css("display","block")
+        }
+    });
+    $(".header-c").click(function () {
+        location.href = "denglu.html"
+    });
+    function aa(obj) {
+        var cl = document.getElementsByClassName("cl");
+        if (obj.style.background == ""){
+            obj.style.background = "#707070"
+        }
+        $(".sec-1").css("width","320px");
+        $(".header-a").css("border-top","4px solid #563e3c");
+        $(".div3").css("display","block");
+        $(".div2").css("transform", "rotate(0deg)");
+        $(".div1").css("transform", "translateY(0px)");
+        $("#span").css("display","block");
+        for (var i = 0;i < cl.length;i++){
+            if(obj == cl[i]){
+                cl[i].style.backgroundColor = "#707070"
+            }else {
+                cl[i].style.backgroundColor = "#2a2f43"
+            }
+        }
+    }
+    var arr = [
+        {to:"for:",name:"马云"},
+        {to:"for:",name:"马化腾"},
+        {to:"for:",name:"任正非"},
+        {to:"for:",name:"奥巴马"},
+        {to:"for:",name:"习近平"}
+    ];
+    window.onload = change;
+    function change() {
+        var div = $(".dis-1-a").get(0);
+        div.innerHTML ="";
+        for (var i = 0;i < arr.length;i++){
+            div.innerHTML +="<li>"+"<span class='span33'>"+arr[i].to+"</span>"+"<span class='span22'>"+arr[i].name+"</span>"+"<button class='butt' onclick='mydelete("+i+")'>删除</button>"+"</li>"
+        }
+        var div1 = $(".dis-2-a").get(0);
+        div1.innerHTML ="";
+        for (var j = 0;j < arr2.length;j++){
+            div1.innerHTML +="<li>"+"<span class='span33'>"+arr2[j].jj+"</span>"+"<span class='span22'>"+arr2[j].gg+"</span>"+"<button class='butt' onclick='mydelete1("+j+")'>删除</button>"+"</li>"
+        }
+    }
+    function mydelete(num) {
+        var e = window.event;
+        e.stopPropagation();
+        arr.splice(num,1);
+        change()
+    }
+    $(".header-b-1").click(function () {
+        if($(".dis-1").css("opacity") == "0"){
+            $(".dis-1").css({
+                "opacity":"1",
+                "visibility": "inherit",
+                "transform":"rotateY(0deg)"
+            });
+            $(".dis-2").css({
+                "opacity":"0",
+                "visibility": "hidden",
+                "transform":"rotateY(-90deg)"
+            });
+            $(".dis-3").css({
+                "opacity":"0",
+                "visibility": "hidden",
+                "transform":"rotateY(-90deg)"
+            });
+        }else {
+            $(".dis-1").css({
+                "opacity":"0",
+                "visibility": "hidden",
+                "transform":"rotateY(90deg)"
+            })
+
+        }
+    });
+    $(".header-b-2").click(function () {
+        if($(".dis-2").css("opacity") == "0"){
+            $(".dis-2").css({
+                "opacity":"1",
+                "visibility": "inherit",
+                "transform":"rotateY(0deg)"
+            });
+            $(".dis-1").css({
+                "opacity":"0",
+                "visibility": "hidden",
+                "transform":"rotateY(-90deg)"
+            });
+            $(".dis-3").css({
+                "opacity":"0",
+                "visibility": "hidden",
+                "transform":"rotateY(-90deg)"
+            });
+        }else {
+            $(".dis-2").css({
+                "opacity":"0",
+                "visibility": "hidden",
+                "transform":"rotateY(90deg)"
+            })
+        }
+    });
+    $(".header-b-3").click(function () {
+        if($(".dis-3").css("opacity") == "0"){
+            $(".dis-3").css({
+                "opacity":"1",
+                "visibility": "inherit",
+                "transform":"rotateY(0deg)"
+            });
+            $(".dis-2").css({
+                "opacity":"0",
+                "visibility": "hidden",
+                "transform":"rotateY(-90deg)"
+            });
+            $(".dis-1").css({
+                "opacity":"0",
+                "visibility": "hidden",
+                "transform":"rotateY(-90deg)"
+            });
+        }else {
+            $(".dis-3").css({
+                "opacity":"0",
+                "visibility": "hidden",
+                "transform":"rotateY(90deg)"
+            })
+        }
+    });
+    var arr2 = [
+        {jj:"to:",gg:"马云"},
+        {jj:"for:",gg:"马化腾"},
+        {jj:"to:",gg:"任正非"},
+        {jj:"for:",gg:"奥巴马"},
+        {jj:"for:",gg:"习近平"}
+    ];
+    function mydelete1(num1) {
+        var e = window.event;
+        e.stopPropagation();
+        arr2.splice(num1,1);
+        change()
+    }
+    var arr1 = ["部门管理","教职工管理","班级管理","学生管理","照片墙","考清管理","公告管理","权限管理"];
+    var arr3 = ["dapaetment-manag.html","teachermange.html","classes.html","student.html","quanxianguanli.html","考勤管理.html","发布公告.html","zhaopianqiang.html"];
+//    var li =;
+    function bb() {
+            for (var i = 0;i < arr1.length; i++){
+                if ($(".input11").val() == arr1[i]){
+                    $("#a1").attr("href",arr3[i])
+                    $(".cl").eq(i).css("backgroundColor","#707070");
+                }else{
+//                    $("#a1").attr("href","shouye.html")
+                }
+            }
+        }
+
+
+
+//    $("body").click(function () {
+//        window.event? window.event.cancelBubble = true : e.stopPropagation();
+////        $(".dis-1").css("opacity","1")
+//        alert("a");
+//    })
+</script>
+</body>
+</html>
