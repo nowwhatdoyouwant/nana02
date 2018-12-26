@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="singin.css">
+</head>
+<body>
+<div id="big_div">
+<div id="left_div">
+    <img src="images/Logo-black%20(1).png" alt="" id="left_div_img1">
+    <img src="images/touxiang.jpg" alt="" id="left_div_img2">
+    <div id="name">
+        用户名：
+    </div>
+    <form class="name_input" action="singIn" method="post">
+        <div class="name_div">
+            <input type="text" maxlength='13' placeholder="User name" name="account" id="name1" onclick="qc()">
+            <img src="images/human.png" alt="">
+            <div id="account_hint">
+                您输入的账号错误，请重新输入
+                <i class="fa fa-caret-up fa-2x"></i>
+            </div>
+        </div>
+    </form>
+
+    <div id="key">
+        密&nbsp;&nbsp;码：
+    </div>
+    <form class="key_input" action="singIn" method="post">
+        <div class="key_div">
+            <input type="password" maxlength='13' placeholder="Password"  name="key" id="key1" onclick="kqc()">
+            <img src="images/suo1.png" alt="">
+            <div id="key_hint">
+                您输入的密码错误，请重新输入
+                <i class="fa fa-caret-up fa-2x"></i>
+            </div>
+        </div>
+    </form>
+    <div id="button" onclick="singIn()">
+        <i class="fa fa-key" aria-hidden="true"></i>
+        <span>SING IN</span>
+    </div>
+    <div id="text">
+        <p>安全提示：请妥善保管好自己的<span>帐号</span>和<span>密码</span>！</p>
+    </div>
+</div>
+
+
+
+<div id="right_div">
+    <h3>ENLIGHTEN</h3>
+    <h5>Welcome to tong xing kindergarten</h5>
+</div>
+</div>
+
+
+<script>
+    var name1=document.getElementById("name1");
+    var  input=document.getElementsByTagName("input")[0];
+    var  input1=document.getElementsByTagName("input")[1];
+    var  hint=document.getElementById("account_hint");
+    var  keyHint=document.getElementById("key_hint");
+
+    var accountKu = "aaa11111";
+    var passWordKu ="bbb22222";
+
+    function singIn() {
+        if(input.value===""){
+            hint.style.display="block";
+        }else {
+            hint.style.display="none";
+        }
+        if(input1.value===""){
+            keyHint.style.display="block";
+        }else {
+            keyHint.style.display="none";
+        }
+        var reg=/^[a-zA-Z]{2,5}[0-9]{3,8}$/;
+        var result=reg.test(input.value);
+        if (result===true){
+            hint.style.display="none";
+        }else {
+            hint.style.display="block";
+        }
+        var keyReg=/^[a][a-zA-Z]{1,4}[0-9]{3,8}$/;
+        var keyResult=keyReg.test(input1.value);
+        if (keyResult===true){
+            keyHint.style.display="none";
+        }else {
+            keyHint.style.display="block";
+        }
+
+        if(input.value===accountKu&&input1.value===passWordKu){
+            window.open('http://www.baidu.com','_self');
+            keyHint.style.display="none";
+        }
+        else if(input.value===accountKu&&input1.value!==passWordKu){
+            hint.style.display="none";
+            keyHint.style.display="block";
+        }
+        else if(input.value!==accountKu&&input1.value===passWordKu){
+            hint.style.display="block";
+            keyHint.style.display="none";
+        }
+        else if(input.value!==accountKu&&input1.value!==passWordKu){
+            hint.style.display="block";
+            keyHint.style.display="block";
+        }
+
+
+    }
+
+
+    function qc(){
+//        console.log("clear");
+            hint.style.display="none";
+    }
+    function kqc(){
+        keyHint.style.display="none";
+    }
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
+

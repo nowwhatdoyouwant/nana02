@@ -1,0 +1,227 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style:none;
+}
+   body{
+       background-color: #F2F2F2!important;
+   }
+.div_big{
+    width: 1051px;
+    height: 800px;
+    /*border: 1px solid red;*/
+    margin-top: 60px;
+    margin-left: 50px;
+    background-color: #F2F2F2;
+}
+.div_left{
+    width: 20%;
+    height: 700px;
+    float: left;
+    /*border: 1px solid blue;*/
+}
+.guanli{
+    width: 140px;
+    height: 40px;
+    font-size: 32px;
+    /*border: 1px solid blue;*/
+}
+.fabu{
+    border-style: none;
+    width: 140px;
+    height: 40px;
+    font-size: 16px;
+    color: white;
+    background-color: #F2991B;
+    border-radius: 3px;
+    text-align: center;
+    line-height: 40px;
+    letter-spacing: 2px;
+    margin-top: 100px;
+    cursor: pointer;
+    /*border: 1px solid blue;*/
+}
+.div_right{
+    width: 78%;
+    height: 600px;
+    float: left;
+    margin-left: 5px;
+    margin-top: 100px;
+    /*border: 1px solid red;*/
+}
+.hx{
+    width: 100%;
+    height: 10px;
+    background-color: #68DFF0;
+}
+.title_h3{
+    width: 112px;
+    height: 37px;
+    font-size: 20px;
+    margin-top: 20px;
+    letter-spacing: 2px;
+}
+.hx2{
+    width: 100%;
+    height: 1px;
+    background-color: #DBDBDB;
+}
+.title_h4{
+    width: 100%;
+    height: 32px;
+    /*border: 1px solid red;*/
+    font-size: 16px;
+    font-weight: bold;
+    padding-top: 5px;
+    margin-top: 30px;
+    letter-spacing: 1px;
+}
+.title_h4 i{
+    color: gray;
+
+}
+.teacher_name{
+    color: #ff9974;
+}
+.teacher_time{
+    margin-left: 52%;
+    /*border: 1px solid red;*/
+    color: #CEC9C7;
+    font-weight: normal;
+}
+.text{
+    width: 703px;
+    height: 45px;
+    /*border: 1px solid red;*/
+    margin-top: 10px;
+    margin-left: 75px;
+    font-size: 15px;
+    font-weight: normal;
+}
+.xiangq{
+    color: #63AAFF;
+    cursor: pointer;
+}
+.hx3{
+    width: 90%;
+    height: 1px;
+    background-color: #DBDBDB;
+    margin-left: 75px;
+    margin-top: 20px;
+
+}
+.title2_h4{
+    width: 100%;
+    height: 32px;
+    /*border: 1px solid red;*/
+    font-size: 16px;
+    font-weight: bold;
+    padding-top: 5px;
+    margin-top: 90px;
+    letter-spacing: 1px;
+}
+.title2_h4 i{
+    color: gray;
+
+}
+.teacher2_name{
+    color: #ff9974;
+}
+.teacher2_time{
+    margin-left: 50%;
+    /*border: 1px solid red;*/
+    color: #CEC9C7;
+    font-weight: normal;
+}
+.text2{
+    width: 703px;
+    height: 45px;
+    /*border: 1px solid red;*/
+    margin-top: 10px;
+    margin-left: 75px;
+    font-size: 15px;
+    font-weight: normal;
+}
+.xiangq2{
+    color: #63AAFF;
+    cursor: pointer;
+
+}
+.hx32{
+    width: 90%;
+    height: 1px;
+    background-color: #DBDBDB;
+    margin-left: 75px;
+    margin-top: 20px;
+
+}
+.page-turning {
+    margin-top: 85px;
+    margin-left: 540px;
+    /*position: absolute;*/
+    right: 50px;
+    bottom: 50px;
+    cursor:pointer;
+    float: left;
+
+}
+.page-turning div {
+    height: 50px;
+    width: 50px;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid rgb(221,221,221);
+    float: left;
+    line-height: 50px;
+    color: #337ab7;
+}
+
+.left-arrows {
+    border-radius: 5px 0 0 5px;
+}
+.right-arrows {
+    border-radius: 0 5px 5px 0;
+}
+.page-one {
+    background-color: #68DFF0;
+}
+#gb{
+    background-color: #FF865C;
+    color: white;
+}
+#gb2{
+    background-color: #FF865C;
+    color: white;
+}
+#gb3{
+    background-color: #FF865C;
+    color: white;
+}
+#gb4{
+    background-color: #FF865C;
+    color: white;
+}
+.tctitle{
+    font-size: 22px;
+    font-weight: bold;
+}
+.tctitle2{
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 20px;
+}
+.tcteacher{
+    font-size: 14px;
+    /*font-weight: bold;*/
+    padding-left: 20px;
+    color: gray;
+}
+.tctext{
+    width: 500px;
+    height: 100px;
+    padding-left: 70px;
+    /*border: 1px solid gray;*/
+}
+.btn{
+    margin-right: 15%;
+}

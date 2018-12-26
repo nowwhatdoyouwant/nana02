@@ -1,0 +1,229 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: rgb(242,242,242);
+}
+.first div{
+    height: 2px;
+    width:80%;
+    background-color: rgb(121,121,121);
+    margin: 0 auto;
+}
+.first p{
+    color: rgb(153,153,153);
+    font-size: 25px;
+    font-weight: bolder;
+    padding: 10px 0;
+}
+.first span{
+    font-size: 10px;
+    opacity: 0;
+    color: rgb(255,134,92);
+}
+.first{
+    text-align: center;
+    /*border: solid 1px   rebeccapurple;*/
+    margin-top: 60px;
+    width: 13%;
+    padding: 20px 0;
+    margin-left: 3%;
+}
+.first:hover{
+    background-color: white;
+    box-shadow: 2px 2px 0 0 gainsboro;
+    /*width: 10%;*/
+}
+.first:hover div{
+    opacity: 0;
+}
+.first:hover span{
+    opacity: 1;
+}
+.note{
+    background-color: white;
+    text-align: center;
+    /*height: 800px;*/
+    padding-top: 30px;
+    width: 27.5%;
+    margin-left: 5.8%;
+    padding-bottom: 2%;
+}
+.firstOne{
+    margin-left: 5.7%;
+}
+.myNote{
+    background-color: rgb(255,134,92);
+    color: white;
+    padding: 20px 0;
+}
+.myFnotice{
+    padding: 10px 0 5px 0;
+    text-align: left;
+    color: rgb(153,153,153);
+    border-bottom: solid 1px rgb(234,234,234);
+    /*width: 95%;*/
+    margin: 0 auto;
+
+}
+.myFnotice:hover{
+    background-color: rgb(242,242,242);
+}
+.myFnotice span{
+    font-style: italic;
+}
+.mymember{
+    background-color: rgb(255,134,92);
+    color: white;
+    padding: 20px 0;
+    margin-top: 4%;
+}
+.head img{
+    width: 50px;
+    border-radius: 30px;
+}
+
+.myTeacher{
+    padding: 10px 0 5px 0;
+    text-align: left;
+    color: rgb(153,153,153);
+    border-bottom: solid 1px rgb(204,204,204);
+    /*width: 95%;*/
+    margin: 0 auto;
+}
+.myTeacher:hover{
+    background-color: rgb(242,242,242);
+}
+.myTeacher span{
+    font-size: 14px;
+    color: rgb(104,223,240);
+
+}
+.myTeacher p{
+    font-size: 5px;
+    /*padding-top: 10px;*/
+}
+.intro{
+    padding:1% 0 0 5%;
+}
+.goodC img{
+    width: 100px;
+    border-radius: 50px;
+}
+div{
+    /*border: 1px solid rebeccapurple;*/
+}
+.oneS{
+    position: relative;
+}
+
+.gtOne{
+    position: absolute;
+    top: 32%;
+    text-align: center;
+    left: 2%;
+    width: 22%;
+    box-shadow: 0 3px 0 0 gainsboro;
+    border-left: 1px solid gainsboro;
+    border-right: 1px solid gainsboro;
+}
+.gtOne:hover{
+    box-shadow: 2px 2px 0 0 rgb(189,189,189);
+    border: none;
+
+}
+.gtTwo:hover{
+    box-shadow: 2px 2px 0 0 rgb(189,189,189);
+
+
+}
+.gtThree:hover{
+    box-shadow: 2px 2px 0 0 rgb(189,189,189);
+    border: none;
+
+}
+.gtTwo{
+    position: absolute;
+    top: 32%;
+    text-align: center;
+    left: 25.5%;
+    width: 22%;
+    box-shadow: 0 3px 0 0 gainsboro;
+    border-left: 1px solid gainsboro;
+    border-right: 1px solid gainsboro;
+}
+.gtThree{
+    position: absolute;
+    top: 32%;
+    text-align: center;
+    left: 49%;
+    width: 22%;
+    box-shadow: 0 3px 0 0 gainsboro;
+    border-left: 1px solid gainsboro;
+    border-right: 1px solid gainsboro;
+}
+.goodT{
+    background-color: rgb(244,244,244);
+    color: rgb(153,153,153);
+    padding: 10px 0;
+}
+.goodC{
+    background-color: white;
+    padding: 3% 0 1% 0;
+
+}
+.goodC p{
+    padding: 5px 50px;
+    color: rgb(153,153,153);
+    font-size: 10px;
+    font-weight: bolder;
+}
+.goodS {
+    height: 205px;
+    /*background-color: blue;*/
+}
+.goodS img{
+    width: 100%;
+    /*width: 370px;*/
+    /*height: 200px;*/
+    height: 100%;
+}
+.newT img{
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+}
+.newT{
+    background-color: white;
+    padding: 3% 0 1% 0;
+    height: 205px;
+    position: relative;
+}
+.span1{
+    position: absolute;
+    left: 0;
+}
+.span2{
+    right: 0;
+    position: absolute;
+}
+.newT p{
+    color: rgb(153,153,153);
+    font-size: 10px;
+    font-weight: bolder;
+    padding: 0 50px;
+}
+.myP{
+    margin-top: 5px;
+ }
+.zzt{
+    position: absolute;
+    bottom: 0;
+    left: 4%;
+}
+.zzt1{
+    position: absolute;
+    bottom: 0;
+    left: 37%;
+}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+
+        #personnel{
+            width: 1136px;
+            height: 711px;
+            background-color: #F2F2F2;
+            padding: 0 39px;
+            padding-top: 65px;
+            position: relative;
+            overflow: hidden;
+        }
+        #personnel h2{
+            font-size: 32px;
+            font-weight: 100;
+        }
+        .management{
+            margin-left: 750px;
+            margin-bottom: 30px;
+        }
+        .management input {
+            height: 35px;
+        }
+        .query-btn {
+            width: 80px;
+            height: 35px;
+            line-height: 35px;
+            border-radius: 5px;
+            color: white;
+            font-size: 18px;
+            margin-left: 25px;
+            border: none;
+            background-color: #FF865C;
+        }
+        .bar {
+            font-size: 18px;
+            font-weight: 900;
+        }
+
+        .bar th {
+            line-height: 50px;
+            text-align: center;
+            background-color:rgb(242,242,242);
+        }
+
+        table {
+            background-color: white;
+            margin-top: 60px;
+            border:1px solid rgb(221,221,221);
+        }
+
+        td {
+            font-size: 16px;
+            line-height: 40px;
+            height: 40px;
+        }
+
+        .page-turning div {
+            height: 50px;
+            width: 50px;
+            font-size: 16px;
+            text-align: center;
+            border: 1px solid rgb(221,221,221);
+            float: left;
+            line-height: 50px;
+            color: #337ab7;
+        }
+        .page-turning {
+            margin-top: 30px; ;
+            margin-left: 780px;
+            cursor:pointer;
+        }
+        .left-arrows {
+            border-radius: 5px 0 0 5px;
+        }
+        .right-arrows {
+            border-radius: 0 5px 5px 0;
+        }
+        .back button{
+            width: 80px;
+            height: 35px;
+            line-height: 35px;
+            color: white;
+            border: none;
+            background-color: #FF865C;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .page-one {
+            background-color: #68DFF0;
+        }
+    </style>
+</head>
+<body>
+
+<section>
+    <div id="personnel">
+        <h2>行政部人员名单</h2>
+        <div class="management">
+            <input type="text" id="key" placeholder="输入姓名..">
+            <button class="query-btn" onclick="onSearch();"><i class="" ></i>查询</button>
+        </div>
+        <table class="table table-hover" id="mytable" border="1" cellspacing="0" cellpadding="1" width="1059">
+            <thead>
+            <tr class="bar">
+                <th>编号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+                <th>身份证</th>
+                <th>学历</th>
+                <th>联系方式</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <a href="bumen.html" class="back"><button>返回</button></a>
+        <div class="page-turning">
+            <div class="left-arrows">
+                <i class="fa fa-angle-double-left"></i>
+            </div>
+            <div class="page-one">1</div>
+            <div class="page-two">2</div>
+            <div class="page-three">3</div>
+            <div class="right-arrows">
+                <i class="fa fa-angle-double-right"></i>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<script src="jquery-3.3.1.js"></script>
+<script>
+    var administration = [
+        {name: "王二麻", gender: "女", age: 20, card: 132465789123456789, education: "本科", phone: 13028110000},
+        {name: "李四", gender: "男", age: 21, card: 232465789123456789, education: "研究生", phone: 23028110000},
+        {name: "张三", gender: "女", age: 22, card: 332465789123456789, education: "硕士", phone: 33028110000},
+        {name: "赵五", gender: "女", age: 23, card: 432465789123456789, education: "博士", phone: 43028110000},
+        {name: "孙六", gender: "男", age: 24, card: 532465789123456789, education: "小学", phone: 53028110000},
+        {name: "阮七", gender: "女", age: 25, card: 532465789123456789, education: "初中", phone: 63028110000},
+        {name: "王八", gender: "男", age: 26, card: 532465789123456789, education: "高中", phone: 73028110000}
+    ];
+    window.onload = showData;
+    function showData() {
+        var mytable = $("#mytable tbody");
+        mytable.html("");
+        for (var i = 0; i < administration.length; i++) {
+            mytable.html(mytable.html() + "<tr align=center>" +
+                "<td>" + [i + 1] + "</td>" +
+                "<td>" + administration[i].name + "</td>" +
+                "<td>" + administration[i].gender + "</td>" +
+                "<td>" + administration[i].age + "</td>" +
+                "<td>" + administration[i].card + "</td>" +
+                "<td>" + administration[i].education + "</td>" +
+                "<td>" + administration[i].phone + "</td>" +
+                "</tr>")
+        }
+    }
+    function onSearch() {
+        var storeId = document.getElementById('mytable');
+        var rowsLength = storeId.rows.length;
+        var key = document.getElementById("key").value;
+
+        for(var i=1;i<rowsLength;i++){
+            var searchText = storeId.rows[i].innerHTML;
+            if(searchText.match(key)){
+                storeId.rows[i].style.display='';//显示行操作，
+            }else{
+                storeId.rows[i].style.display='none';//隐藏行操作
+            }
+
+
+        }
+    }
+</script>
+</body>
+</html>

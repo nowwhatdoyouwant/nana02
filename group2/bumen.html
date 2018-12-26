@@ -1,0 +1,534 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+         body{
+             background-color: #F2F2F2;
+         }
+        #divisional-management {
+            width: 1137px;
+            height: 753px;
+            padding-top: 65px;;
+            background-color: #F2F2F2;
+
+        }
+
+        .divisional-management {
+            width: 1059px;
+            height: 586px;
+            margin: 0 auto;
+        }
+
+        #administration-section h1 {
+            font-size: 32px;
+            margin-left: 15px;
+        }
+
+        .management {
+            margin-left: 570px;
+        }
+
+
+        .management input {
+            height: 35px;
+        }
+
+        .one-hr {
+            width: 1030px;
+            height: 1px;
+            margin-left: 14.5px;
+            text-align: center;
+            background-color: gray;
+        }
+
+        .query-btn {
+            width: 80px;
+            height: 35px;
+            line-height: 35px;
+            border-radius: 5px;
+            color: white;
+            font-size: 18px;
+            margin-left: 25px;
+            border: none;
+            background-color: #FF865C;
+        }
+
+        .append-btn {
+            width: 124px;
+            height: 42px;
+            border-radius: 5px;
+            color: white;
+            font-size: 18px;
+            margin-left: 50px;
+            vertical-align: bottom;
+            border: none;
+            background-color: #68DFF0;
+        }
+
+        .bar {
+            font-size: 20px;
+            font-weight: 900;
+            background-color:rgb(242,242,242);
+
+        }
+
+        .bar th {
+            font-size: 18px;
+            height: 60px;
+            text-align: center;
+        }
+
+        table {
+            background-color: white;
+            margin-top: 80px;
+            table-layout: fixed;
+            border:1px solid rgb(221,221,221);
+        }
+
+        td {
+            font-size: 16px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .see-person {
+            width: 118px;
+            height: 35px;
+            line-height: 35px;
+            background-color: #68DFF0;
+            border-radius: 5px;
+            color: white;
+            border: none;
+        }
+        #department-describe{
+            vertical-align: top;
+            margin-left: 13px;
+        }
+
+        #editbtn {
+            width: 80px;
+            height: 35px;
+            line-height: 35px;
+            color: white;
+            border: none;
+            background-color: #68DFF0;
+            border-radius: 5px;
+        }
+
+        .submit{
+            width: 80px;
+            height: 35px;
+            font-size: 18px;
+            line-height: 35px;
+            color: white;
+            border: none;
+            background-color: #68DFF0;
+            border-radius: 5px;
+        }
+        .reset{
+            width: 80px;
+            height: 35px;
+            font-size: 18px;
+            line-height: 35px;
+            color: white;
+            border: none;
+            background-color: #FF865C;
+            border-radius: 5px;
+        }
+        .cancel{
+            width: 80px;
+            height: 35px;
+            font-size: 18px;
+            line-height: 35px;
+            color: white;
+            border: none;
+            background-color: #FF865C;
+            border-radius: 5px;
+        }
+
+        .delete-btn {
+            width: 80px;
+            height: 35px;
+            line-height: 35px;
+            color: white;
+            border: none;
+            background-color: #FF865C;
+            border-radius: 5px;
+        }
+        .tdwidth{
+            width: 300px;
+        }
+        #depart{
+            vertical-align: top;
+        }
+
+        .page-turning div {
+            height: 50px;
+            width: 50px;
+            font-size: 16px;
+            text-align: center;
+            border: 1px solid rgb(221,221,221);
+            float: left;
+            line-height: 50px;
+            color: #337ab7;
+        }
+        .left-arrows {
+            border-radius: 5px 0 0 5px;
+        }
+        .page-one {
+            background-color: #68DFF0;
+        }
+        .page-turning{
+            cursor:pointer;
+            margin-left:800px;
+            margin-top: 15px;
+        }
+        .right-arrows {
+            border-radius: 0 5px 5px 0;
+        }
+        .mylable{
+            font-size: 16px;
+        }
+        .mylable span{
+            color: red;
+        }
+        #amend-describe{
+            margin-left: 15px;
+            vertical-align: top;
+        }
+        fieldset input{
+            width: 400px;
+            height: 40px;
+            margin-left: 15px;
+            vertical-align: bottom;
+        }
+        .red{
+            color:red;
+        }
+        .del-content{
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 30px auto 10px;
+        }
+        .fontClass {
+            font-size: 22px;
+        }
+
+    </style>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+<script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
+<section>
+    <div id="divisional-management">
+        <div class="divisional-management">
+            <div class="banner">
+                <div id="administration-section"><h1>部门管理</h1></div>
+                <div class="management">
+                    <input type="text" id="key" placeholder="查询部门..">
+                    <button class="query-btn"  onclick="onSearch();"><i class=""></i>查询</button>
+                    <!--<button class="append-btn" type="button" onclick="addData();">+新增部门</button>-->
+                    <button  type="button" class="append-btn btn-lg" data-toggle="modal" data-target="#myModal">
+                        <i class="fa fa-plus-square"></i>新增部门</button>
+                </div>
+            </div>
+            <hr class="one-hr">
+            <div>
+                <table class="table table-hover" id="mytable" border="1" cellspacing="0" cellpadding="0" >
+                    <thead>
+                    <tr class="bar" >
+                        <th style="vertical-align: middle">编号</th>
+                        <th style="vertical-align: middle">部门名称</th>
+                        <th style="vertical-align: middle">部门描述</th>
+                        <th style="vertical-align: middle">部门人员</th>
+                        <th style="vertical-align: middle">操作</th>
+                        <th style="vertical-align: middle">查看</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="page-turning">
+                <div class="left-arrows">
+                    <i class="fa fa-angle-double-left"></i>
+                </div>
+                <div class="page-one">1</div>
+                <div class="page-two">2</div>
+                <div class="page-three">3</div>
+                <div class="right-arrows">
+                    <i class="fa fa-angle-double-right"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="gridSystemModalLabel">新增部门</h4>
+                    </div>
+                    <div class="modal-body">
+                        <fieldset>
+                            <div class="mylable">部门名称<span>*</span>:
+                                <input id="depart" type="text" name="" placeholder="2至4个字" ></div>
+                            <span id="departmsg" class="red"></span>
+                            <br>
+                            <h3 class="mylable">部门描述<span>*</span>:
+                                <textarea id="department-describe" style="width: 400px;height: 150px;resize: none;" placeholder="20至40个字"></textarea>
+                            </h3>
+                            <span id="usermsg" class="red"></span>
+                        </fieldset>
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="button" class="cancel" data-dismiss="modal">取消</button>
+                        <button type="button" class="submit "  onclick="addData();"><i class="fa fa-paper-plane-o"></i>&nbsp;提交</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">编辑信息</h4>
+                </div>
+                <div class="modal-body">
+                    <fieldset>
+                        <div class="mylable">部门名称<span>*</span>:
+                            <input id="amend-name" type="text" name="" >
+                        </div>
+
+                        <span id="amendmsg" class="red"></span>
+                        <br>
+                        <h3 class="mylable">部门描述<span>*</span>:
+                            <textarea id="amend-describe" style="width: 400px;height: 150px;resize: none;" ></textarea>
+                        </h3>
+                        <span id="departmentmsg" class="red"></span>
+                    </fieldset>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="cancel" data-dismiss="modal">取消</button>
+                    <button type="button" class="submit" onclick="submit();">提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myParticulars" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="">部门详情</h4>
+                </div>
+                <div class="modal-body">
+                        <div id="myStr">  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp下设组织科等部门，负责教师以及各类管理人员的招聘和转移手续，以及各种社会保障基金的交付。
+                            对教师的教育质量的评估，对整个园内教育评估，以及家长意见的反馈，做出下一步的教育安排与要求。</div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade bs-example-modal-sm" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title fontClass">温馨提示：</h4>
+                </div>
+                <div class="modal-body del-content">
+                    <span>要删除这个部门吗?</span>
+                </div>
+                <div class="modal-footer footerCenter">
+                    <button type="button" class="submit yes">
+                        <img src="images/submit.png" width="21px"><span>确认</span>
+                    </button>
+                    <button type="button" class="reset " data-dismiss="modal">
+                        <img src="images/reset.png" width="21px"><span>取消</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<script src="jquery-3.3.1.js"></script>
+<script src="bootstrap/dist/js/bootstrap.js"></script>
+
+<script>
+    var administration = [
+        { name: "行政部", describe:"下设组织科等部门，负责教师以及各类管理人员的招聘和转移手续，以及各种社会保障基金的交付。" +
+        "对教师的教育质量的评估,对整个园内教育评估,以及家长意见的反馈，做出下一步的教育安排与要求。", people: 8},
+        { name: "财务部", describe:"财务部门指组织领导和具体从事财务管理工作的职能部门。企业财务部门是企业管理机构中的一个专业管理单位，" +
+        "其职能主要包括：保证企业生产经营所需的各项资金; 参与企业经营预测和决策，合理分配企业的货币收入，监督检查企业的各项财务活动和财务计划的执行情况等", people: 5},
+        { name: "后勤部", describe:"管理师生生活需求及直接作用于团体内部其它部门，对其它部门的正常运作具有至关重要的作用，" +
+        "对实现团体目标任务起间接作用；简言之，后勤部是为其它各部门职能能够顺利实现提供物质服务的一个部门。", people: 20},
+        { name: "教育科", describe:" 进行教育工作及学生上课", people: 25},
+        { name: "保卫科", describe:"它负责单位的人员及财产安全，之所以特殊是因为其工作性质不只单纯的对外防范、防御，它还担负着执行领导对内决策、" +
+        "特殊情况下特殊命令的实施.", people: 8}
+    ];
+//    <a href='#' class='particulars' data-toggle='modal' data-target='#myParticulars'>详情</a>
+    window.onload = showData;
+    function showData() {
+        var mytable = $("#mytable tbody");
+        mytable.html("");
+        for (var i = 0; i < administration.length; i++) {
+            mytable.html(mytable.html()+"<tr align=center style='vertical-align: middle'>"+
+                "<td style='vertical-align: middle'>"+[i+1]+"</td>" +
+                "<td style='vertical-align: middle'>" + administration[i].name + "</td>" +
+                "<td style='vertical-align: middle' class='tdwidth'>" + administration[i].describe+"</td>" +
+                "<td style='vertical-align: middle'>" + administration[i].people +"</td>" +
+                "<td style='vertical-align: middle'><button id=editbtn data-target='#myEdit' data-toggle='modal' onclick='edit(this)'><i class='fa fa-edit'></i>&nbsp;编辑</button>" +
+                "<button class=delete-btn data-toggle='modal' data-target='.bs-example-modal-sm' onclick='del(+i+)'><i class='fa fa-trash-o'></i>&nbsp;删除</button></td>"+
+                "<td style='vertical-align: middle' ><a href='peoples.html'><button class=see-person><i class='fa fa-search'></i>&nbsp;查看人员</button></a></td>"+
+                "</tr>");
+
+                $(function() {
+                $("td").on("mouseenter", function() {
+                    if (this.offsetWidth < this.scrollWidth) {
+                        var that = this;
+                        var text = $(this).text();
+//                        this.style.color="red";
+                        window.layer.tips(text, that, {
+                            tips: 1,
+                            time: 1000
+                        });
+                    }
+                });
+            });
+
+        }
+    }
+    var delNum;
+    function del(obj) {
+        delNum=obj;
+
+    }
+    $('.yes').click(function () {
+        administration.splice(delNum,1);
+        showData();
+        $('.yes').attr('data-dismiss','modal');
+    });
+
+    function addData() {
+        var e = window.event;
+        e.preventDefault();
+        var depart=document.getElementById("depart");
+        var userReg = /^[\u4e00-\u9fa5]{2,5}$/;
+        var newname=userReg.test(depart.value);
+//        var newname=document.getElementById("depart").value;
+        console.log(newname);
+
+        if(newname==false){
+            var departmsg = document.getElementById("departmsg");
+            departmsg.innerText="请正确输入部们名称";
+
+        }
+        var department=document.getElementById("department-describe");
+        var userReg = /^[\u4e00-\u9fa5\,\.\、]{30,100}$/;
+        var newdescribe=userReg.test(department.value);
+        console.log(newdescribe);
+
+        if(newdescribe==false){
+            var usermsg = document.getElementById("usermsg");
+            usermsg.innerText="请输入5至50个字";
+        }
+
+        else{
+            var newobj = {name: depart.value,describe:department.value,people:0};
+
+        }
+        showData();
+    }
+
+
+    function edit() {
+        for (var j=0; j< administration.length; j++) {
+            $("#amend-name").val(administration[j].name);
+        }
+        for (var k=0; k< administration.length; k++) {
+            $("#amend-describe").val(administration[k].describe);
+        }
+    }
+    edit();
+    function submit(element) {
+        var e = window.event;
+        e.preventDefault();
+        var amend=document.getElementById("amend-name").value;
+        var userReg = /^[\u4e00-\u9fa5]{3,5}$/;
+        var newname=userReg.test(amend.value);
+        if(newname==false){
+            var departmsg = document.getElementById("departmsg");
+            departmsg.innerText="请输入3至5个汉字";
+        }
+        var department=document.getElementById("amend-describe");
+        var userReg = /^[\u4e00-\u9fa5]{5,50}$/;
+        var newdescribe=userReg.test(department.value);
+        console.log(newdescribe);
+        var departmentmsg = document.getElementById("departmentmsg");
+        if(newdescribe==false){
+            departmentmsg.innerText="请输入5至50个汉字";
+        }
+        var mend=document.getElementById("amend-name");
+        var oldhtml=mend.value;
+        var name=administration[0].name;
+        mend.innerHTML="";
+        var newObj=document.createElement("textarea");
+        newObj.className="textArea";
+        name=oldhtml;
+        console.log(name);
+        mend.appendChild(name);
+        newObj.focus();
+        newObj.onblur=function(){
+            mend.innerHTML=this.value?this.value:oldhtml;
+        };
+        showData()
+    }
+    function onSearch() {
+        var storeId = document.getElementsByClassName('table')[0];
+        var rowsLength = storeId.rows.length;
+        var key = document.getElementById("key").value;
+        for(var i=1;i<rowsLength;i++){
+            var searchText = storeId.rows[i].innerHTML;
+            if(searchText.match(key)){
+                storeId.rows[i].style.display='';//显示行操作，
+            }else{
+                storeId.rows[i].style.display='none';//隐藏行操作
+            }
+
+        }
+    }
+
+</script>
+</body>
+</html>

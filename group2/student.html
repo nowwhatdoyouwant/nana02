@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+    <style>
+        body{
+            background-color: #F2F2F2!important;
+        }
+        .student{
+            margin-left: 500px;
+        }
+        .div1 .thead>h1,.student{
+            display: inline-block;
+        }
+        .thead{
+            border-bottom: 1px solid black;
+            position: relative;
+            vertical-align: top;
+            padding-bottom: 20px;
+
+            /*border: 1px solid red;*/
+        }
+
+        .div1{
+            width: 1200px;
+            margin: 50px 50px ;
+            position: relative;
+            overflow: hidden;
+            /*border: 1px solid red;*/
+
+        }
+        #table tr td{
+            vertical-align: middle;
+            height: 50px;
+        }
+        #table th{
+            border-bottom: 1px solid #ddd;
+            height: 60px;
+            vertical-align: middle;
+        }
+
+        #table{
+            margin-top: 60px;
+            /*border: none;*/
+            border: 1px solid #cccccc;
+
+        }
+
+         #h1,#h2,#h3{
+            font-size: 22px;
+        }
+        .div1 h1{
+            vertical-align: middle;
+        }
+        .div1 .text-center th{
+            text-align: center;
+            padding: 8px 22px;
+        }
+        .div1 .thead  .btn1{
+            position: absolute;
+            right: 0;
+            top: 50%;
+            margin-top: -30px;
+            background-color:#68dFF0 ;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+
+            font-size: 18px;
+        }
+        .btn_1 span{
+            /*position: absolute;*/
+            /*right: 0;*/
+            /*top: 50%;*/
+            /*margin-top: -15px;*/
+           font-size: 22px;
+        }
+         .div1 .text-center td{
+             /*padding: 8px 20px;*/
+             font-size: 16px;
+         }
+        .div1 #table button{
+            padding: 5px 10px;
+        }
+        .div1  button{
+             border: none;
+             padding: 5px 10px;
+             border-radius: 5px;
+             color: white;
+             font-size: 18px;
+            background-color: #68dFF0;
+         }
+         .div1 .text-center button{
+                background-color: #68dFF0;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                padding: 4px 18px;
+             font-size: 18px;
+            }
+        .formdiv p,.formdiv input{
+            display: inline-block;
+            margin: 10px 5px;
+
+        }
+        #modal .ipt{
+            width: 390px;
+            height: 40px;
+        }
+        #modal2 .ipt{
+            width:300px ;
+            height: 40px;
+        }
+        #modal2 .div3{
+            width: 100px;
+        }
+        #modal3 .ipt{
+            width: 390px;
+            height: 40px;
+        }
+        .formdiv span{
+            color: red;
+        }
+        input::-webkit-input-placeholder{
+            color: #CCCCCC;
+        }
+        #myForm,#myForm1{
+            /*text-align: right;*/
+            width: 650px;
+            margin: 0 auto;
+        }
+        #myForm2{
+            width: 400px;
+            margin: 0 auto;
+
+        }
+        #key{
+            height: 35px;
+        }
+         .red{
+            color: red;
+        }
+        #myForm button{
+            /*background-color: #68dFF0;*/
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 18px;
+        }
+        #set1,#set2,#set3,#set7,#set8{
+            width: 80px;
+           /*font-size: 16px;*/
+            vertical-align: middle;
+        }
+       .content{
+           text-align: right;
+           display: inline-block;
+           min-width: 80px;
+           font-size: 18px;
+       }
+        #num2{
+            width: 128px;
+        }
+        #num1{
+            width: 80px;
+        }
+        #btn3,#btn33,#btn333{
+            background-color: #ff865c;
+            display: block;
+            float: left;
+            color: white;
+            font-size: 18px;
+            padding: 5px 10px;
+        }
+        #btn2,#btn22,#btn222{
+            background-color:#68dFF0 ;
+            display: block;
+            float: right;
+            color: #F2F2F2;
+            font-size: 18px;
+            /*margin-left: 300px;*/
+            padding: 5px 10px;
+        }
+        .div3{
+            content: "";
+            /*display: block;*/
+            clear: both;
+            width: 390px;
+            margin: 0 auto;
+        }
+       button ,input{
+           /*outline: none;*/
+       }
+       .tabfoot{
+           content: "";
+           display: block;
+           clear: both;
+       }
+
+
+       #bt {
+           float: right;
+           padding: 0;
+
+       }
+       #bt a{
+           height: 50px;
+           width: 50px;
+           font-size: 18px;
+           line-height: 38px;
+       }
+       #bt nav ul{
+           margin: 0;
+           vertical-align: middle;
+       }
+        #table .tabfoot{
+            margin-top: 50px;
+        }
+        #modal .modal-footer{
+            border-top: none;
+        padding-bottom: 60px;
+        }
+        #modal3 .modal-footer{
+            border-top: none;
+            padding-bottom: 60px;
+        }
+         .del-content{
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 30px auto 10px;
+        }
+        .fontClass {
+            font-size: 22px;
+        }
+        #btp,#btp1{
+            background-color: #68dFF0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 18px;
+        }
+       #btd,#btd1{
+            background-color: #ff865c;
+            display: block;
+           border: none;
+            float: left;
+            color: white;
+           border-radius: 5px;
+            font-size: 18px;
+            padding: 5px 10px;
+        }
+      #myModal4 .footerCenter,#myModal5 .footerCenter{
+            margin: 0 auto;
+            width:250px;
+            content: "";
+            display: block;
+            clear: both;
+            border-top: none;
+        }
+        #clear{
+            color: white;
+            border-radius: 5px;
+            font-size: 18px;
+            padding: 5px 10px;
+            background-color:#ff865c ;
+        }
+
+
+
+
+    </style>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="div1">
+    <div class="thead" >
+        <h1 style="font-size: 32px">学生管理</h1>
+        <div class="student">
+        <input type="text" placeholder="输入关键字..." id="key">
+            <button style="background-color:#ff865c;color: white " onclick="onSearch()"><img src="images/s--1.png" width="16px" alt="">&nbsp;搜索</button>
+        </div>
+        <button type="button" class="btn1" data-toggle="modal" data-target="#modal" ><img src="images/creator.png" width="20px" alt="">&nbsp;新增学生</button>
+    </div>
+    <table id="table" border="1" class="text-center table table-striped table-responsive table-condensed">
+       <thead style="font-size: 18px">
+        <tr>
+            <th></th>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>班级</th>
+            <th>家长姓名</th>
+            <th>家长联系方式</th>
+            <th >操作</th>
+            <th >详情</th>
+        </tr>
+       </thead>
+        <tbody style="font-size: 16px">
+
+        </tbody>
+
+    </table>
+    <div class="tabfoot">
+    <button onclick="allcheck()" class="btnn"><img src="images/all.png" width="16px" alt="" >&nbsp;全选</button>
+        <button data-toggle="modal" data-target="#myModal5" id="clear"><img src="images/delete.png" width="18px" alt="">删除</button>
+        <div class="btn" id="bt">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                        </li>
+                    <li><a href="#"  class="first" style="background-color: #68dFF0">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    </div>
+</div>
+<!--新增模态版-->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" id="modal"  aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close btn_1" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h1 id="h1">新增学生</h1>
+            </div>
+            <form action="successurl" method="get" id="myForm" onsubmit="add()">
+                <div class="formdiv">
+                    <p class="content">姓名<span>*</span></p><input id="name" class="ipt" type="text" placeholder="输入学生姓名">
+                    <p class="red" id="aa"></p>
+                </div>
+                <div class="formdiv">
+                    <p class="content">性别<span>*</span></p><input  name="gender" type="radio" value="男"><p>男</p>
+                    <input type="radio" name="gender" value="女"><p>女</p>
+                    <p class="red" id="xb"></p>
+                </div>
+                <div class="formdiv">
+                    <p class="content">班级<span>*</span></p>
+                    <select id="set1" onchange="change(value)">
+                        <option value="大班">大班</option>
+                        <option value="中班">中班</option>
+                        <option value="小班">小班</option>
+                    </select>
+                    <select id="set2">
+                        <option value="大一班">大一班</option>
+                        <option value="大二班">大二班</option>
+                        <option value="大三班">大三班</option>
+
+                    </select>
+                    <!--<p class="content">学号</p><input id="num" type="text">-->
+                    <!--<p class="red" id="xh"></p>-->
+                </div>
+                <div class="formdiv" id="fa">
+                <p class="content">家长<span>*</span></p><input id="family" class="ipt" type="text" placeholder="输入家长姓名"><p class="red" id="jz"></p>
+                    <br>
+                    <p class="content" id="aaa">关系<span>*</span></p>
+                    <select name="" id="set3">
+                        <option value="爸爸">爸爸</option>
+                        <option value="妈妈">妈妈</option>
+                        <option value="爷爷">爷爷</option>
+                        <option value="奶奶">奶奶</option>
+                        <option value="外公">外公</option>
+                        <option value="外婆">外婆</option>
+                    </select>
+                    <br>
+                    <p class="content">电话<span>*</span></p><input id="phone" class="ipt" type="text" placeholder="输入家长联系方式">
+                    <p class="red" id="call"></p>
+                </div>
+
+
+                <div class="formdiv">
+                    <p class="content">出生年月<span>*</span></p><input id="year" class="ipt" type="text" placeholder="输入2018-01-01格式">
+                    <p class="red" id="bd"></p>
+                </div>
+                <div class="formdiv">
+                    <p class="content">家庭住址</p><input id="address" class="ipt" type="text" placeholder="请输入家庭住址">
+                    <p class="red" id="dz"></p>
+                </div>
+                <div class="modal-footer">
+                    <div class="div3">
+                    <button type="reset" id="btn3"  class="btn" onclick="formReset()" ><img src="images/reset.png"width="16px" alt="">&nbsp;重置 </button>
+                    <button id="btn2"  type="reset"  class="btn" data-dismiss="modal" onclick="add()">
+                        <img src="images/submit.png" width="16px" alt="">&nbsp;提交</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--查看模态框-->
+<div class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" id="modal2"  aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close btn_1" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h1 id="h2">查看学生信息</h1>
+            </div>
+            <form action="successurl" method="get" id="myForm2" onsubmit="add()">
+                <div class="formdiv">
+                    <p class="content">姓名<span>*</span></p><input id="name1" class="ipt look" type="text" placeholder="输入学生姓名">
+                </div>
+                <div class="formdiv">
+                    <p class="content">性别<span>*</span></p><input id="gend" name="gender1" class="one" type="radio" value="男"><p>男</p>
+                    <input id="gend1" class="one" type="radio" name="gender1" value="女"><p>女</p>
+                </div>
+                <div class="formdiv">
+                    <p class="content">班级<span>*</span></p>
+                    <select id="set4" onchange="change(value)" disabled="disabled">
+                        <option value="大班">大班</option>
+                        <option value="中班">中班</option>
+                        <option value="小班">小班</option>
+                    </select>
+                    <select id="set5" disabled="disabled">
+                        <option value="大一班">大一班</option>
+                        <option value="大二班">大二班</option>
+                        <option value="大三班">大三班</option>
+
+                    </select>
+                    <p class="content">学号</p><input class="look" id="num1" type="text" >
+
+                </div>
+                <div class="formdiv">
+                    <p class="content">家长<span>*</span></p><input id="family2" class="ipt look" type="text" placeholder="输入家长姓名">
+                    <br>
+                    <p class="content" id="aaa1">关系<span>*</span></p>
+                    <select name="" id="set6" disabled="disabled">
+                        <option value="爸爸">爸爸</option>
+                        <option value="妈妈">妈妈</option>
+                        <option value="爷爷">爷爷</option>
+                        <option value="奶奶">奶奶</option>
+                        <option value="外公">外公</option>
+                        <option value="外婆">外婆</option>
+                    </select>
+                    <br>
+                    <p class="content">电话<span>*</span></p><input id="phone1" class="ipt look" type="text" placeholder="输入家长联系方式">
+
+                </div>
+
+
+                <div class="formdiv">
+                    <p class="content">出生年月<span>*</span></p><input id="year1" class="ipt look" type="text" placeholder="输入2018-01-01格式">
+
+                </div>
+                <div class="formdiv">
+                    <p class="content">家庭住址</p><input id="address1" class="ipt look" type="text" placeholder="请输入家庭住址">
+
+                </div>
+
+            </form>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--编辑模态框-->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" id="modal3"  aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close btn_1" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h1 id="h3">编辑学生</h1>
+            </div>
+            <form action="successurl" method="get" id="myForm1" onsubmit="add()">
+                <div class="formdiv">
+                    <p class="content">姓名<span>*</span></p><input id="name2" class="ipt" type="text" >
+                    <p class="red" id="aa1"></p>
+                </div>
+                <div class="formdiv">
+                    <p class="content">性别<span>*</span></p><input  name="gender" id="gend2"  type="radio" value="男"><p>男</p>
+                    <input type="radio" id="gend3"  name="gender" value="女"><p>女</p>
+                    <p class="red" id="xb1"></p>
+                </div>
+                <div class="formdiv">
+                    <p class="content">班级<span>*</span></p>
+                    <select id="set7" onchange="change1(value)">
+                        <option value="大班">大班</option>
+                        <option value="中班">中班</option>
+                        <option value="小班">小班</option>
+                    </select>
+                    <select id="set8">
+                        <option value="大一班">大一班</option>
+                        <option value="大二班">大二班</option>
+                        <option value="大三班">大三班</option>
+
+                    </select>
+                    <p class="content">学号</p><input id="num2" type="text" readonly="readonly">
+                    <p class="red" id="xh1"></p>
+                </div>
+                <div class="formdiv">
+                    <p class="content">家长<span>*</span></p><input id="family1" class="ipt" type="text" ><p class="red" id="jz1"></p>
+                    <br>
+                    <p class="content" id="aaa22">关系<span>*</span></p>
+                    <select name="" id="set9">
+                        <option value="爸爸">爸爸</option>
+                        <option value="妈妈">妈妈</option>
+                        <option value="爷爷">爷爷</option>
+                        <option value="奶奶">奶奶</option>
+                        <option value="外公">外公</option>
+                        <option value="外婆">外婆</option>
+                    </select>
+                    <br>
+                    <p class="content">电话<span>*</span></p><input id="phone2" class="ipt" type="text" >
+                    <p class="red" id="callone"></p>
+                </div>
+
+
+                <div class="formdiv">
+                    <p class="content">出生年月<span>*</span></p><input id="year2" class="ipt" type="text" placeholder="输入2018-01-01格式">
+                    <p class="red" id="bd1"></p>
+                </div>
+                <div class="formdiv">
+                    <p class="content">家庭住址</p><input id="address2" class="ipt" type="text" placeholder="请输入家庭住址">
+                    <p class="red" id="dz1"></p>
+                </div>
+                <div class="modal-footer">
+                    <div class="div3">
+                        <button type="reset" id="btn33"  class="btn"  ><img src="images/reset.png"width="16px" alt="">&nbsp;重置 </button>
+                        <button id="btn22"   type="button" class="btn" data-dismiss="modal" onclick="bianji()">
+                            <img src="images/submit.png"width="16px" alt="">&nbsp;提交</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog"  id="modal4" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close btn_1" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                        <h4>提示信息</h4>
+            </div>
+            <p>操作成功</p>
+            <div class="modal-footer">
+
+                <button id="bbb"   type="button" class="btn" data-dismiss="modal" >
+                    确认</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal fade bs-example-modal-sm" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title fontClass">温馨提示：</h4>
+            </div>
+            <div class="modal-body del-content">
+                <span>确认是否删除?</span>
+            </div>
+            <div class="modal-footer footerCenter">
+                <button type="button" class="submit btn-primary " id="btp" onclick="date()" >
+                    <img src="images/submit.png" width="21px"><span>确认</span>
+                </button>
+                <button type="button" class="reset btn-default btd" id="btd" data-dismiss="modal" >
+                    <img src="images/reset.png" width="21px"><span>取消</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade bs-example-modal-sm" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title fontClass">温馨提示：</h4>
+            </div>
+            <div class="modal-body del-content">
+                <span>确认是否删除?</span>
+            </div>
+            <div class="modal-footer footerCenter">
+                <button type="button" class="submit btn-primary btp" id="btp1" onclick="clearAll()" >
+                    <img src="images/submit.png" width="21px"><span>确认</span>
+                </button>
+                <button type="button" class="reset btn-default btd" id="btd1" data-dismiss="modal" >
+                    <img src="images/reset.png" width="21px"><span>取消</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+<script src="jquery-3.3.1.js"></script>
+<script>
+
+        var num6=18006
+        var table= $("#table tbody").get(0)
+       var gender=document.getElementsByName("gender")
+       var gender1
+        var num5 = 0;
+        function change(value) {
+             var set1=document.getElementById("set1")
+            var set2=document.getElementById("set2")
+            if(value=="中班"){
+                 set2.innerHTML="<option value='中一班'>中一班</option>"+"<option value='中二班'>中二班</option>"+"<option value='中三班'>中三班</option>"
+            }else if(value=="小班"){
+                set2.innerHTML="<option value='小一班'>小一班</option>"+"<option value='小二班'>小二班</option>"+"<option value='小三班'>小三班</option>"
+            }else if(value=="大班"){
+                set2.innerHTML="<option value='大一班'>大一班</option>"+"<option value='大二班'>大二班</option>"+"<option value='大三班'>大三班</option>"
+            }
+        }
+        function change1(value) {
+
+            var set2=document.getElementById("set8")
+            if(value=="中班"){
+                set2.innerHTML="<option value='中一班'>中一班</option>"+"<option value='中二班'>中二班</option>"+"<option value='中三班'>中三班</option>"
+            }else if(value=="小班"){
+                set2.innerHTML="<option value='小一班'>小一班</option>"+"<option value='小二班'>小二班</option>"+"<option value='小三班'>小三班</option>"
+            }else if(value=="大班"){
+                set2.innerHTML="<option value='大一班'>大一班</option>"+"<option value='大二班'>大二班</option>"+"<option value='大三班'>大三班</option>"
+            }
+        }
+        var flag=true
+        function allcheck() {
+//            console.log(222)
+            var chos=document.getElementsByName("check")
+
+            if(flag){
+                for(var i=0;i<chos.length;i++){
+               chos[i].checked=true
+                    flag=false
+                }
+                 }else{
+                for (var k=0;k<chos.length;k++) {
+                    chos[k].checked=false
+                    flag=true
+                      }
+            }
+        }
+        for (var i=0;i<gender.length;i++){
+            if(gender[i].checked){
+              gender1=gender[i].value
+            }
+        }
+        var studentDate=[
+            {num:"18001",name:"小汤",grade:"大班",gradename:"大一班",parents:"汤列",phone:"15020101949",gender:"男",year:"2011-02-03",address:"成都",relation:"爸爸"},
+            {num:"18002",name:"小周",grade:"中班",gradename:"中一班",parents:"周传胜",phone:"13525611992",gender:"男",year:"2011-02-03",address:"成都",relation:"爸爸"},
+            {num:"18003",name:"小赵",grade:"小班",gradename:"小三班",parents:"赵柯舟",phone:"13620101875",gender:"男",year:"2011-02-03",address:"成都",relation:"爸爸"},
+            {num:"18004",name:"小吴",grade:"大班",gradename:"大三班",parents:"吴建华",phone:"13420101547",gender:"女",year:"2011-02-03",address:"成都",relation:"爸爸"},
+            {num:"18005",name:"小邹",grade:"中班",gradename:"中三班",parents:"邹琪",phone:"18722101669",gender:"女",year:"2011-02-03",address:"成都",relation:"爸爸"},
+            {num:"18006",name:"小方",grade:"小班",gradename:"小一班",parents:"方玲",phone:"18112501458",gender:"女",year:"2011-02-03",address:"成都",relation:"爸爸"},
+
+        ]
+        window.onload=show
+//        表格
+        function show() {
+
+             table.innerHTML=""
+            for(var i=0;i<studentDate.length;i++){
+//          console.log(studentDate.length)
+
+                table.innerHTML+="<tr>" +
+                    "<td>" +"<input type='checkbox' name='check' class='cl'> "+
+                    "</td>" +
+                        "<td>" +studentDate[i].num+
+                     "</td>"+"<td>" +studentDate[i].name+
+                    "</td>"+"<td>" +studentDate[i].grade+
+                    "</td>"+"<td>" +studentDate[i].parents+
+                    "</td>"+"<td>" +studentDate[i].phone+
+                    "</td>"+"<td>" +"<button style='background-color: #ff865c'  class='da' data-toggle='modal' data-target='#myModal4' onclick='modal("+i+")'>" +
+                    "<img src='images/delete.png' alt='' width='18px' >删除</button>"+"&nbsp"+"" +
+                    "<button style='background-color: #ff865c'  class='da' data-toggle='modal' data-target='#myModal4' onclick='modal("+i+")'>" +
+                    "<img src='images/dropout.png' alt='' width='18px' >退学</button>"+
+                    "</td>"+"<td>" +"&nbsp"+"" +
+                    "<button  data-toggle='modal' data-target='#modal3' onclick='edit("+i+")'>" +
+                    "<img src='images/editor.png'width='18px' alt=''>&nbsp;编辑</button>"+"&nbsp"+
+                    "<button style='background-color: #ff865c' data-toggle='modal' data-target='#modal2'onclick=' look("+i+")'>" +
+                    "<img src='images/look.png' width='18px' alt=''>查看</button>"+
+                    "</td>"
+                "</tr>"
+            }
+        }
+        var num7;
+        function modal(t) {
+            num7 = t
+        }
+        function date() {
+          console.log(num7)
+               studentDate.splice(num7,1);
+            show();
+            $("#btp").attr("data-dismiss","modal")
+
+        }
+//        添加
+        function add() {
+            var e = window.event;
+            e.preventDefault();
+            var year=document.getElementById("year").value
+            var name=document.getElementById("name").value
+            var table= document.getElementById("table")
+            var family=document.getElementById("family").value
+            var phone=document.getElementById("phone").value
+            var address=document.getElementById("address").value
+//            var row = document.getElementById("table").insertRow();
+            var select=document.getElementById("set1")
+            var index=select.selectedIndex;
+            var text=select.options[index].text
+            var select2=document.getElementById("set2")
+            var index2=select2.selectedIndex;
+            var text2=select2.options[index2].text
+            var gender=document.getElementsByName("gender")
+            var gender1
+            var username=/^[\u4e00-\u9fa5]{2,5}$/;
+            var nameResult=username.test(name);
+            var userphone=/^[1][356789]\d{9}$/;
+            var phoneResult=userphone.test(phone);
+            var familyResult=username.test(family);
+            var useryear=/[0-9]{4}-[0-9]{2}-[0-9]{2}/;
+            var yearResult=useryear.test(year)
+            var flag=true
+            var select1=document.getElementById("set3")
+            var index1=select1.selectedIndex;
+            var text1=select1.options[index1].text
+
+
+            console.log(text1)
+            for (var i=0;i<gender.length;i++){
+                if(gender[i].checked){
+                    gender1=gender[i].value
+                    console.log(1111)
+                }
+            }
+//            for(var j=0;j<studentDate.length;j++){
+//                if(num==studentDate[j].num){
+//                    $("#xh").text("学号重复请重新输入")
+//                }
+//            }
+            if(!nameResult){
+                $("#aa").text("请输入正确名字")
+                flag=false;
+                $("#name").focus();
+
+
+                $("#btn2").attr("data-dismiss","")
+            }
+            if(! phoneResult){
+                $("#call").text("请输入正确电话")
+                flag=false;
+                $("#phone").focus()
+            $("#btn2").attr("data-dismiss","")
+            }
+            if(!familyResult){
+                $("#jz").text("输入正确名字")
+                flag=false;
+                $("#family").focus()
+            $("#btn2").attr("data-dismiss","")
+            }
+            if(!yearResult){
+                $("#bd").text("请输入正确格式")
+                flag=false;
+                $("#year").focus()
+                $("#btn2").attr("data-dismiss","")
+            }
+            if(gender[0].checked==false&&gender[1].checked==false){
+                flag=false;
+                $("#xb").text("请选择性别")
+                $("#btn2").attr("data-dismiss","")
+            }
+             num6++;
+            if(flag){
+                var newobj={num:num6,name:name,grade:text,gradename:text2,parents:family,phone:phone,gender:gender1,year:year,address:address,relation:text1}
+                studentDate.push(newobj)
+                show()
+//                console.log(222)
+//                document.forms[0].submit()
+                $("#btn2").attr({
+                    "data-dismiss":"modal",
+                })
+                formReset();
+                clear();
+            }
+        }
+
+    function formReset(){
+    var red=document.getElementsByClassName("red")
+        for(var i=0;i<red.length;i++){
+         red[i].innerText=""
+        }
+
+    }
+//查看
+    function look(n) {
+
+        var gender=document.getElementById("gend")
+        var gender1=document.getElementById("gend1")
+        if(gender.value==studentDate[n].gender){
+            gender.checked=true
+        }else if(gender1.value==studentDate[n].gender){
+            gender1.checked=true
+        }
+        var select=document.getElementById("set4")
+        var index=select.selectedIndex;
+        var select1=document.getElementById("set5")
+        var index1=select1.selectedIndex;
+//        var text=select.options[index].text
+//        console.log(22)
+        $("#name1").val(studentDate[n].name)
+        $("#num1").val(studentDate[n].num)
+//        $("#set5").val(studentDate[n].gradename)
+        $("#family2").val(studentDate[n].parents)
+        $("#phone1").val(studentDate[n].phone)
+        $("#year1").val(studentDate[n].year)
+        $("#address1").val(studentDate[n].address)
+        $(".look").attr("readonly","true")
+        $(".one").attr("disabled","true")
+        $("#set6").val(studentDate[n].relation)
+        select.options[index].text=studentDate[n].grade
+        select1.options[index1].text=studentDate[n].gradename
+    }
+//    编辑
+
+    function edit(x) {
+        num5=x;
+        var gender=document.getElementById("gend2")
+        var gender1=document.getElementById("gend3")
+        if(gender.value==studentDate[x].gender){
+            gender.checked=true
+        }else if(gender1.value==studentDate[x].gender){
+            gender1.checked=true
+        }
+        var select=document.getElementById("set7")
+        var index=select.selectedIndex;
+        var select1=document.getElementById("set8")
+        var index1=select1.selectedIndex;
+//        var text=select.options[index].text
+//        console.log(22)
+        $("#name2").val(studentDate[x].name)
+        $("#num2").val(studentDate[x].num)
+//        $("#set5").val(studentDate[n].gradename)
+        $("#family1").val(studentDate[x].parents)
+        $("#phone2").val(studentDate[x].phone)
+        $("#year2").val(studentDate[x].year)
+        $("#address2").val(studentDate[x].address)
+
+        $("#set9").val(studentDate[x].relation)
+        $("#set7").val(studentDate[x].grade)
+        select1.options[index1].text=studentDate[x].gradename
+    }
+//提交编辑
+    function bianji(y) {
+//        console.log(num5)
+//        num5 = y;
+        var year=document.getElementById("year2").value
+        var name=document.getElementById("name2").value
+        var num=document.getElementById("num2").value
+        var table= document.getElementById("table2")
+        var family=document.getElementById("family1").value
+        var phone=document.getElementById("phone2").value
+        var address=document.getElementById("address2").value
+//            var row = document.getElementById("table").insertRow();
+        var select=document.getElementById("set7")
+        var index=select.selectedIndex;
+        var text=select.options[index].text
+        var select2=document.getElementById("set8")
+        var index2=select2.selectedIndex;
+        var text2=select2.options[index2].text
+        var gender=document.getElementsByName("gender")
+        var gender1
+        var username=/[\u4e00-\u9fa5]{2,5}$/;
+        var nameResult=username.test(name);
+        var userphone=/^[1][356789]\d{9}$/;
+        var phoneResult=userphone.test(phone);
+        var familyResult=username.test(family);
+        var useryear=/[0-9]{4}-[0-9]{2}-[0-9]{2}/;
+        var yearResult=useryear.test(year)
+        var flag=true
+        var select1=document.getElementById("set9")
+        var index1=select1.selectedIndex;
+        var text1=select1.options[index1].text
+        for (var i=0;i<gender.length;i++){
+            if(gender[i].checked){
+                gender1=gender[i].value
+                console.log(1111)
+            }
+        }
+        for(var k=0;k<studentDate.length;k++){
+            if(num==studentDate[k].num){
+                $("#xh1").text("学号重复")
+            }
+        }
+        if(!nameResult){
+            $("#aa1").text("请输入正确名字")
+            flag=false;
+            $("#name2").focus();
+
+            $("#btn22").attr("data-dismiss","")
+        }
+        if(! phoneResult){
+            $("#callone").text("请输入正确电话")
+            flag=false;
+            $("#phone2").focus()
+            $("#btn22").attr("data-dismiss","")
+        }
+        if(!familyResult){
+            $("#jz1").text("输入正确名字")
+            flag=false;
+            $("#family1").focus()
+            $("#btn22").attr("data-dismiss","")
+        }
+        if(!yearResult){
+            $("#bd1").text("请输入正确格式")
+            flag=false;
+            $("#year2").focus()
+            $("#btn22").attr("data-dismiss","")
+        }
+//        if(gender[0].checked==false&&gender[1].checked==false){
+//            flag=false;
+//            $("#xb1").text("请选择性别")
+//            $("#btn22").attr("data-dismiss","")
+//        }
+        if(flag){
+               for(var j=0;j<studentDate.length;j++){
+
+               }
+                var newobj={num:num,name:name,grade:text,gradename:text2,parents:family,phone:phone,gender:gender1,year:year,address:address,relation:text1}
+
+            studentDate.splice(num5,1,newobj);
+                show()
+            $("#btn22").attr("data-dismiss","modal")
+            formReset()
+
+
+
+    }
+    }
+
+        function onSearch() {
+
+                var storeId = document.getElementById('table');
+                var rowsLength = storeId.rows.length;
+                var key = document.getElementById("key").value;
+
+            for(var i=1;i<rowsLength;i++){
+                    var searchText = storeId.rows[i].innerHTML;
+                    if(searchText.match(key)){
+                        storeId.rows[i].style.display='';//显示行操作，
+                    }else{
+                        storeId.rows[i].style.display='none';//隐藏行操作
+                    }
+
+                }
+        }
+        function firm(num) {
+            //利用对话框返回的值 （true 或者 false）
+            if (confirm("你确定删除吗？")) {
+                studentDate.splice(num,1);
+                show();
+            }
+            else {
+
+            }
+
+        }
+
+function clear() {
+    $(".ipt").val("");
+    var radios = $("input[name='gender']");
+    for (i=0; i<gender.length; i++){
+        if(gender[i].checked){
+            gender[i].checked = false;
+        }
+    }
+
+}
+function clearAll() {
+     flag=false
+    var cl=document.getElementsByClassName("cl")
+    for(var i=0;i<cl.length;i++){
+        if(cl[i].checked){
+            studentDate.splice(i,1)
+            $(cl[i]).parent().parent().remove()
+            i--;
+        }
+    }
+    show();
+    $("#btp1").attr("data-dismiss","modal")
+}
+</script>
+</body>
+</html>

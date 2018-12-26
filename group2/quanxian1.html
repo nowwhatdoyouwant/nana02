@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        demo2
+    </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        body {
+            background-color: rgb(242, 242, 242);
+        }
+
+        #big {
+            /*border: 1px solid red;*/
+            width: 1200px;
+            height: 600px;
+            margin: 50px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .div2 {
+            margin: 50px 0;
+        }
+
+        .find {
+            position: absolute;
+            top: 4%;
+            left: 40%;
+        }
+
+        #findselect {
+            width: 174px;
+            height: 26px;
+        }
+
+        .findbt {
+            display: inline-block;
+        }
+
+        #creatbt {
+            position: absolute;
+            top: 4%;
+            right: 3%;
+        }
+
+        .head {
+            border-bottom: 1px solid silver;
+            height: 70px;
+        }
+
+        .head:after {
+            content: "";
+            display: none;
+            clear: both;
+        }
+
+        .head > div {
+            height: 80px;
+        }
+
+        button {
+            padding: 5px 10px;
+            font-size: 18px;
+            border: none;
+            color: white;
+        }
+
+        .bt1 {
+            /*蓝色*/
+            background-color: #68DFF0;
+            border-radius: 5px;
+        }
+
+        .bt2 {
+            /*红色*/
+            background-color: #FF865C;
+            border-radius: 5px;
+        }
+
+        tr {
+            vertical-align: middle;
+        }
+
+        .allbt {
+            position: absolute;
+            top: 90%;
+        }
+
+        .turnbt {
+            position: absolute;
+            top: 90%;
+            right: 3%;
+        }
+
+        .turnbt > button {
+
+            width: 50px;
+            height: 50px;
+            border: 1px solid rgb(221,221,221);
+            background-color: white;
+            color: #337ab7;
+        }
+
+        .zuobt {
+            border-radius: 8px 0 0 8px;
+        }
+
+        .youbt {
+            border-radius: 0 8px 8px 0;
+        }
+
+        /*======模态框======*/
+        .modal1form {
+            position: relative;
+            height: 300px;
+            text-align: left;
+        }
+
+        .modal1form select {
+            width: 200px;
+        }
+
+        form > div {
+            padding: 10px;
+            font-size: 20px;
+            margin: 0 auto;
+        }
+
+        .modalbt {
+            position: absolute;
+            top: 90%;
+            left: 50%;
+            margin-left: -138px;
+        }
+
+        #submit {
+            margin-right: 100px;
+        }
+
+        #submit1 {
+            margin-right: 100px;
+        }
+
+        td {
+            vertical-align: middle !important;
+            text-align: center;
+            /*line-height: 30px !important;*/
+        }
+
+        th {
+            text-align: center;
+            vertical-align: middle !important;
+            /*line-height: 30px !important;*/
+        }
+
+        #namep {
+            color: red;
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        #namep1 {
+            color: red;
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        .del-content {
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 30px auto 10px;
+        }
+
+        .fontClass {
+            font-size: 22px;
+        }
+
+        .box2 {
+            padding-top: 40px;
+        }
+
+        .box2:after {
+            content: '';
+            display: none;
+            clear: both;
+        }
+
+        .box2 > div {
+            display: inline-block;
+            font-size: 18px;
+            margin: 0;
+        }
+
+        #ckb {
+            margin-left: 15px; ;
+            width: 380px;
+        }
+
+        #ckb > div {
+            float: left;
+            padding: 0 15px 15px 0;
+        }
+
+        .ckbox {
+            font-size: 10px;
+            display: inline-block;
+        }
+        #lookT{
+            height: 32px;
+        }
+    </style>
+</head>
+<body>
+<div id="big">
+    <!--头部（搜索/新建）-->
+    <div class="head">
+        <div>
+            <h1 style="font-size: 32px">权限管理</h1>
+        </div>
+        <!--搜索框-->
+        <div class="find">
+            <input type="text" placeholder="输入主班老师名称" id="lookT" onkeydown="onSearchT()">
+            <div class="findbt">
+                <button class="bt2" onclick="clearhtml1()"><img src="images/look.png" width="18" alt="">重置</button>
+            </div>
+        </div>
+        <!--新建框-->
+        <!--<button id="creatbt" class="bt1" data-toggle="modal" data-target="#myModal1"><img-->
+                <!--src="images/creator.png" width="18">-->
+            <!--新增老师-->
+        <!--</button>-->
+    </div>
+    <!--表格-->
+    <div class="table-responsive container div2">
+        <div class="row">
+            <table id="table" class="table table-responsive table-striped table-bordered table-hover text-center ">
+                <thead>
+                <tr style="height: 60px;font-size: 18px">
+                    <th></th>
+                    <th>编号</th>
+                    <th>职工姓名</th>
+                    <th>职位</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--全选框-->
+    <div class="allbt">
+        <button class="bt1" style="padding: 10px 15px" onclick="selectAll()"><img src="images/all.png" width="18">全选
+        </button>
+    </div>
+    <!--翻页框-->
+    <div style="font-size: 0;border-radius:0" class="turnbt">
+        <button class="zuobt"><<</button>
+        <button style="background-color:#68DFF0">1</button>
+        <button>2</button>
+        <button>3</button>
+        <button class="youbt">>></button>
+    </div>
+    <!--新建班级-->
+    <!-- Modal-1 -- 新建----->
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <!--<div class="modal-dialog" role="document">-->
+        <!--<div class="modal-content" style="height: 450px">-->
+        <!--<div class="modal-header">-->
+        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span-->
+        <!--aria-hidden="true">&times;</span>-->
+        <!--</button>-->
+        <!--<h1 class="modal-title" style="font-size: 22px"></h1>-->
+        <!--</div>-->
+        <!--<div class="modal-body">-->
+        <!--<form onsubmit="submitTable()" class="modal1form" id="modal1form">-->
+        <!--<div>-->
+        <!--班级名称<span style="color: red;">*</span>: <input type="text" id="name"-->
+        <!--placeholder="请输入2位中文...">-->
+        <!--<p id="namep"></p>-->
+        <!--</div>-->
+        <!--<div>-->
+        <!--班级类型<span style="color: red;">*</span>:-->
+        <!--<select id="se1">-->
+        <!--<option value="小班">小班</option>-->
+        <!--<option value="中班">中班</option>-->
+        <!--<option value="大班">大班</option>-->
+        <!--</select>-->
+        <!--</div>-->
+        <!--<div>-->
+        <!--主班老师<span style="color: red;">*</span>:-->
+        <!--<select name="zhuteacher" id="zhu">-->
+        <!--<option value="张三">张三</option>-->
+        <!--<option value="李四">李四</option>-->
+        <!--<option value="王五">王五</option>-->
+        <!--<option value="赵六">赵六</option>-->
+        <!--</select>-->
+        <!--<p></p>-->
+        <!--</div>-->
+        <!--<div>-->
+        <!--副班老师&nbsp;:-->
+        <!--<select name="futeacher" id="fu">-->
+        <!--<option value="-&#45;&#45;非必填-&#45;&#45;">-&#45;&#45;非必填-&#45;&#45;</option>-->
+        <!--<option value="马马">马马</option>-->
+        <!--<option value="云云">云云</option>-->
+        <!--<option value="化化">化化</option>-->
+        <!--<option value="腾腾">腾腾</option>-->
+        <!--<option value="牛牛">牛牛</option>-->
+        <!--<option value="羊羊">羊羊</option>-->
+        <!--</select>-->
+        <!--</div>-->
+        <!--<div>-->
+        <!--班级人数&nbsp;: <input type="text" readonly="readonly" value="0" id="people">-->
+        <!--</div>-->
+        <!--<div class="modalbt">-->
+        <!--<button class="bt1" name="submit" type="button" id="submit"-->
+        <!--onclick="checkForm()" data-dismiss="modal"><img src="images/submit.png" alt=""-->
+        <!--width="18">提交-->
+        <!--</button>-->
+        <!--<button class="bt2" type="reset" onclick="clearForm()"><img src="images/reset.png" alt=""-->
+        <!--width="18">重置-->
+        <!--</button>-->
+        <!--</div>-->
+        <!--</form>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+    </div>
+    <!-- Modal-2 --编辑----->
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="height: 450px">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span>
+                    </button>
+                    <h1 class="modal-title" style="font-size: 22px">添加权限</h1>
+                </div>
+                <div class="modal-body">
+                    <form class="modal1form">
+                        <div class="box1">
+                            <div style="padding-bottom: 40px; ">
+                                职工姓名：
+                                <input type="text" readonly style="width: 200px;height: 26px" id="teacher">
+                            </div>
+
+                            角色选择：
+                            <select name="" id="manager">
+                                <option value="管理员">管理员</option>
+                                <option value="园长">园长</option>
+                                <option value="主班老师">主班老师</option>
+                                <option value="副班老师">副班老师</option>
+                            </select>
+                        </div>
+                        <div class="box2">
+                            <div style="vertical-align: top;font-size: 20px">添加权限:</div>
+                            <div id="ckb">
+                                <div>
+                                    <input type="checkbox" class="ckbox">部门管理
+                                </div>
+                                <div>
+                                    <input type="checkbox" class="ckbox">教职工管理
+                                </div>
+                                <div>
+                                    <input type="checkbox" class="ckbox">班级管理
+                                </div>
+                                <div>
+                                    <input type="checkbox" class="ckbox">学生管理
+                                </div>
+                                <div>
+                                    <input type="checkbox" class="ckbox">考勤管理
+                                </div>
+                                <div>
+                                    <input type="checkbox" class="ckbox">公告管理
+                                </div>
+                                <div>
+                                    <input type="checkbox" class="ckbox">照片墙
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modalbt">
+                            <button class="bt1" name="submit" type="button" id="submit1"
+                                    onclick="checkForm1()" data-dismiss="modal"><img src="images/submit.png" alt=""
+                                                                                     width="18">提交
+                            </button>
+                            <button class="bt2" type="button" onclick="clearForm()" id="submit2"><img src="images/reset.png" alt=""
+                                                                                        width="18">重置
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal-9 --警告提示-失败---->
+    <div class="modal fade" id="myModal9" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="width: 500px">
+                <div>
+                    <img src="images/flase.png" alt="" width="500">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal-8 --警告提示-成功---->
+    <div class="modal fade" id="myModal8" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="width: 500px">
+                <div>
+                    <img src="images/true.png" alt="" width="500">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal-4 --确认删除提示----->
+    <div class="modal fade bs-example-modal-sm" id="myModal4" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title fontClass">温馨提示：</h4>
+                </div>
+                <div class="modal-body del-content">
+                    <span>确定要删除这职工吗?</span>
+                </div>
+                <div class="modal-footer footerCenter">
+                    <button type="button" class="submit bt1" onclick="delcfm1()">
+                        <img src="images/submit.png" width="21px"><span>确认</span>
+                    </button>
+                    <button type="button" class="reset bt2" data-dismiss="modal">
+                        <img src="images/reset.png" width="21px"><span>取消</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    // ====创建班级==========
+    window.onload = showData;
+    var classdata = [
+        {name: "园长", teacher: "刘一"},
+        {name: "主班老师", teacher: "陈二"}
+    ];
+    function showData() {
+        var tbody = document.getElementById("tbody");
+        tbody.innerHTML = "";
+        for (var i = 0; i < classdata.length; i++) {
+            tbody.innerHTML += "<tr>" +
+                "<td>" + "<input type='checkbox'>" + "</td>" +
+                "<td>" + (i + 1) + "</td>" +
+                "<td>" + classdata[i].teacher + "</td>" +
+                "<td>" + classdata[i].name + "</td>" +
+                "<td>" + '<button class="bt1" id="editbt" data-toggle="modal" data-target="#myModal2" onclick="edit(' + i + ')"><img src="images/editor.png" width="18">管理</button> ' +
+                '<button class="bt2" data-toggle="modal" data-target="#myModal4" onclick="delcfm(' + i + ')"><img src="images/delete.png" width="18">删除</button>' + "</td>" +
+                "</tr>"
+        }
+    }
+    function submitTable() {
+        var newname = document.getElementById("name").value;
+        var index1 = document.getElementById("se1").selectedIndex;
+        var se1 = document.getElementById("se1").options[index1].text;
+        var index2 = document.getElementById("zhu").selectedIndex;
+        var zhu = document.getElementById("zhu").options[index2].text;
+        var index3 = document.getElementById("fu").selectedIndex;
+        var fu = document.getElementById("fu").options[index3].text;
+        var newpeople = document.getElementById("people").value;
+        var newobj = {name: newname, grade: se1, teacher: zhu, futeacher: fu, people: newpeople};
+        for (var i = 0; i < classdata.length; i++) {
+            if (newname == classdata[i].name && se1 == classdata[i].grade) {
+                $("#submit1").attr("data-dismiss", "");
+                alert("创建失败！班级名不能重复");
+                return
+            }
+        }
+        console.log("创建了");
+        classdata.unshift(newobj);
+        showData();
+        document.getElementById("zhu").options.remove(index2);
+    }
+    //======删除职工==========
+    var num2 = 0;
+    function delcfm(obj) {
+        num2 = obj;
+    }
+    function delcfm1() {
+        $('#myModal4').modal('hide');
+        tanchu2();//成功
+        classdata.splice(num2, 1);
+        showData();
+    }
+    //    ===全选===============
+    function selectAll() {
+        var ckbox = document.getElementsByTagName("input");
+        for (var i = 0; i < ckbox.length; i++) {
+            if (ckbox[i].checked) {
+                ckbox[i].checked = false;
+            }
+            else if (!ckbox[i].checked) {
+                ckbox[i].checked = true;
+            }
+        }
+    }
+    //========正则表达式====================
+    var flag = true;
+    //========验证提交==========================
+    function checkForm() {
+        var e = window.event;
+        e.preventDefault();
+        var name = document.getElementById("name");
+        var userReg = /^[\u4E00-\u9FA5]{2,2}$/;
+        var userResult = userReg.test(name.value);
+        var zhu = document.getElementById("zhu");
+        var zhuname = zhu.value;
+        if (!userResult) {    //userResult == false
+            var namep = document.getElementById("namep");
+            namep.innerText = " 账号长度必须为2位中文";
+            flag = false;
+            namep.focus();   //光标对焦
+            $("#submit").attr("data-dismiss", "");
+        }
+        if (zhuname == "") {
+            flag = false;
+            alert("主班老师不能为空");
+        }
+        if (userResult) {
+            submitTable();
+            clearForm();
+            clearhtml();
+            $("#submit").attr("data-dismiss", "modal");
+        }
+    }
+    //========验证编辑==========================
+    function checkForm1() {
+        submitTableedit();
+        $("#submit1").attr("data-dismiss", "modal");
+
+    }
+    //    =======编辑============================
+    var num1 = 0;
+    function edit(obj) {
+        num1 = obj;
+        $("#manager").val(classdata[obj].name);
+        $("#teacher").val(classdata[obj].teacher);
+        $("#fuedit").val(classdata[obj].futeacher);
+    }
+    var j = true;
+    function submitTableedit() {
+        var index1edit = document.getElementById("manager").selectedIndex;//角色选择
+        var manager = document.getElementById("manager").options[index1edit].text;//角色选择
+        var teacher1 =document.getElementById("teacher").value;//老师
+        var newobjedit = {
+            name: manager,
+            teacher:teacher1
+        };
+        if (j) {
+            console.log(j);
+            console.log("编辑成功");
+            classdata.splice(num1, 1, newobjedit);
+            showData();
+        }
+        j = true
+    }
+    //========新建完成后清空==============================
+    function clearForm() {
+        var ckbox = document.getElementsByClassName("ckbox");
+        for (var i = 0; i < ckbox.length; i++) {
+            console.log("222");
+            ckbox[i].checked = false
+        }
+        $("#submit2").attr("data-dismiss", "");
+    }
+    //===========操作提示框=======================
+    function tanchu1() {
+        $('#myModal9').modal('show');
+    }
+    function tanchu2() {
+        $('#myModal8').modal('show');
+    }
+    //    ===========查找=========================
+
+    //    ==老师名查找====
+    function onSearchT() {
+        setTimeout(function () {
+            var storeId = document.getElementById('table');
+            var rowsLength = storeId.rows.length;
+            var lookT = document.getElementById("lookT");
+            var key2 = lookT.value;
+            var searchCol = 2;
+            for (var i = 1; i < rowsLength; i++) {
+                var searchText = storeId.rows[i].cells[searchCol].innerHTML;
+                if (searchText.match(key2)) {
+                    storeId.rows[i].style.display = '';
+                } else {
+                    storeId.rows[i].style.display = 'none';
+                }
+            }
+        }, 100)
+    }
+    function clearhtml1() {
+        console.log("aa")
+        $("#findselect").val("0");
+        $("#lookN").val("");
+        $("#lookT").val("");
+        onSearchG();
+        onSearchN();
+        onSearchT()
+    }
+
+
+</script>
+<script src="jquery-3.3.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

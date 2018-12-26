@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="font_p1hpmhovl7q/iconfont.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+    <title>Title</title>
+    <style>
+        body{
+            background-color: #F2F2F2;
+        }
+        .header {
+            margin: 70px 50px;
+            height: 70px;
+            border-bottom: 1px solid #797979;
+        }
+
+        .header:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            margin-top: 0;
+        }
+
+        .header select {
+            height: 32px;
+            width: 108px;
+            text-align: center;
+            text-align-last: center;
+            margin: 0 5px;
+        }
+
+        .header button {
+            border-style: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: white;
+        }
+
+        .search {
+            background-color: #68dff0;
+            vertical-align: top;
+            margin: 0 5px;
+        }
+
+        .search i {
+            font-size: 16px;
+        }
+
+        .creatImg {
+            background-color: #68dff0;
+            vertical-align: middle;
+        }
+
+        .creatImg img {
+            width: 21px;
+
+        }
+
+        .creatImg span {
+            margin-left: 3px;
+            font-size: 18px;
+            vertical-align: middle;
+        }
+
+        .title, .searchCont {
+            float: left;
+        }
+
+        .searchCont {
+            margin-left: 600px;
+        }
+
+        .creat {
+            float: right;
+        }
+
+        /*模态框内 上传照片*/
+        #chooseImg {
+            display: none;
+        }
+
+        .fontClass {
+            font-size: 22px;
+        }
+
+        .modal-center {
+            width: 85%;
+            margin: 0 auto;
+        }
+
+        .two {
+            position: relative;
+        }
+
+        #my-img {
+            position: absolute;
+            right: 32%;
+        }
+
+        .modal-center select {
+            width: 108px;
+            height: 32px;
+            margin: 10px;
+            text-align: center;
+            text-align-last: center;
+        }
+
+        #imgFile {
+            margin-left: 10px;
+        }
+
+        .modal-center label {
+            font-size: 16px;
+            min-width: 80px;
+            display: inline-block;
+            text-align: right;
+        }
+
+        .three textarea {
+            resize: none;
+            margin-left: 10px;
+        }
+
+        #hint1 {
+            color: red;
+        }
+
+        #hint2 {
+            position: absolute;
+            right: 5%;
+            color: red;
+        }
+
+        .one, .two, .three {
+            margin: 20px 0;
+        }
+
+        .submit, .reset {
+            border-style: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: #68dff0;
+            margin-bottom: 50px;
+        }
+
+        .reset {
+            background-color: #FF865C;
+            color: white;
+        }
+
+        .submit {
+            margin-left: 50px;
+        }
+
+        .submit:hover {
+            background-color: #61ccdd;
+        }
+
+        .modal-footer {
+            border-top: none;
+        }
+
+        .footerCenter {
+            text-align: center;
+        }
+
+        .reset:hover {
+            background-color: #e87854;
+            color: white;
+        }
+
+        .submit span, .reset span {
+            font-size: 18px;
+            margin-left: 5px;
+        }
+
+        /*相册部分设置*/
+        .displayArea {
+            width: 1089px;
+            /*overflow: hidden;*/
+            margin: 100px auto;
+        }
+
+        .everyAlbum {
+            position: relative;
+            overflow: hidden;
+            width: 310px;
+            height: 400px;
+            display: inline-block;
+            margin: 10px 25px;
+            transition: all .3s linear;
+        }
+
+        .photoAlbum {
+            width: 310px;
+            height: 400px;
+            transition: all .3s linear;
+        }
+        .everyAlbum:hover {
+            box-shadow: 2px 2px 3px #707070;
+            transition: all .3s linear;
+        }
+        .everyAlbum:hover .photoAlbum{
+            transform: scale(1.2);
+            transition: all .3s linear;
+        }
+        .albumName {
+            left: 0;
+            bottom: -10px;
+            z-index: 1;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            padding: 10px 119px;
+            position: absolute;
+            display: inline-block;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        /*提示语句*/
+        #reminder{
+            position: absolute;
+            z-index: 10;
+            left:50%;
+            font-size: 16px;
+            margin-left: -157px;
+            top:400px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="header">
+        <div class="title">
+            <h1>照片墙</h1>
+        </div>
+        <div class="searchCont">
+            <form >
+                <select onchange="mychange();" id="grade">
+                    <option value="0">---搜索年级---</option>
+                    <option value="1">小班</option>
+                    <option value="2">中班</option>
+                    <option value="3">大班</option>
+                </select>
+                <select id="classes">
+                    <option value="00">---搜索班级---</option>
+                </select>
+                <button type="button" class="search" name="submit" onclick="mysearch();"><i class="iconfont icon-search"></i></button>
+            </form>
+        </div>
+        <div class="creat">
+            <button class="creatImg" data-toggle="modal" data-target="#myModal"><img src="images/creator.png"><span>新增班级相册</span>
+            </button>
+        </div>
+    </div>
+</header>
+<!--模态框-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title fontClass" id="myModalLabel">新增班级相册</h4>
+            </div>
+            <form action="PhotoWall2.html" onsubmit="checkForm();">
+                <div class="modal-body">
+                    <div class="modal-center">
+                        <div class="one">
+                            <label>班级：</label>
+                            <select id="nianji" onchange="mychange();">
+                                <option value="0">---选择年级---</option>
+                                <option value="1">小班</option>
+                                <option value="2">中班</option>
+                                <option value="3">大班</option>
+                            </select>
+                            <select id="banji">
+                                <option value="00">---选择班级---</option>
+                            </select>
+                            <span id="hint1"></span>
+                        </div>
+                        <div class="two">
+                            <label>添加照片：</label>
+                            <input type="file" name="file" id="chooseImg">
+                            <span id="imgFile"></span>
+                            <img src="images/photo.png" id="my-img" width="33px">
+                            <span id="hint2"></span>
+                        </div>
+                        <div class="three">
+                            <label>添加描述：</label>
+                            <textarea id="textArea" style="width: 368px;height: 135px;vertical-align: top"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer footerCenter">
+                    <button type="button" class="reset btn-default" data-dismiss="modal" onclick="myreset();">
+                        <img src="images/reset.png" width="21px"><span>取消</span>
+                    </button>
+                    <button type="button" class="submit btn-primary" data-dismiss="modal" name="submit" id="submit"
+                            onclick="checkForm();">
+                        <img src="images/submit.png" width="21px"><span>提交</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--相册-->
+<section>
+    <div class="displayArea">
+        <div id="imgBox">
+
+        </div>
+        <div id="reminder">
+
+        </div>
+    </div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+<script>
+    var result = document.getElementById("imgBox");
+    var file = document.getElementById("chooseImg");
+    function mychange() {
+        var nianji = document.getElementById("grade");
+        var nianji2 = document.getElementById("nianji");
+        var banji = document.getElementById("classes");
+        var banji2 = document.getElementById("banji");
+        if (nianji.value == 1 || nianji2.value == 1) {
+            banji.innerHTML = "<option value='01'>一班</option>" +
+                "<option value='02'>二班</option>" +
+                "<option value='03'>三班</option>";
+            banji2.innerHTML = "<option value='01'>一班</option>" +
+                "<option value='02'>二班</option>" +
+                "<option value='03'>三班</option>";
+        }
+        if (nianji.value == 2 || nianji2.value == 2) {
+            banji.innerHTML = "<option value='01'>一班</option>" +
+                "<option value='02'>二班</option>" +
+                "<option value='03'>三班</option>";
+            banji2.innerHTML = "<option value='01'>一班</option>" +
+                "<option value='02'>二班</option>" +
+                "<option value='03'>三班</option>";
+        }
+        if (nianji.value == 3 || nianji2.value == 3) {
+            banji.innerHTML = "<option value='01'>一班</option>" +
+                "<option value='02'>二班</option>" +
+                "<option value='03'>三班</option>";
+        }
+        banji2.innerHTML = "<option value='01'>一班</option>" +
+            "<option value='02'>二班</option>" +
+            "<option value='03'>三班</option>";
+    }
+
+    var arr = [
+        {nianji: "大班", banji: "一班", img: "images/album1.jpg"},
+        {nianji: "中班", banji: "二班", img: "images/album2.jpg"},
+        {nianji: "小班", banji: "三班", img: "images/album3.jpg"},
+        {nianji: "大班", banji: "二班", img: "images/album4.jpg"},
+        {nianji: "小班", banji: "一班", img: "images/album5.jpg"},
+        {nianji: "中班", banji: "三班", img: "images/album6.jpg"}
+    ];
+    window.onload = myshow;
+    function myshow() {
+        var mybox = $("#imgBox");
+        mybox.html("");
+        arr.map(function (item) {
+            // $("#imgBox").css({
+            //     "width": arr.length * 363 + "px",
+            // });
+            $("#imgBox").append("<a href='everydayPhoto.html'><div class='everyAlbum'>" + "<img class='photoAlbum' src='" + item.img + "'>" + "<p class='albumName'>" + item.nianji + item.banji + "</p>" + "</div></a>")
+        })
+    }
+
+    // 点击相机图片，相当于点击了input框的文件按钮
+    $(document).ready(function () {
+        $("#my-img").click(function () {
+            $("#chooseImg").click();
+        });
+    });
+    //将获取的路径，传给span标签
+    $("#chooseImg").on("change", function () {
+        console.log(this.files);
+        var span = $("#imgFile");
+        span.html(this.files[0].name);
+        console.log(this.files[0].name);
+    });
+
+    if (typeof FileReader === 'undefined') {
+        result.innerHTML = "<P>不支持FileReader接口！</P>";
+        file.setAttribute("disabled", "disabled");
+    }
+
+    // 表单重置
+    function myreset() {
+        var span = $("#imgFile");
+        span.html("");
+        $('#nianji option:first').prop("selected", "selected");
+        $("#banji").html("<option>---选择班级---</option>");
+        var text = $("#textArea");
+        text.val("");
+    }
+    //验证
+    function checkForm() {
+        var flag = true;
+        var nianjichoose = $("#nianji option:selected").val();
+        if (nianjichoose === "0") {
+            $("#hint1").html("*选择不能为空");
+            $("#submit").attr("data-dismiss", "");
+            flag = false;
+            $("#nianji").focus();
+        }
+        var path=$("#chooseImg").val();
+        var str=path.lastIndexOf('.');
+        var ext=path.substring(str,path.length);
+        console.log(path);
+        console.log(str);
+        console.log(ext);
+        if(path.length<=0){
+            $("#submit").attr("data-dismiss", "");
+            $("#hint2").html("*上传图片不能为空");
+            flag=false;
+        }
+        else if (ext !==".png"&&ext!==".jpg"&&ext!==".jpeg"&&ext!==".gif") {
+            $("#submit").attr("data-dismiss", "");
+            $("#hint2").html("*上传文件格式错误");
+            flag=false;
+        }
+
+        if (flag===true) {
+            $("#submit").attr("data-dismiss", "modal");
+            $("#hint2").html("");
+            mysubmit();
+            myreset();
+        }
+        console.log(flag)
+    }
+    //提交数据
+    function mysubmit() {
+        var newnianji = $("#nianji").find('option:selected').text();
+        console.log(newnianji);
+        var newbanji = $("#banji").find('option:selected').text();
+        var file = document.getElementById("chooseImg").files[0];
+        var reader = new FileReader();
+        //读取input内容，用data:url表示
+        reader.readAsDataURL(file);
+        reader.onload = function (e) {
+            var result = $("#imgBox");
+            var newobj = {nianji: newnianji, banji: newbanji, img: this.result}
+            arr.unshift(newobj);
+            myshow();
+            myreset();
+        }
+    }
+    //搜索
+    function mysearch() {
+        var nianji = $("#grade").find('option:selected').text();
+        var banji=$("#classes").find('option:selected').text();
+        var p=$(".albumName");
+        var nj=$("#grade option:selected").val();
+        var bj=$("#classes option:selected").val();
+        console.log(arr.length);
+        $("#imgBox").html("");
+        if(nj==="0"){
+            myshow();
+            $("#classes").html("<option>---选择班级---</option>");
+        }
+        for(var i=0;i<arr.length;i++){
+            if(nianji+banji==arr[i].nianji+arr[i].banji){
+                $("#imgBox").append("<a href='everydayPhoto.html'><div class='everyAlbum'><img class='photoAlbum' src='" +arr[i].img + "'><p class='albumName'>" + arr[i].nianji + arr[i].banji + "</p>" + "</div></a>")
+            }
+        }
+        if($(".everyAlbum").length<=0){
+            $("#reminder").html("<span>*该班级还没有创建相册,你可以去创建一个！</span>");
+        }
+        else {
+            $("#reminder").html("");
+        }
+
+         // for(var i=0;i<$(".everyAlbum").length;i++){
+         //     if(nianji+banji !==p[i].innerText){
+         //       $(".everyAlbum")[i].style.display="none";
+         //     }
+         //     if(nj==="0"){
+         //         $(".everyAlbum")[i].style.display="";
+         //     }
+         // }
+        // if( $(".imgBox").html()==null){
+        //
+        //     $("#reminder").html("<span>*该班级还没有创建相册,你可以去创建一个！</span>");
+        // }else {
+        //     $("#reminder").html("");
+        // }
+        // if($(".everyAlbum").length>0){
+        //     $("#reminder").html("");
+        // }
+    }
+</script>
+</body>
+</html>

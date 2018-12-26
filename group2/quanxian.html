@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        body {
+            background-color: rgb(242, 242, 242);
+            margin:70px 50px;
+        }
+
+        body > div {
+            border: 1px solid red;
+
+        }
+
+        section {
+            width: 700px;
+
+        }
+
+        /*=====1111=========*/
+        #d1 {
+            border-bottom: 1px solid silver;
+            font-size: 32px;
+        }
+
+        h1 {
+            font-size: 32px;
+        }
+
+        h3 {
+            font-size: 18px;
+        }
+
+        /*======2222===========*/
+        #d2 {
+            height: 134px;
+            border-bottom: 1px solid silver;
+        }
+
+        #d2 > div {
+            display: inline-block;
+            padding-right: 50px;
+            margin-top: 35px;
+        }
+
+        #juese {
+            width: 300px;
+            height: 32px;
+        }
+
+        /*=====33333===========*/
+        #d3 {
+            height: 200px;
+            border-bottom: 1px solid slategrey;
+        }
+
+        #d3:after {
+            content: "";
+            display: none;
+            clear: both;
+        }
+
+        #d3 > div {
+            float: left;
+        }
+
+        .d3text {
+            margin: 69px auto;
+        }
+
+        .box {
+            /*border: 1px solid red;*/
+            width: 550px;
+            margin: 58px 30px;
+        }
+
+        .box > div {
+            display: inline-block;
+            padding: 10px;
+        }
+
+        /*======button=============*/
+        #bt {
+            width: 500px;
+            margin: 50px auto;
+            /*border: 1px solid red;*/
+        }
+
+        button {
+            display: inline-block;
+            padding: 10px;
+
+            font-size: 18px;
+            border: none;
+            color: white;
+            margin-left: 100px;
+        }
+
+        .bt1 {
+            background-color: #68DFF0;
+            border-radius: 5px;
+        }
+
+        .bt2 {
+            background-color: #FF865C;
+            border-radius: 5px;
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+<section>
+    <div id="d1">
+        <h1 style="font-size: 32px;font-weight: 400">权限管理</h1>
+    </div>
+    <div id="d2">
+        <div>
+            <h3>角色选择:</h3>
+        </div>
+        <div>
+            <select id="juese">
+                <option value="small">管理员</option>
+                <option value="mid">园长</option>
+                <option value="big">老师</option>
+            </select>
+        </div>
+    </div>
+    <div id="d3">
+        <div class="d3text">
+            <h3>添加权限:</h3>
+        </div>
+        <div class="box">
+            <div>
+                <input type="checkbox" class="input">部门管理
+            </div>
+            <div>
+                <input type="checkbox" class="input">教职工管理
+            </div>
+            <div>
+                <input type="checkbox" class="input">班级管理
+            </div>
+            <div>
+                <input type="checkbox" class="input">学生管理
+            </div>
+            <div>
+                <input type="checkbox" class="input">照片墙
+            </div>
+            <div>
+                <input type="checkbox" class="input">考勤管理
+            </div>
+            <div>
+                <input type="checkbox" class="input">公告管理
+            </div>
+        </div>
+    </div>
+    <div id="bt">
+        <button class="bt1">
+            <img src="icon/submit.png" alt="" width="18">提交
+        </button>
+        <button class="bt2" onclick="clearinput()" ><img src="icon/reset.png" width="18" alt="">
+            重置
+        </button>
+    </div>
+</section>
+
+<script>
+
+
+    function clearinput() {
+        var input = document.getElementsByClassName("input");
+        for (var i = 0; i < 7; i++) {
+            console.log("222");
+            input[i].checked = false
+        }
+    }
+
+
+</script>
+<script src="jquery-3.3.1.js"></script>
+
+</body>
+</html>

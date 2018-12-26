@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--移动端用1:1的比例换算px-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--引入bootstrap CSS文件-->
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="staffcss.css">
+</head>
+<body>
+
+<div id="big">
+<header>
+        <div>
+            <h1>教职工管理</h1>
+        </div>
+        <!--搜索框-->
+        <div class="myhead">
+            <span>搜索</span>
+            <select id="findselect">
+                <option value="0">---请选择部门---</option>
+                <option value ="行政部">行政部</option>
+                <option value="财务部">财务部</option>
+                <option value="后勤部">后勤部</option>
+                <option value="教育科">教育科</option>
+                <option value="保卫科">保卫科</option>
+            </select>
+            <input type="text" placeholder="输入教职工姓名" class="headInput" id="lookN" onkeydown="SearchName()">
+            <div class="look">
+                <img src="images/look.png"  alt="" >查看
+            </div>
+        </div>
+        <div class="add" data-toggle="modal" data-target="#myModal1">
+            <img src="images/creator.png">
+            新增职工
+        </div>
+</header>
+<section>
+    <div class="table-responsive container isTable">
+        <div class="row">
+            <table id="mytable" class="table table-responsive table-striped table-bordered table-hover  ">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>编号</th>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>手机号码</th>
+                    <th>部门</th>
+                    <th>职务</th>
+                    <th>出生年月</th>
+                    <th>邮箱</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+
+        </div>
+        <div class="allCk">
+            <img src="images/all.png"  alt="">全选
+        </div>
+        <div class="clearAll" >
+            <img src="images/delete.png"  alt="">删除
+        </div>
+        <div class="btn">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li><a href="#"  class="first">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+
+
+</section>
+    <form action="" >
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close myclose" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title" id="myModalLabel">新增教职工</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="div1">
+                       <span class="myname">姓名</span> <span class="myred">*</span><input type="text" placeholder="请输入1-10个字符之间的名称..." class="myinput" name="text"><span id="username" class="red"></span>
+                    </div></br>
+                    <div class="div1">
+                        <span class="myname">手机</span> <span class="myred">*</span><input type="text" placeholder="请输入11位数字..." class="myinput" name="text"><span id="usertel" class="red"></span>
+                    </div></br>
+                    <div class="sex">
+                        <span class="mysex">性别</span> <span class="myred">*</span><input type="radio" class="sexinput1" name="sex" checked="checked"><span class="man">男</span><input type="radio" class="sexinput2" name="sex"><span class="woman">女</span><span id="usersex" class="red"></span>
+                    </div></br>
+                    <div class="myselect">
+                        <span class="mydepart">部门</span> <span class="myred">*</span><select id="depart" >
+                        <option value="0">---请选择---</option>
+                        <option value ="行政部">行政部</option>
+                        <option value="财务部">财务部</option>
+                        <option value="后勤部">后勤部</option>
+                        <option value="教育科">教育科</option>
+                        <option value="保卫科">保卫科</option>
+                    </select><span class="myduty">职务</span> <span class="myred">*</span><select id="duty">
+                        <option value="0">---请选择---</option>
+                        <option value ="主班老师">主班老师</option>
+                        <option value="副班老师">副班老师</option>
+                        <option value="保安队长">保安队长</option>
+                        <option value="保洁员">保洁员</option>
+                        <option value="财务经理">财务经理</option>
+                        <option value="前台">前台</option>
+                    </select>
+                    </div></br>
+                    <div>
+                    <span class="myemail">邮箱</span> <span class="myred">*</span><input type="text" placeholder="邮箱格式如123@qq.com" class="emailinput"><span id="useremail" class="red"></span>
+                    </div></br>
+                    <div>
+                        <span class="myborn">出生年月</span> <span class="myred">*</span><input type="text" placeholder="年-月-日" class="borninput"><span id="userborn" class="red"></span>
+                    </div></br>
+
+                </div>
+                <div class=" modalbody">
+                    <button type="reset" class="reset">
+                        <img src="images/reset.png"  alt="">重置
+                    </button>
+                    <button class="submit"  >
+                        <img src="images/submit.png"  alt="">提交
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+    <form action="">
+        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close myclose" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h3 class="modal-title" id="myModalLabel">编辑教职工</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="div1">
+                            <span class="myname">姓名</span> <span class="myred">*</span><input type="text" placeholder="请输入1-10个字符之间的名称..." class="myinput" name="text"><span id="username1" class="red"></span>
+                        </div></br>
+                        <div class="div1">
+                            <span class="myname">手机</span> <span class="myred">*</span><input type="text" placeholder="请输入11位数字..." class="myinput" name="text"><span id="usertel1" class="red"></span>
+                        </div></br>
+                        <div class="sex">
+                            <span class="mysex">性别</span> <span class="myred">*</span><input type="radio" class="sexinput1" name="sex" checked="checked"><span class="man">男</span><input type="radio" class="sexinput2" name="sex"><span class="woman">女</span><span id="usersex" class="red"></span>
+                        </div></br>
+                        <div class="myselect">
+                            <span class="mydepart">部门</span> <span class="myred">*</span><select id="depart1" onchange="changeDuty()" >
+                            <option value="0">---请选择---</option>
+                            <option value ="行政部">行政部</option>
+                            <option value="财务部">财务部</option>
+                            <option value="后勤部">后勤部</option>
+                            <option value="教育科">教育科</option>
+                            <option value="保卫科">保卫科</option>
+                        </select><span class="myduty">职务</span> <span class="myred">*</span><select id="duty1">
+                            <option value="0">---请选择---</option>
+                            <option value ="主班老师">主班老师</option>
+                            <option value="副班老师">副班老师</option>
+                            <option value="保安队长">保安队长</option>
+                            <option value="保洁员">保洁员</option>
+                            <option value="财务经理">财务经理</option>
+                            <option value="前台">前台</option>
+                        </select>
+                        </div></br>
+                        <div>
+                            <span class="myemail">邮箱</span> <span class="myred">*</span><input type="text" placeholder="邮箱格式如123@qq.com" class="emailinput"><span id="useremail" class="red"></span>
+                        </div></br>
+                        <div>
+                            <span class="myborn">出生年月</span> <span class="myred">*</span><input type="text" placeholder="年-月-日" class="borninput"><span id="userborn" class="red"></span>
+                        </div></br>
+
+                    </div>
+                    <div class=" modalbody">
+                        <button type="reset" class="reset">
+                            <img src="images/reset.png"  alt="">重置
+                        </button>
+                        <button class="submit1"  >
+                            <img src="images/submit.png"  alt="">提交
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="modal fade bs-example-modal-sm" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title fontClass">温馨提示：</h4>
+                </div>
+                <div class="modal-body del-content">
+                    <span>是否要删除该职工信息?</span>
+                </div>
+                <div class="modal-body" style="padding-bottom: 50px">
+                    <button type="button" class="yes">
+                        <img src="images/submit.png" width="21px"><span>确认</span>
+                    </button>
+                    <button type="button" class="no" data-dismiss="modal">
+                        <img src="images/reset.png" width="21px"><span>取消</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade bs-example-modal-sm" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title fontClass">温馨提示：</h4>
+                </div>
+                <div class="modal-body del-content">
+                    <span>是否要删除这些职工信息?</span>
+                </div>
+                <div class="modal-body" style="padding-bottom: 50px">
+                    <button type="button" class="yes1">
+                        <img src="images/submit.png" width="21px"><span>确认</span>
+                    </button>
+                    <button type="button" class="no" data-dismiss="modal">
+                        <img src="images/reset.png" width="21px"><span>取消</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="jquery-3.3.1.js"></script>
+<script src="bootstrap/dist/js/bootstrap.js"></script>
+<script>
+
+//    正则表达式内容
+
+$('.reset').click(function () {
+    var span = document.getElementsByClassName("red");
+    for(var i=0;i<span.length;i++){
+        span[i].innerText="";
+    }
+})
+$('.add').click(function () {
+    $("form")[0].reset();
+    var span = document.getElementsByClassName("red");
+    for(var i=0;i<span.length;i++){
+        span[i].innerText="";
+    }
+})
+$('.submit').click(function (num) {
+
+    var nameinput=document.getElementsByClassName('myinput')[0].value;
+    var telinput=document.getElementsByClassName('myinput')[1].value;
+    var sexinput=document.getElementsByName('sex');
+    var emailinput=document.getElementsByClassName('emailinput')[0].value;
+    var borninput=document.getElementsByClassName('borninput')[0].value;
+    var staffinput=document.getElementById('duty');
+    var value1 = staffinput.value;
+    var options1 = staffinput.options;
+    var index1 = staffinput.selectedIndex;
+    var staffText = options1[index1].text;
+    var departinput=document.getElementById('depart');
+    var value2 = departinput.value;
+    var options2 = departinput.options;
+    var index2 = departinput.selectedIndex;
+    var departText = options2[index2].text;
+    if(sexinput[0].checked){
+        sexvalue='男';
+    }else{
+        sexvalue='女';
+    }
+    var newteacher={
+        name:nameinput,
+        sex:sexvalue,
+        tel:telinput,
+        depart:departText,
+        staff:staffText,
+        born:borninput,
+        email:emailinput
+    };
+    var e = window.event;
+    e.preventDefault();
+
+    var flag = true;
+
+
+    var username = document.getElementsByClassName("myinput")[0];
+    var nameReg = /^[\u4E00-\u9FA5]{1,5}$/;
+    var nameResult = nameReg.test(username.value);
+//    console.log(username);
+    if(!nameResult){
+        document.getElementById("username").innerText = "×";
+
+        flag=false;
+        username.focus();
+    }
+
+    var usertel = document.getElementsByClassName("myinput")[1];
+    var telReg = /^[1][356789]\d{9}$/;
+    var telResult = telReg.test(usertel.value);
+    if(!telResult){
+        document.getElementById("usertel").innerText = "×";
+        flag=false;
+        usertel.focus();
+    }
+    var useremail = document.getElementsByClassName("emailinput")[0];
+    var emailReg = /^\w+@\w+(.\w{2,})+$/;
+    var emailResult = emailReg.test(useremail.value);
+    if(!emailResult){
+        document.getElementById("useremail").innerText = "×";
+        flag=false;
+        useremail.focus();
+    }
+
+
+    var userborn =document.getElementsByClassName('borninput')[0];
+    var bornReg=  /^((?!0000)[0-9]{4}-((0[1-9]|1[0-2])-(0[1-9]|1[0-9]|2[0-8])|(0[13-9]|1[0-2])-(29|30)|(0[13578]|1[02])-31)|([0-9]{2}(0[48]|[2468][048]|[13579][26])|(0[48]|[2468][048]|[13579][26])00)-02-29)$/;
+//    var bornReg=/^(([0-9]{3}[1-9]|[0-9]{2}[1-9][0-9]{1}|[0-9]{1}[1-9][0-9]{2}|[1-9][0-9]{3})-(((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01]))|((0[469]|11)-(0[1-9]|[12][0-9]|30))|(02-(0[1-9]|[1][0-9]|2[0-8]))))|((([0-9]{2})(0[48]|[2468][048]|[13579][26])|((0[48]|[2468][048]|[3579][26])00))-02-29)$/;
+//    var bornReg= /^(\d{4}-(((0(1|3|5|7|8))|(1(0|2)))(-((0[1-9])|([1-2][0-9])|(3[0-1])))?)|(((0(2|4|6|9))|(11))(-((0[1-9])|([1-2][0-9])|(30)))?)|((02)(-((0[1-9])|(1[0-9])|(2[0-8])))?))|(((([0-9]{2})((0[48])|([2468][048])|([13579][26]))|(((0[48])|([2468][048])|([3579][26]))00)))-02-29)$/
+    var bornResult=bornReg.test(userborn.value);
+    if(!bornResult){
+        document.getElementById("userborn").innerText = "×";
+        flag=false;
+        userborn.focus();
+    }
+    for(var k=0;k<teacher.length;k++){
+        if(telinput==teacher[k].tel){
+            flag=false;
+            alert('手机号码已有，请仔细核对后提交！')
+        }
+    }
+        if (flag && value2 != 0) {
+            teacher.unshift(newteacher);
+//        teacher.splice(num1,1,newteacher1);
+            showTable();
+            var span = document.getElementsByClassName("red");
+            for (var i = 0; i < span.length; i++) {
+                span[i].innerText = "";
+            }
+
+            $('.submit').attr('data-dismiss', 'modal')
+        }
+
+})
+$('.submit1').click(function (num) {
+
+
+    var nameinput1=document.getElementsByClassName('myinput')[2].value;
+    var telinput1=document.getElementsByClassName('myinput')[3].value;
+    var sexinput1=document.getElementsByName('sex');
+    var emailinput1=document.getElementsByClassName('emailinput')[1].value;
+    var borninput1=document.getElementsByClassName('borninput')[1].value;
+    var staffinput1=document.getElementById('duty1');
+    var value11 = staffinput1.value;
+    var options11 = staffinput1.options;
+    var index11 = staffinput1.selectedIndex;
+    var staffText1 = options11[index11].text;
+    var departinput1=document.getElementById('depart1');
+    var value21 = departinput1.value;
+    var options21 = departinput1.options;
+    var index21 = departinput1.selectedIndex;
+    var departText1 = options21[index21].text;
+    if(sexinput1[0].checked){
+        sexvalue1='男';
+    }else{
+        sexvalue1='女';
+    }
+    var newteacher1={
+        name:nameinput1,
+        sex:sexvalue1,
+        tel:telinput1,
+        depart:departText1,
+        staff:staffText1,
+        born:borninput1,
+        email:emailinput1
+    };
+
+    var e = window.event;
+    e.preventDefault();
+
+    var flag = true;
+
+
+    var username = document.getElementsByClassName("myinput")[2];
+    var nameReg = /^[\u4E00-\u9FA5]{1,5}$/;
+    var nameResult = nameReg.test(username.value);
+//    console.log(username);
+    if(!nameResult){
+        document.getElementById("username1").innerText = "×";
+
+        flag=false;
+        username.focus();
+    }
+
+    var usertel = document.getElementsByClassName("myinput")[3];
+    var telReg = /^[1][356789]\d{9}$/;
+    var telResult = telReg.test(usertel.value);
+    if(!telResult){
+        document.getElementById("usertel1").innerText = "×";
+        flag=false;
+        usertel.focus();
+    }
+    var useremail = document.getElementsByClassName("emailinput")[1];
+    var emailReg = /^\w+@\w+(.\w{2,})+$/;
+    var emailResult = emailReg.test(useremail.value);
+    if(!emailResult){
+        document.getElementById("useremail1").innerText = "×";
+        flag=false;
+        useremail.focus();
+    }
+
+
+    var userborn =document.getElementsByClassName('borninput')[1];
+    var bornReg=  /^((?!0000)[0-9]{4}-((0[1-9]|1[0-2])-(0[1-9]|1[0-9]|2[0-8])|(0[13-9]|1[0-2])-(29|30)|(0[13578]|1[02])-31)|([0-9]{2}(0[48]|[2468][048]|[13579][26])|(0[48]|[2468][048]|[13579][26])00)-02-29)$/;
+    var bornResult=bornReg.test(userborn.value);
+    if(!bornResult){
+        document.getElementById("userborn1").innerText = "×";
+        flag=false;
+        userborn.focus();
+    }
+   if(flag&&value21!=0){
+//        teacher.unshift(newteacher1);
+            teacher.splice(num1,1,newteacher1);
+            showTable();
+            var span = document.getElementsByClassName("red");
+            for(var i=0;i<span.length;i++){
+                span[i].innerText="";
+            }
+            $('.submit1').attr('data-dismiss','modal');
+        }
+
+})
+
+
+
+//    var myduty = document.getElementById('duty');
+//    depart = [];
+//    depart["1"] = ['人事主管','行政文员','前台'];
+//    depart["2"] = ['财务经理','会计','出纳员','审计员'];
+//    depart["3"] = ['后勤部长','仓管员','保洁员'];
+//    depart["4"] = ['园长','主班老师','副班老师'];
+//    depart["5"] = ['保安队长','保安员'];
+//    function mydepart(m){
+//        myduty.length = 0;
+//        for (var i = 0; i < depart[m].length; i++) {
+//            var newOption = new Option(depart[m][i]);
+//            myduty.add(newOption);
+//        }
+//    }
+
+
+    var flag=true;
+    $('.allCk').click(function () {
+        var allinput=document.getElementsByClassName("allinput");
+                if(flag){
+                    for(var i=0;i<allinput.length;i++) {
+                        allinput[i].checked = true;
+                        flag=false;
+//                        console.log(x)
+                    }
+                }else{
+                    for(var j=0;j<allinput.length;j++) {
+                        allinput[j].checked = false;
+                        flag=true;
+                    }
+                }
+    })
+    $('.clearAll').click(function () {
+        var allinput=document.getElementsByClassName("allinput");
+        for(var w=0;w<allinput.length;w++){
+            if(allinput[w].checked  ){
+                $("#myModal4").modal('show');
+            }
+        }
+    })
+$('.yes1').click(function () {
+    var allinput=document.getElementsByClassName("allinput");
+    for(var w=0;w<allinput.length;w++){
+        if(allinput[w].checked  ){
+            $("#myModal4").modal('show');
+            teacher.splice(w,1);
+            $(allinput[w]).parent().parent().remove();
+            w--;
+        }
+    }
+    showTable();
+    $('.yes1').attr('data-dismiss','modal');
+})
+    var teacher=[
+        {name:'老赵',sex:'男',tel:'18080604050',depart:'保卫科',staff:'保安队长',born:'1993-01-28',email:'2584879@qq.com'},
+        {name:'老汤',sex:'男',tel:'18984849696',depart:'后勤部',staff:'保洁员',born:'1996-01-08',email:'3269878@qq.com'},
+        {name:'老方',sex:'女',tel:'13156568989',depart:'教育科',staff:'主班老师',born:'1995-08-17',email:'4987987@qq.com'},
+        {name:'老吴',sex:'女',tel:'15612123636',depart:'财务部',staff:'财务经理',born:'1996-08-28',email:'7895148@qq.com'},
+        {name:'老邹',sex:'女',tel:'15425253636',depart:'行政部',staff:'前台',born:'1994-07-25',email:'895489@qq.com'}
+    ]
+
+    window.onload=showTable;
+    function showTable(){
+        var mytable = $("#mytable tbody");
+        mytable.html("");
+        for(var i=0;i<teacher.length;i++){
+            //language=HTML
+            mytable.html(mytable.html()+'<tr>'+
+            '<td><input type="checkbox"  class="allinput"></td>'+
+                '<td>'+(i+1)+'</td>'+
+                '<td>'+teacher[i].name+'</td>'+
+                '<td>'+teacher[i].sex+'</td>'+
+                '<td>'+teacher[i].tel+'</td>'+
+                '<td>'+teacher[i].depart+'</td>'+
+                '<td>'+teacher[i].staff+'</td>'+
+                '<td>'+teacher[i].born+'</td>'+
+                '<td>'+teacher[i].email+'</td>'+
+                    '<td><div class="editor" data-toggle="modal" data-target="#myModal2" onclick="editor('+i+')" ><img src="images/editor.png" alt="">编辑</div> <div class="del" data-toggle="modal" data-target="#myModal3" onclick="del('+i+')" ><img src="images/delete.png" alt="">删除</div></td>'+
+                    '</tr>'
+            )
+        }
+    }
+
+var delNum;
+    function del(obj) {
+        delNum=obj;
+    }
+$('.yes').click(function () {
+    teacher.splice(delNum,1);
+    showTable();
+    $('.yes').attr('data-dismiss','modal');
+})
+    $('.no').click(function () {
+        $('.no').attr('data-dismiss','modal');
+    })
+    var num1=0;
+    function editor(obj) {
+        num1=obj;
+//        $("#myModal1").modal('show');
+        var sexinput=document.getElementsByName('sex');
+        document.getElementsByClassName("myinput")[2].value=teacher[obj].name;
+        document.getElementsByClassName("myinput")[3].value=teacher[obj].tel;
+        document.getElementsByClassName('emailinput')[1].value=teacher[obj].email;
+        document.getElementsByClassName('borninput')[1].value=teacher[obj].born;
+        if(teacher[obj].sex==='男'){
+            sexinput[2].checked=true;
+        }else{
+            sexinput[3].checked=true;
+        }
+        $("#depart1").val(teacher[obj].depart);
+        $("#duty1").val(teacher[obj].staff);
+
+
+    }
+    $('.look').click(function (obj) {
+        showTable();
+        var findselect=document.getElementById('findselect');
+        var value = findselect.value;
+        if(value!=0){
+            console.log('123')
+            SearchDepart();
+        }
+    })
+function SearchDepart() {//js函数开始
+
+        var storeId = document.getElementById('mytable');//获取table的id标识
+        var rowsLength = storeId.rows.length;//表格总共有多少行
+        var findselect=document.getElementById("findselect");
+        var key3 = findselect.value;//获取输入框的值
+        var searchCol = 5;//要搜索的哪一列，这里是第一列，从0开始数起
+        for (var i = 1; i < rowsLength; i++) {//按表的行数进行循环，本例第一行是标题，所以i=1，从第二行开始筛选（从0数起）
+            var searchText = storeId.rows[i].cells[searchCol].innerHTML;//取得table行，列的值
+            if (searchText.match(key3)) {//用match函数进行筛选，如果input的值，即变量 key的值为空，返回的是ture，
+                storeId.rows[i].style.display = '';//显示行操作
+                console.log('1')
+            }
+            else {
+                storeId.rows[i].style.display = 'none';//隐藏行操作
+                console.log('2')
+            }
+        }
+
+}
+function SearchName() {//js函数开始 name
+    setTimeout(function () {//因为是即时查询，需要用setTimeout进行延迟，让值写入到input内，再读取
+        var storeId = document.getElementById('mytable');//获取table的id标识
+        var rowsLength = storeId.rows.length;//表格总共有多少行
+        var lookN=document.getElementById("lookN");
+        var key1 = lookN.value;//获取输入框的值
+        var searchCol = 2;//要搜索的哪一列，这里是第一列，从0开始数起
+        for (var i = 1; i < rowsLength; i++) {//按表的行数进行循环，本例第一行是标题，所以i=1，从第二行开始筛选（从0数起）
+            var searchText = storeId.rows[i].cells[searchCol].innerHTML;//取得table行，列的值
+            if (searchText.match(key1)) {//用match函数进行筛选，如果input的值，即变量 key的值为空，返回的是ture，
+                storeId.rows[i].style.display = '';//显示行操作
+            } else {
+                storeId.rows[i].style.display = 'none';//隐藏行操作
+            }
+        }
+    }, 100);
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        demo2
+    </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        body {
+            background-color: rgb(242, 242, 242);
+        }
+        #big {
+            /*border: 1px solid red;*/
+            width: 1200px;
+            height: 600px;
+            margin: 50px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        .div2 {
+            margin: 50px 0;
+        }
+
+        .find {
+            position: absolute;
+            top: 4%;
+            left: 30%;
+        }
+
+        #findselect {
+            width: 174px;
+            height: 32px;
+        }
+
+        .findbt {
+            display: inline-block;
+        }
+
+        #creatbt {
+            position: absolute;
+            top: 4%;
+            right: 3%;
+        }
+
+        .head {
+            border-bottom: 1px solid silver;
+            height: 70px;
+        }
+
+        .head:after {
+            content: "";
+            display: none;
+            clear: both;
+        }
+
+        .head > div {
+            height: 80px;
+        }
+
+        button {
+            padding: 5px 10px;
+            font-size: 18px;
+            border: none;
+            color: white;
+        }
+
+        .bt1 {
+            /*蓝色*/
+            background-color: #68DFF0;
+            border-radius: 5px;
+        }
+
+        .bt2 {
+            /*红色*/
+            background-color: #FF865C;
+            border-radius: 5px;
+        }
+
+        tr {
+            vertical-align: middle;
+        }
+
+        .allbt {
+            position: absolute;
+            top: 90%;
+        }
+
+        .turnbt {
+            position: absolute;
+            top: 90%;
+            right: 3%;
+        }
+
+        .turnbt > button {
+            width: 50px;
+            height: 50px;
+            border: 1px solid rgb(221,221,221);
+            background-color: white;
+            color: #337ab7;
+        }
+        .zuobt{
+            border-radius:8px 0 0 8px;
+        }
+        .youbt {
+            border-radius:0 8px 8px 0;
+        }
+        /*======模态框======*/
+        .modal1form {
+            position: relative;
+            height: 300px;
+            text-align: left;
+        }
+
+        .modal1form input {
+
+            height: 26px;
+            width: 200px;
+        }
+
+        .modal1form select {
+            width: 200px;
+        }
+
+        form > div {
+            padding: 10px;
+            font-size: 20px;
+            margin: 0 auto;
+        }
+
+        .modalbt {
+            position: absolute;
+            top: 90%;
+            left: 50%;
+            margin-left: -138px;
+        }
+
+        #submit {
+            margin-right: 100px;
+        }
+
+        #submit1 {
+            margin-right: 100px;
+        }
+
+        td {
+            vertical-align: middle !important;
+            text-align: center;
+            /*line-height: 30px !important;*/
+        }
+
+        th {
+            text-align: center;
+            vertical-align: middle !important;
+            /*line-height: 30px !important;*/
+        }
+
+        #namep {
+            color: red;
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        #namep1 {
+            color: red;
+            font-size: 14px;
+            display: inline-block;
+        }
+        .del-content{
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 30px auto 10px;
+        }
+        .fontClass {
+            font-size: 22px;
+        }
+        .find>input{
+            height: 32px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="big">
+    <!--头部（搜索/新建）-->
+    <div class="head">
+        <div>
+            <h1 style="font-size: 32px">班级管理</h1>
+        </div>
+        <!--搜索框-->
+        <div class="find">
+            <select id="findselect" onclick="onSearchG()">
+                <option value="0">---请选择年级---</option>
+                <option value="小班">小班</option>
+                <option value="中班">中班</option>
+                <option value="大班">大班</option>
+            </select>
+            <input type="text" placeholder="输入班级名称" id="lookN" onkeydown="onSearchN()">
+            <input type="text" placeholder="输入主班老师名称" id="lookT" onkeydown="onSearchT()">
+
+            <div class="findbt">
+                <button class="bt2" onclick="clearhtml1()"><img src="images/look.png" width="18" alt="">重置</button>
+            </div>
+        </div>
+        <!--新建框-->
+        <button id="creatbt" class="bt1" data-toggle="modal" data-target="#myModal1"><img
+                src="images/creator.png" width="18">
+            新建班级
+        </button>
+    </div>
+    <!--表格-->
+    <div class="table-responsive container div2">
+        <div class="row">
+            <table id="table" class="table table-responsive table-striped table-bordered table-hover text-center ">
+                <thead>
+                <tr style="height: 60px;font-size: 18px">
+                    <th></th>
+                    <th>编号</th>
+                    <th>年级</th>
+                    <th>名称</th>
+                    <th>班级人数</th>
+                    <th>主班老师</th>
+                    <th>操作</th>
+                    <th>查看</th>
+                </tr>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--全选框-->
+    <div class="allbt">
+        <button class="bt1" style="padding: 10px 15px" onclick="selectAll()"><img src="images/all.png" width="18">全选
+        </button>
+    </div>
+    <!--翻页框-->
+    <div style="font-size: 0;border-radius:0" class="turnbt">
+        <button class="zuobt"><<</button>
+        <button style="background-color:#68DFF0">1</button>
+        <button>2</button>
+        <button>3</button>
+        <button class="youbt">>></button>
+    </div>
+    <!--新建班级-->
+    <!-- Modal-1 -- 新建----->
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="height: 450px">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span>
+                    </button>
+                    <h1 class="modal-title" style="font-size: 22px">新建班级</h1>
+                </div>
+                <div class="modal-body">
+                    <form onsubmit="submitTable()" class="modal1form" id="modal1form">
+                        <div>
+                            班级名称<span style="color: red;">*</span>: <input type="text" id="name"
+                                                                           placeholder="请输入2位中文...">
+                            <p id="namep"></p>
+                        </div>
+                        <div>
+                            班级类型<span style="color: red;">*</span>:
+                            <select id="se1">
+                                <option value="小班">小班</option>
+                                <option value="中班">中班</option>
+                                <option value="大班">大班</option>
+                            </select>
+                        </div>
+                        <div>
+                            主班老师<span style="color: red;">*</span>:
+                            <select name="zhuteacher" id="zhu">
+                                <option value="张三">张三</option>
+                                <option value="李四">李四</option>
+                                <option value="王五">王五</option>
+                                <option value="赵六">赵六</option>
+                            </select>
+                            <p></p>
+                        </div>
+                        <div>
+                            副班老师&nbsp;:
+                            <select name="futeacher" id="fu">
+                                <option value="---非必填---">---非必填---</option>
+                                <option value="马马">马马</option>
+                                <option value="云云">云云</option>
+                                <option value="化化">化化</option>
+                                <option value="腾腾">腾腾</option>
+                                <option value="牛牛">牛牛</option>
+                                <option value="羊羊">羊羊</option>
+                            </select>
+                        </div>
+                        <div>
+                            班级人数&nbsp;: <input type="text" readonly="readonly" value="0" id="people">
+                        </div>
+                        <div class="modalbt">
+                            <button class="bt1" name="submit" type="button" id="submit"
+                                    onclick="checkForm()" data-dismiss="modal"><img src="images/submit.png" alt=""
+                                                                                    width="18">提交
+                            </button>
+                            <button class="bt2" type="reset" onclick="clearForm()"><img src="images/reset.png" alt=""
+                                                                                        width="18">重置
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal-2 --编辑----->
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="height: 450px">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span>
+                    </button>
+                    <h1 class="modal-title" style="font-size: 22px">编辑班级</h1>
+                </div>
+                <div class="modal-body">
+                    <form class="modal1form">
+                        <div>
+                            班级名称<span style="color: red;">*</span>: <input type="text" id="name1">
+                            <p id="namep1"></p>
+                        </div>
+                        <div>
+                            班级类型<span style="color: red;">*</span>:
+                            <select id="se1edit">
+                                <option value="小班">小班</option>
+                                <option value="中班">中班</option>
+                                <option value="大班">大班</option>
+                            </select>
+                        </div>
+                        <div>
+                            主班老师<span style="color: red;">*</span>:
+                            <select name="zhuteacher" id="zhuedit">
+                                <option value="刘一">刘一</option>
+                                <option value="陈二">陈二</option>
+                                <option value="张三">张三</option>
+                                <option value="李四">李四</option>
+                                <option value="王五">王五</option>
+                                <option value="赵六">赵六</option>
+                            </select>
+                        </div>
+                        <div>
+                            副班老师&nbsp;:
+                            <select name="futeacher" id="fuedit">
+                                <option value="---非必填---">---非必填---</option>
+                                <option value="马马">马马</option>
+                                <option value="云云">云云</option>
+                                <option value="化化">化化</option>
+                                <option value="腾腾">腾腾</option>
+                                <option value="牛牛">牛牛</option>
+                                <option value="羊羊">羊羊</option>
+                            </select>
+                        </div>
+                        <div class="modalbt">
+                            <button class="bt1" name="submit" type="button" id="submit1"
+                                    onclick="checkForm1()" data-dismiss="modal"><img src="images/submit.png" alt=""
+                                                                                     width="18">提交
+                            </button>
+                            <button class="bt2" type="reset" onclick="clearForm()"><img src="images/reset.png" alt=""
+                                                                                        width="18">重置
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal-9 --警告提示----->
+    <div class="modal fade" id="myModal9" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="width: 500px">
+                <div>
+                    <img src="images/flase.png" alt="" width="500">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal-8 --警告提示----->
+    <div class="modal fade" id="myModal8" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="width: 500px">
+                <div>
+                    <img src="images/true.png" alt="" width="500">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal-4 --确认删除提示----->
+    <div class="modal fade bs-example-modal-sm" id="myModal4" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title fontClass">温馨提示：</h4>
+                </div>
+                <div class="modal-body del-content">
+                    <span>确定要删除这个班级吗?</span>
+                </div>
+                <div class="modal-footer footerCenter">
+                    <button type="button" class="submit bt1" onclick="delcfm1()">
+                        <img src="images/submit.png" width="21px"><span>确认</span>
+                    </button>
+                    <button type="button" class="reset bt2" data-dismiss="modal">
+                        <img src="images/reset.png" width="21px"><span>取消</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    // ====创建班级==========
+    window.onload = showData;
+    var classdata = [
+        {name: "一班", grade: "大班", people: "21", teacher: "刘一", futeacher: "马马"},
+        {name: "五班", grade: "小班", people: "0", teacher: "陈二", futeacher: "云云"}
+    ];
+    function showData() {
+        var tbody = document.getElementById("tbody");
+        tbody.innerHTML = "";
+        for (var i = 0; i < classdata.length; i++) {
+            tbody.innerHTML += "<tr>" +
+                "<td>" + "<input type='checkbox'>" + "</td>" +
+                "<td>" + (i + 1) + "</td>" +
+                "<td>" + classdata[i].grade + "</td>" +
+                "<td>" + classdata[i].name + "</td>" +
+                "<td>" + classdata[i].people + "</td>" +
+                "<td>" + classdata[i].teacher + "</td>" +
+                "<td>" + '<button class="bt1" id="editbt" data-toggle="modal" data-target="#myModal2" onclick="edit(' + i + ')"><img src="images/editor.png" width="18">编辑</button> ' +
+                '<button class="bt2" data-toggle="modal" data-target="#myModal4" onclick="delcfm(' + i + ')"><img src="images/delete.png" width="18">删除</button>' + "</td>" +
+                "<td>" + '<button class="bt2"><img src="images/look.png" width="18">查看</button>' + "</td>" +
+                "</tr>"
+        }
+    }
+    function submitTable() {
+        var newname = document.getElementById("name").value;
+        var index1 = document.getElementById("se1").selectedIndex;
+        var se1 = document.getElementById("se1").options[index1].text;
+        var index2 = document.getElementById("zhu").selectedIndex;
+        var zhu = document.getElementById("zhu").options[index2].text;
+        var index3 = document.getElementById("fu").selectedIndex;
+        var fu = document.getElementById("fu").options[index3].text;
+        var newpeople = document.getElementById("people").value;
+        var newobj = {name: newname, grade: se1, teacher: zhu, futeacher: fu, people: newpeople};
+        for (var i = 0; i < classdata.length; i++) {
+            if (newname == classdata[i].name && se1 == classdata[i].grade) {
+                $("#submit1").attr("data-dismiss", "");
+                alert("创建失败！班级名不能重复");
+                return
+            }
+        }
+        console.log("创建了");
+        classdata.unshift(newobj);
+        showData();
+        document.getElementById("zhu").options.remove(index2);
+    }
+    //======删除班级==========
+    var num2=0;
+    function delcfm(obj) {
+        num2 = obj;
+    }
+    function delcfm1() {
+        $('#myModal4').modal('hide');
+        if (Number(classdata[num2].people) == 0){
+            tanchu2();
+            var zhuedit1=classdata[num2].teacher;
+            classdata.splice(num2, 1);
+            var zhu = document.getElementById("zhu");
+            var zhuedit = document.getElementById("zhuedit");
+            var zhuval=zhu.options[num2].value;
+            console.log(zhuedit.options[num2].value);
+            console.log(zhuedit1)
+            if(zhuval == zhuedit1){
+                console.log("xiangtong")
+            }
+            else{
+                zhu.add(new Option(zhuedit1));
+            }
+            showData();
+        }
+        else {
+            tanchu1()
+        }
+    }
+    //    ===全选===============
+    function selectAll() {
+        var ckbox = document.getElementsByTagName("input");
+        for (var i = 0; i < ckbox.length; i++) {
+            if (ckbox[i].checked) {
+                ckbox[i].checked = false;
+            }
+            else if (!ckbox[i].checked) {
+                ckbox[i].checked = true;
+            }
+        }
+    }
+    //========正则表达式====================
+    var flag = true;
+    //========验证提交==========================
+    function checkForm() {
+        var e = window.event;
+        e.preventDefault();
+        var name = document.getElementById("name");
+        var userReg = /^[\u4E00-\u9FA5]{2,2}$/;
+        var userResult = userReg.test(name.value);
+        var zhu = document.getElementById("zhu");
+        var zhuname = zhu.value;
+        if (!userResult) {    //userResult == false
+            var namep = document.getElementById("namep");
+            namep.innerText = " 账号长度必须为2位中文";
+            flag = false;
+            namep.focus();   //光标对焦
+            $("#submit").attr("data-dismiss", "");
+        }
+        if (zhuname == "") {
+            flag = false;
+            alert("主班老师不能为空");
+        }
+        if (userResult) {
+            submitTable();
+            clearForm();
+            clearhtml();
+            $("#submit").attr("data-dismiss", "modal");
+        }
+    }
+    //========验证编辑==========================
+    function checkForm1() {
+        var e = window.event;
+        e.preventDefault();
+        var name1 = document.getElementById("name1");
+        var userReg = /^[\u4E00-\u9FA5]{2,2}$/;
+        var userResult = userReg.test(name1.value);
+        if (!userResult) {    //userResult == false
+            var namep1 = document.getElementById("namep1");
+            namep1.innerText = " 账号长度必须为2位中文";
+            flag = false;
+            namep1.focus();   //光标对焦
+            $("#submit1").attr("data-dismiss", "");
+        }
+        if (userResult) {
+            submitTableedit();
+            clearForm();
+            clearhtml();
+            $("#submit1").attr("data-dismiss", "modal");
+        }
+    }
+    function clearForm() {
+        var namep = document.getElementById("namep");
+        namep.innerText = "";
+    }
+    //    =======编辑============================
+    var num1 = 0;
+    function edit(obj) {
+        num1 = obj;
+        $("#name1").val(classdata[obj].name);
+        $("#se1edit").val(classdata[obj].grade);
+        $("#zhuedit").val(classdata[obj].teacher);
+        $("#fuedit").val(classdata[obj].futeacher);
+    }
+    var j = true;
+    function submitTableedit() {
+        var newname1 = document.getElementById("name1").value;
+        var index1edit = document.getElementById("se1edit").selectedIndex;
+        var se1edit = document.getElementById("se1edit").options[index1edit].text;
+        var index2edit = document.getElementById("zhuedit").selectedIndex;
+        var zhuedit = document.getElementById("zhuedit").options[index2edit].text;
+        var index3edit = document.getElementById("fuedit").selectedIndex;
+        var fuedit = document.getElementById("fuedit").options[index3edit].text;
+        var newobjedit = {
+            name: newname1,
+            grade: se1edit,
+            teacher: zhuedit,
+            futeacher: fuedit,
+            people: classdata[num1].people
+        };
+        for (var i = 0; i < classdata.length; i++) {
+            if (zhuedit != classdata[num1].teacher) {
+                if (zhuedit == classdata[i].teacher) {
+                    j = false;
+                    console.log(classdata[i].teacher);
+                    alert("创建失败！！！主班老师不能重复");
+                    break
+                }
+            }
+            if (newname1 != classdata[num1].name && se1edit != classdata[num1].grade) {
+                console.log(classdata[i].grade);
+                if (newname1 == classdata[i].name && se1edit == classdata[i].grade) {
+                    console.log(classdata[i].grade);
+                    j = false
+                    alert("创建失败！！！班级名不能重复");
+                }
+            } else if (newname1 != classdata[num1].name && se1edit == classdata[num1].grade) {
+                console.log(classdata[i].grade);
+                if (newname1 == classdata[i].name && se1edit == classdata[i].grade) {
+                    console.log(classdata[i].grade);
+                    j = false
+                    alert("创建失败！！！班级名不能重复");
+                }
+            } else if (newname1 == classdata[num1].name && se1edit != classdata[num1].grade) {
+                console.log(classdata[i].grade);
+                if (newname1 == classdata[i].name && se1edit == classdata[i].grade) {
+                    console.log(classdata[i].grade);
+                    j = false
+                    alert("创建失败！！！班级名不能重复");
+                }
+            }
+        }
+        if (j) {
+            console.log(j);
+            console.log("编辑成功");
+            classdata.splice(num1, 1, newobjedit);
+            showData();
+        }
+        j = true
+    }
+    //========新建完成后清空==============================
+    function clearhtml() {
+        $("#name").val("");
+    }
+    //===========操作提示框=======================
+    function tanchu1() {
+        $('#myModal9').modal('show');
+//            setTimeout(function(){
+//                $("#myModal9").modal("hide")
+//            },2200);
+    }
+    function tanchu2() {
+        $('#myModal8').modal('show');
+    }
+    //    ===========查找=========================
+    //    ==班级名查找====
+    function onSearchN() {//js函数开始 name
+        setTimeout(function () {//因为是即时查询，需要用setTimeout进行延迟，让值写入到input内，再读取
+            var storeId = document.getElementById('table');//获取table的id标识
+            var rowsLength = storeId.rows.length;//表格总共有多少行
+            var lookN = document.getElementById("lookN");
+            var key1 = lookN.value;//获取输入框的值
+            var searchCol = 3;//要搜索的哪一列，这里是第一列，从0开始数起
+            for (var i = 1; i < rowsLength; i++) {//按表的行数进行循环，本例第一行是标题，所以i=1，从第二行开始筛选（从0数起）
+                var searchText = storeId.rows[i].cells[searchCol].innerHTML;//取得table行，列的值
+                if (searchText.match(key1)) {//用match函数进行筛选，如果input的值，即变量 key的值为空，返回的是ture，
+                    storeId.rows[i].style.display = '';//显示行操作
+                } else {
+                    storeId.rows[i].style.display = 'none';//隐藏行操作
+                }
+            }
+        }, 100);
+    }
+    //    ==老师名查找====
+    function onSearchT() {
+        setTimeout(function () {
+            var storeId = document.getElementById('table');
+            var rowsLength = storeId.rows.length;
+            var lookT = document.getElementById("lookT");
+            var key2 = lookT.value;
+            var searchCol = 5;
+            for (var i = 1; i < rowsLength; i++) {
+                var searchText = storeId.rows[i].cells[5].innerHTML;
+                if (searchText.match(key2)) {
+                    storeId.rows[i].style.display = '';
+                } else {
+                    storeId.rows[i].style.display = 'none';
+                }
+            }
+        }, 100)
+    }
+    //    ==年级查找====
+    function onSearchG() {
+        setTimeout(function () {
+            var storeId = document.getElementById('table');
+            var rowsLength = storeId.rows.length;
+            var findselect = document.getElementById("findselect");
+            var key3 = findselect.value;
+            var searchCol = 2;
+            for (var i = 1; i < rowsLength; i++) {
+                var searchText = storeId.rows[i].cells[searchCol].innerHTML;
+                if (searchText.match(key3)) {
+                    storeId.rows[i].style.display = '';
+                } else if (key3 == 0) {
+                    storeId.rows[i].style.display = '';
+                }
+                else {
+                    storeId.rows[i].style.display = 'none';
+                }
+            }
+        }, 100);//200为延时时间
+    }
+    function onSearch() {//因为是即时查询，需要用setTimeout进行延迟，让值写入到input内，再读取
+        var storeId = document.getElementById('table');//获取table的id标识
+        var rowsLength = storeId.rows.length;//表格总共有多少行
+        var lookN = document.getElementById("lookN");
+        var lookT = document.getElementById("lookT");
+        var findselect = document.getElementById("findselect");
+        var key1 = lookN.value;//获取班级名
+        var key2 = lookT.value;//获取教师框的值
+        var key3 = findselect.value;//获取年级下拉框的值
+        var searchCo1 = 3;//要搜索的班级名字列
+        var searchCo2 = 5;//要搜索的教师名字列
+        var searchCo3 = 2;//要搜索的年级名字列
+        for (var i = 1; i < rowsLength; i++) {
+            var searchText1 = storeId.rows[i].cells[searchCo1].innerHTML;//取得table行，列的值 //要搜索的班级名字列
+            var searchText2 = storeId.rows[i].cells[searchCo2].innerHTML;//取得table行，列的值 //要搜索的教师名字列
+            var searchText3 = storeId.rows[i].cells[searchCo3].innerHTML;//取得table行，列的值 //要搜索的年级名字列
+            if (searchText2.match(key2) || searchText1.match(key1)) {//用match函数进行筛选，如果input的值，即变量 key的值为空，返回的是ture，
+//                storeId.rows[i].style.display = '';//显示行操作
+                console.log("3")
+            }
+//            else if(key3==0){
+////                storeId.rows[i].style.display = '';//隐藏行操作
+//                console.log("4")
+//            }
+            else {
+                console.log("5")
+                storeId.rows[i].style.display = 'none';//隐藏行操作
+            }
+        }
+    }
+    function clearhtml1() {
+        console.log("aa")
+        $("#findselect").val("0");
+        $("#lookN").val("");
+        $("#lookT").val("");
+        onSearchG();
+        onSearchN();
+        onSearchT()
+    }
+
+
+</script>
+<script src="jquery-3.3.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

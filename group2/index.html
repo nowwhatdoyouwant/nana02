@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="font_p1hpmhovl7q/iconfont.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--移动端用1:1的比例换算px-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <style>
+        html {
+            overflow-y: hidden;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        header {
+            height: 60px;
+            background-color: #ffd777;
+            width: 100%;
+            box-shadow: 0 1px 1px #626262;
+            /*position: fixed;*/
+        }
+
+        .logo {
+            float: left;
+        }
+
+        .header-icon {
+            position: relative;
+            float: left;
+            padding: 14px 35px;
+            margin-left: 100px;
+        }
+
+        .header-logo {
+            width: 140px;
+            padding: 14px 35px;
+        }
+
+        .header-icon i {
+            font-size: 26px;
+            color: white;
+            margin: 0 5px;
+        }
+
+        .header-right {
+            float: right;
+            padding: 14px 50px;
+            position: relative;
+        }
+
+        .header-right input {
+            border-style: none;
+            width: 150px;
+            height: 20px;
+            border-radius: 8px;
+            margin-right: 100px;
+            padding: 5px 20px 5px 30px;
+        }
+
+        .header-right i {
+            color: #888888;
+            position: absolute;
+            left: 58px;
+            top: 23px;
+        }
+
+        .header-right button {
+            width: 70px;
+            height: 30px;
+            border-radius: 8px;
+            border-style: none;
+            background-color: #68dff0;
+            color: white;
+        }
+
+        /*aside 部分*/
+
+        #aside {
+            width: 13%;
+            height: 100%;
+            background-color: #424a5d;
+            position: fixed;
+            text-align: center;
+        }
+
+        aside span {
+            color: white;
+            font-size: 14px;
+        }
+
+        .title span {
+            font-size: 16px;
+        }
+
+        .head {
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            background-color: white;
+            margin: 20px auto 8px;
+        }
+
+        .head img {
+            width: 80%;
+            margin: 6px;
+        }
+
+        nav ul {
+            padding-top: 20px;
+        }
+
+        nav li {
+            text-align: left;
+        }
+
+        nav a {
+            width: 80%;
+            text-decoration: none;
+            color: white;
+            display: block;
+            margin: 10px auto;
+            padding: 15px 10px;
+        }
+
+        nav a:hover {
+            background-color: #68dff0;
+            transition: all .5s linear;
+        }
+
+        nav a i {
+            margin-right: 5px;
+        }
+
+        .active {
+            background-color: #68dff0;
+        }
+
+        /*iframe*/
+        iframe {
+            width: 87%;
+            min-height: 950px;
+            position: fixed;
+            left: 13%;
+            background-color: #F2F2F2;
+        }
+
+        .message {
+            background-color: red;
+            display: inline-block;
+            border-radius: 15px;
+            padding: 0.5px 5px;
+            line-height: 15px;
+            font-size: 12px;
+            color: white;
+            position: absolute;
+            left: 55px;
+        }
+
+        .spread {
+            display: none;
+            position: absolute;
+            z-index:5;
+        }
+        .spread i{
+            position: absolute;
+            top: -3px;
+            left: 14px;
+            z-index: 6;
+        }
+        .emailBox{
+            background-color: white;
+            padding: 5px;
+            width: 100px;
+            position: absolute;
+            top: 13px;
+            left: -48px;
+          box-shadow: 1px 1px 2px #686868;
+        }
+        .sender{
+            color: #888888;
+            font-style: italic;
+            font-size: 14px;
+        }
+        .messageCont{
+            font-size: 12px;
+            color: #888888;
+            text-align: right;
+        }
+        .everyMessage{
+            padding: 5px 0;
+            border-bottom: 1px solid silver;
+        }
+        .email{
+            text-align: center;
+            color: #888888;
+            padding-top: 5px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div>
+        <div class="logo">
+            <img src="images/Logo.png" class="header-logo">
+        </div>
+
+        <div class="header-icon">
+            <i class="iconfont icon-xinfeng" onclick="readMessage();"></i>
+            <div class="message">2</div>
+            <i class="iconfont icon-sanheng" onclick="mychange();"></i>
+            <div class="spread">
+                <i class="fa fa-caret-up"></i>
+                <div class="emailBox">
+                    <div class="everyMessage">
+                        <div class="sender">发送者:小刘</div>
+                        <p class="messageCont">希望各位老师能.....</p>
+                    </div>
+                    <div class="everyMessage">
+                        <div  class="sender">发送者:小刘</div>
+                        <p class="messageCont">希望各位老师能.....</p>
+                    </div>
+                    <div class="email">
+                        邮件箱
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-right">
+            <input type="text">
+            <i class="iconfont icon-search"></i>
+            <a href="register.html"><button>Log Out</button></a>
+        </div>
+    </div>
+</header>
+<aside id="aside">
+    <div class="head">
+        <img src="images/profile.png">
+    </div>
+    <span>Mrs.Nana</span>
+    <nav>
+        <ul>
+            <li class="title">
+                <a href="bumen.html" class="active" target="mytarget">
+                    <i class="iconfont icon-xitongyunweibumen"></i>
+                    <span>部门管理</span></a>
+            </li>
+            <li class="title">
+                <a href="staff.html" target="mytarget">
+                    <i class="iconfont icon-zuocedaohang_jiaozhigongjiankang"></i>
+                    <span>教职工管理</span></a>
+            </li>
+            <li class="title">
+                <a href="ClassManagement.html" target="mytarget">
+                    <i class="iconfont icon-banji"></i>
+                    <span>班级管理</span></a></a>
+            </li>
+            <li class="title">
+                <a href="student.html" target="mytarget">
+                    <i class="iconfont icon-xuesheng"></i>
+                    <span>学生管理</span></a>
+            </li>
+            <li class="title">
+                <a href="PhotoWall.html" target="mytarget">
+                    <i class="iconfont icon-zhaopianqiang"></i>
+                    <span>照片墙</span></a>
+            </li>
+            <li class="title">
+                <a href="register.html">
+                    <i class="iconfont icon-click"></i>
+                    <span>切换账号</span></a>
+            </li>
+            <li class="title">
+                <a href="kq.html" target="mytarget">
+                    <i class="iconfont icon-kaoqin"></i>
+                    <span>考勤管理</span></a></li>
+            <li class="title">
+                <a href="announcement%20.html" target="mytarget">
+                    <i class="iconfont icon-gonggao"></i>
+                    <span>公告管理</span></a></li>
+            <li class="title">
+                <a href="quanxian1.html" target="mytarget">
+                    <i class="iconfont icon-quanxian"></i>
+                    <span>权限管理</span></a></li>
+        </ul>
+    </nav>
+</aside>
+<iframe id="content" src="main.html" frameborder="0" name="mytarget" scrolling="auto">
+
+</iframe>
+<script src="jquery-3.3.1.js"></script>
+<script>
+    $(".title").find("a").on("click", function () {
+        $(this).attr("class", "active");
+        var other = $(this).parent().siblings().find("a").removeClass("active");
+    })
+    var i = 0;
+    function mychange() {
+        i++;
+        if (i % 2 === 1) {
+            $("#aside").css({"width": "5%"});
+            $(".title span").css("display", "none");
+            $(".title a").css("text-align", "center");
+            $("#content").css({
+                "width": "95%",
+                "left": "5%"
+            })
+
+        }
+        if (i % 2 === 0) {
+            $("#aside").css({"width": "13%"});
+            $(".title span").css({"display": "inline-block"});
+            $(".title a").css("text-align", "left")
+            $("#content").css({
+                "width": "87%",
+                "left": "13%"
+            })
+        }
+    }
+
+    function readMessage() {
+      $(".spread").fadeToggle();
+        $(".message").css("display","none");
+    }
+</script>
+</body>
+</html>

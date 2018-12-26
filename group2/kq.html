@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="work.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <script type="text/javascript" src="js/laydate.js"></script>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+
+![endif]-->
+
+    <style type="text/css">
+
+        /*html{background-color:#E3E3E3; font-size:14px; color:#000; font-family:'微软雅黑'}*/
+
+        /*h2{line-height:30px; font-size:20px;}*/
+
+        a,a:hover{ text-decoration:none;}
+
+        pre{font-family:'微软雅黑'}
+
+        /*.box{width:970px; padding:10px 20px; background-color:#fff; margin:10px auto;}*/
+
+        /*.box a{padding-right:20px;}*/
+
+        .demo1,.demo2,.demo3,.demo4,.demo5,.demo6{margin:0 0;}
+
+        /*h3{margin:10px 0;}*/
+
+        /*.layinput{height: 22px;line-height: 22px;width: 150px;margin: 0;}*/
+
+    </style>
+
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+<header>
+    <div>
+        <h1 id="header_id">考勤管理</h1>
+    </div>
+</header>
+<section>
+        <div class="nav_div">
+            <div class="grade">
+                    <div class="grade_div1">
+                        请选择：
+                    </div>
+                    <div  class="grade_div2">
+                            <select name="年级" onchange="change1(this.value)">
+                                <option value="年级" selected>年级</option>
+                                <option value="1">大班</option>
+                                <option value="2">中班</option>
+                                <option value="3">小班</option>
+                            </select>
+                    </div>
+
+                <div class="ban_div1"></div>
+                <div  class="ban_div2">
+                    <select name="班级" id="two">
+                        <option value="">班级</option>
+                    </select>
+                </div>
+            </div>
+            <div id="seek_div">
+                <div id="seek_text">搜索：</div>
+                <div id="seek_kk">
+                    <input type="text" id="seek" placeholder="学生姓名">
+                    <i id="seek_icon" class="fa fa-search fa-1x" onclick="onSearch()"></i>
+                    <span id="seek_kk_span">你输入错误!</span>
+                </div>
+            </div>
+
+
+            <div class="time">
+                    <div class="time_div1">
+                        搜索：
+                    </div>
+                    <div id="time_div2">
+
+                        <div class="demo1">
+
+                            <input class="laydate-icon" id="demo" value="2018-12-10更新">
+                            <!--<i class="fa fa-search fa-1x" onclick="SearchName()"></i>-->
+                            <img id="dtss" onclick="SearchName()" src="images/888.png" alt="">
+
+                        </div>
+                    </div>
+                </div>
+
+                <button id="button_mail" onclick="mail()">
+                    <i class="fa fa-envelope-o fa-1x"></i>
+                    &nbsp推送邮件
+                </button>
+
+            <button id="button_leave"  data-toggle="modal" data-target="#myModal">
+                <i class="fa fa-edit fa-1x"></i>
+                请假录入
+            </button>
+
+            <table class="table table-hover" id="mytable" border="1" cellspacing="0" cellpadding="0" width="1051">
+                <thead>
+                <tr id="table_tr">
+                    <th>多选</th>
+                    <th>姓名</th>
+                    <th>入园时间/请假类型</th>
+                    <th>离园时间/请假事由</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+            <div id="qx" onclick="selectionAll()">
+                <i class="fa fa-check-square-o fa-1x"></i>
+                <span>全选</span>
+            </div>
+            <div class="page-turning">
+                <div class="left-arrows">
+                    <i class="fa fa-angle-double-left"></i>
+                </div>
+                <div class="page-one">1</div>
+                <div class="page-two">2</div>
+                <div class="page-three">3</div>
+                <div class="right-arrows">
+                    <i class="fa fa-angle-double-right"></i>
+                </div>
+            </div>
+        </div>
+
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title  tctitle" id="gridSystemModalLabel">请假信息</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        学生姓名<span class="tcxx">*</span>
+                            <input type="text" id="tcn" maxlength="5" placeholder="请输入2--5个字符">
+                            <span id="tct">输入错误，请从新输入</span>
+                    </div>
+                    <!--<div class="row">-->
+                        <!--<div class="col-md-4">学生班级：</div>-->
+                        <!--<div class="col-md-4 col-md-offset-4">-->
+                            <!--<select name="年级">-->
+                                <!--<option value="年级" selected>=年级=</option>-->
+                                <!--<option value="1">大班</option>-->
+                                <!--<option value="2">中班</option>-->
+                                <!--<option value="3">小班</option>-->
+                            <!--</select>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <div class="row">
+                      请假类型<span class="tcxx">*</span>
+                            <select name="出勤类别"  id="tcl">
+                                <option value="" selected>---请选择---</option>
+                                <option value="病假">病假</option>
+                                <option value="事假">事假</option>
+                                <option value="旷课">旷课</option>
+                            </select>
+                    </div>
+                    <div class="row">
+                            请假事由&nbsp;
+                        <textarea name="" id="tcs" class="tclive" maxlength="20"   style="resize: none" placeholder="请输入20个以内字符"></textarea>
+                            <!--<input type="text"  id="tcs"  maxlength="20" class="tclive" placeholder="请输入20个以内字符">-->
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="tcgb" data-dismiss="modal">
+                        <i class="fa fa-power-off"></i>
+                        取消
+                    </button>
+                    <button type="button" class="btn btn-primary tctj"  onclick="addDate()">
+                        <i class="fa fa-send"></i>
+
+                        提交
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</section>
+
+<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title  tctitle" id="gridSystemModalLabel">公&nbsp;&nbsp;告</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    汤老师:小朋友放学路上安全培训通知！
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script src="jquery-3.3.1.js"></script>
+<script src="bootstrap/dist/js/bootstrap.js"> src=""</script>
+
+
+<script type="text/javascript">
+
+//    ===二级联动===
+    var two = document.getElementById("two");
+    banji = [];
+    banji[1] = ['大1班','大2班','大3班'];
+    banji[2] = ['中1班','中2班','中3班'];
+    banji[3] = ['小1班','小2班','小3班'];
+    function change1(s){
+        two.length = 1;
+        for (var i = 0; i < banji[s].length; i++) {
+            var nj = new Option(banji[s][i],i);
+            two.add(nj);
+        }
+    }
+
+    
+    
+    var studentdate=[
+        {dx:"框",name:"张三",come:"2018-12-10 08:50",live:"2017-12-1 16：54"},
+        {dx:"框",name:"李四",come:"2018-12-09 08:45",live:"2017-12-1 16：52"},
+        {dx:"框",name:"王五",come:"2018-12-06 08:40",live:"2017-12-1 16：54"},
+        {dx:"框",name:"小明",come:"2018-12-05 08:43",live:"2017-12-1 16：55"},
+        {dx:"框",name:"李明",come:"2018-12-02 08:45",live:"2017-12-1 16：55"},
+        {dx:"框",name:"张六",come:"2018-12-01 08:20",live:"2017-12-1 16：50"}
+    ];
+    window.onload=showdate;
+    function showdate() {
+        var mytable=$("#mytable tbody").get(0);
+        mytable.innerHTML="";
+        for(var i=0;i<studentdate.length;i++){
+            mytable.innerHTML+="<tr>"+
+                "<td style='vertical-align: middle;'><input id='table_td' type='checkbox' name='chuqing' value='发送成功' class='fx'></td>"+
+                "<td style='vertical-align: middle;'>"+studentdate[i].name+"</td>"+
+                "<td style='vertical-align: middle;'>"+studentdate[i].come+"</td>"+
+                "<td style='vertical-align: middle;'>"+studentdate[i].live+"</td>"+
+                "</tr>"
+        }
+    }
+function addDate() {
+    var newname=document.getElementById("tcn").value;
+    var newcome=document.getElementById("tcl").value;
+    var newlive=document.getElementById("tcs").value;
+    var newobj={name:newname,come:newcome,live:newlive};
+
+
+
+//    ================弹窗正则表达式=====
+
+    var reg=/^[A-Za-z\u4e00-\u9fa5]{2,5}$/;
+    var inputName=document.getElementById("tcn");
+    var tct=document.getElementById("tct");
+    console.log("tct");
+    var result=reg.test(inputName.value);
+    if (result===true){
+        tct.style.display="none";
+        studentdate.push(newobj);
+
+    }else {
+        tct.style.display="block";
+
+    }
+    showdate();
+}
+
+
+//====全选====
+    var x=0;
+function selectionAll() {
+        console.log(selectionAll);
+    var ckbox=document.getElementsByClassName("fx");
+    if (x===0){
+        for(var i=0;i<ckbox.length;i++){
+            ckbox[i].checked=true;
+            x++;
+        }
+    }else if(x!=0){
+        for(var j=0;j<ckbox.length;j++){
+            ckbox[j].checked=false;
+            x=0;
+        }
+    }
+
+}
+//=========邮件发送====
+    function mail() {
+        var checkboxes = document.getElementsByName("chuqing");
+        var str = [];
+        // if(checkboxes.values()){
+        //     alert("发送失败");
+        // }
+        for(var i=0;i<checkboxes.length;i++){
+            if(checkboxes[i].checked){
+                str.push(checkboxes[i].value);
+                alert(str);
+                break;
+            }else {
+                alert("发送失败");
+                break;
+            }
+        }
+    }
+
+    !function(){
+
+        laydate.skin('molv');//切换皮肤，请查看skins下面皮肤库
+
+        laydate({elem: '#demo'});//绑定元素
+
+    }();
+
+    //日期范围限制
+
+    var start = {
+
+        elem: '#start',
+
+        format: 'YYYY-MM-DD',
+
+        min: laydate.now(), //设定最小日期为当前日期
+
+        max: '2099-06-16', //最大日期
+
+        istime: true,
+
+        istoday: false,
+
+        choose: function(datas){
+
+            end.min = datas; //开始日选好后，重置结束日的最小日期
+
+            end.start = datas //将结束日的初始值设定为开始日
+
+        }
+
+    };
+
+    var end = {
+
+        elem: '#end',
+
+        format: 'YYYY-MM-DD',
+
+        min: laydate.now(),
+
+        max: '2099-06-16',
+
+        istime: true,
+
+        istoday: false,
+
+        choose: function(datas){
+
+            start.max = datas; //结束日选好后，充值开始日的最大日期
+
+        }
+
+    };
+
+    laydate(start);
+
+    laydate(end);
+
+    //自定义日期格式
+
+    laydate({
+
+        elem: '#test1',
+
+        format: 'YYYY年MM月DD日',
+
+        festival: true, //显示节日
+
+        choose: function(datas){ //选择日期完毕的回调
+
+            alert('得到：'+datas);
+
+        }
+
+    });
+
+
+function onSearch() {
+
+    var storeId = document.getElementsByClassName('table')[0];
+    var rowsLength = storeId.rows.length;
+    var key = document.getElementById("seek").value;
+    var souJin=document.getElementById("seek_kk_span");
+
+    if(key===""){
+        souJin.style.display="block";
+    }else {
+        for(var i=1;i<rowsLength;i++){
+            var searchText = storeId.rows[i].innerHTML;
+            if(searchText.match(key)){
+                storeId.rows[i].style.display='';//显示行操作，
+            }else{
+                storeId.rows[i].style.display='none';//隐藏行操作
+            }
+        }
+        souJin.style.display="none";
+
+    }
+}
+//
+var lookN = document.getElementById("demo");
+
+function SearchName() {//js函数开始 name
+
+    setTimeout(function () {//因为是即时查询，需要用setTimeout进行延迟，让值写入到input内，再读取
+//        var storeId = document.getElementById('mytable');//获取table的id标识
+        var storeId = document.getElementsByClassName('table')[0];
+
+        var rowsLength = storeId.rows.length;//表格总共有多少行
+        console.log("lookN");
+        var key1 = lookN.value;//获取输入框的值
+        var searchCol = 2;//要搜索的哪一列，这里是第一列，从0开始数起
+        for (var i = 1; i < rowsLength; i++) {//按表的行数进行循环，本例第一行是标题，所以i=1，从第二行开始筛选（从0数起）
+            var searchText = storeId.rows[i].cells[searchCol].innerHTML;//取得table行，列的值
+            if (searchText.match(key1)) {//用match函数进行筛选，如果input的值，即变量 key的值为空，返回的是ture，
+                storeId.rows[i].style.display = '';//显示行操作
+            } else {
+                storeId.rows[i].style.display = 'none';//隐藏行操作
+            }
+        }
+    }, 100);
+}
+
+
+</script>
+</body>
+</html>
