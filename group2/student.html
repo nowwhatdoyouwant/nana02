@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+
+        .student{
+            width: 100%;
+        }
+        .yeshou{
+            width: 85%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .btntj{
+            width: 92px;
+            height: 30px;
+            background-color: #fe728c;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 15px;
+
+        }
+        .tianjia span{
+            font-size: 20px;
+        }
+        .iptcx{
+            width: 200px;
+            height: 30px;
+            border-radius: 5px;
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+            border: solid 1px #bfc1c3;
+
+        }
+        .btncx{
+            display: inline-block;
+            height: 30px;
+            width: 56px;
+            border-radius: 5px;
+            border: none;
+            vertical-align: middle;
+        }
+        .tianjia{
+            float: left;
+            margin: 20px 0;
+            line-height: 4px;
+        }
+        .chaxun{
+            float: right;
+            margin: 20px 0;
+
+
+        }
+
+
+        /*框架*/
+            .kuangjia{
+
+            }
+        .mythead{
+            background-color: #fff1f1;
+
+        }
+        .mythead>tr{
+            height: 60px!important;
+
+        }
+        .mythead>tr>th{
+            line-height: 60px!important;
+        }
+        .caozuo{
+            text-align: center;
+        }
+        td button{
+            border: none;
+            width: 51px;
+            height: 34px;
+            border-radius: 4px;
+        }
+        .tuixue{
+            margin-left: 20px;
+            background-color: #fe96a9;
+            color: white;
+        }
+        .xiugai{
+            margin-left: 10px;
+            background-color: #c8c8a9;
+            color: white;
+        }
+        .chakan{
+            margin-left: 10px;
+            background-color: #f9cdad;
+            color: white;
+        }
+        .aotian{
+            height: 60px;
+        }
+
+        .td1{
+            line-height: 60px!important;
+        }
+        .td2 button{
+         margin-top: 15px;
+        }
+        .biaoge{
+            height: 600px;
+            /*border: solid 1px red;*/
+        }
+        /*footer*/
+        .footer select{
+            width: 51px;
+        }
+
+        /*添加学生*/
+        .tjhead{
+            background-color: #fee9e8;
+        }
+        #myModalLabel1{
+          font-weight: 600;
+        }
+        .chongzhi{
+            background-color: #de7772;
+            border: none;
+            margin-right: 20px;
+            width: 50px;
+            height: 28px;
+            color: white;
+            border-radius: 4px;
+        }
+        .tijiao{
+            background-color: #669966;
+            margin-right: 20px;
+            border: none;
+            width: 50px;
+            height: 28px;
+            border-radius: 4px;
+            color: white;
+        }
+        form{
+            text-align: center;
+        }
+        form input,form h5{
+            display: inline-block;
+        }
+        form input{
+            margin-left: 40px;
+            border-radius: 4px;
+            border: solid 1px #bfc1c3;
+        }
+        form span{
+            color: red;
+        }
+        form h5{
+            font-weight: 600;
+        }
+        form label{
+            margin: 0 30px;
+        }
+
+        .form-1,.form-2{
+            margin: 0 auto;
+            text-align: right;
+            width: 300px;
+        }
+        .label1{
+            margin-left: 58px;
+        }
+        .queding1{
+            background-color: #fe96a9!important;
+            border: none;
+            color: white;
+        }
+        .quxiao1 {
+            background-color: #669966 !important;
+            border: none;
+            color: white;
+        }
+        .nameyanzheng,.sIDyanzheng,.classnyanzheng,.ageyanzheng,.fnameyanzheng,.phoneyanzheng,.addressyanzheng,.guanxiyanzheng{
+            color: red;
+            overflow: hidden;
+            width: 98px;
+            height: 16px;
+            margin-left: 160px;
+        }
+        .nameyanzheng1,.sIDyanzheng1,.classnyanzheng1,.ageyanzheng1,.fnameyanzheng1,.phoneyanzheng1,.addressyanzheng1,.guanxiyanzheng1{
+            color: red;
+            overflow: hidden;
+            width: 98px;
+            height: 16px;
+            margin-left: 160px;
+        }
+        .inputclassn,.inputclassn1{
+            width: 172px;
+            height: 24px;
+            margin-left: 40px;
+        }
+        .kongge{
+            margin-bottom: 16px;
+
+        }
+
+        /*修改信息*/
+    #myModalLabel2{
+        font-weight: 600;
+    }
+        .xiugaixinxi{
+            background-color: #fee9e8;
+        }
+        .quanxuan,.shanchu{
+            border: none;
+            background:rgb(102,153,102);
+            width: 51px;
+            height: 34px;
+            border-radius: 4px;
+            color: #ffffff;
+            margin-left: 50px;
+        }
+        .shanchu{
+            background: rgb(222,119,114);
+
+        }
+        .dxk{
+            padding-left: 40px!important;
+        }
+        .btncn{
+            background: #ffffff;
+            /*border: none;*/
+            color: #000000;
+            border: solid 1px #bfc1c3;
+            line-height: 25px;
+            border-radius: 4px ;
+        }
+            /*.tjxs{*/
+                /*line-height: 30px;*/
+            /*}*/
+        /*.inputage{*/
+            /*width: 172px;*/
+        /*}*/
+        .inputclassn2{
+           width:  172px;
+            margin-left: 30px;
+        }
+        .time1,.time2{
+            width: 54px;
+        }
+        .timekong{
+            margin-left: 40px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <!--student-->
+    <div class="student">
+        <!--页首-->
+        <div class="yeshou">
+            <!--添加-->
+            <div class="tianjia">
+                <button type="button" class=" btntj" data-toggle="modal" data-target="#myModal1"><span>+</span> 添加学生</button>
+            </div>
+            <!--查询-->
+            <div class="chaxun">
+                <input type="text" value="输入学生姓名/班级" onfocus="javascript:if(this.value=='输入学生姓名/班级')this.value='';"
+                    class="iptcx">
+                <button type='button' class=' btncn' data-toggle='modal' onclick='ccc()'>查询</button>
+            </div>
+        </div>
+        <!--框架-->
+        <div class="kuangjia">
+            <div class="biaoge">
+                <table class="table table-hover col-lg-12">
+                    <thead class="mythead">
+                        <tr>
+                            <th class="col-lg-1"></th>
+                            <th class="col-lg-1">学生姓名</th>
+                            <th class="col-lg-1">性别</th>
+                            <th class="col-lg-1">出生日期</th>
+                            <th class="col-lg-1">班级</th>
+                            <th class="col-lg-1">学号</th>
+                            <th class="col-lg-1">家长姓名</th>
+                            <th class="col-lg-1">关系</th>
+                            <th class="col-lg-1">电话</th>
+                            <th class="col-lg-1">住址</th>
+                            <th class="col-lg-3 caozuo">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+            <!--页脚-->
+            <div class="footer">
+                <button type='button' class=' xiugai quanxuan'>全选</button>
+                <button type='button' class=' tuixue xiugai shanchu' data-toggle='modal' data-target='#myModa6' onclick='deleteData()'>删除</button>
+                <div class="footer-1 col-lg-2 col-lg-offset-10">
+                    <select name="" id="">
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                        <option value="">4</option>
+                        <option value="">5</option>
+                        <option value="">6</option>
+                    </select>
+                    <span>页</span>
+                    <span>共20页</span>
+                    <span>&lt&lt</span>&nbsp;
+                    <span>&gt&gt</span>
+                </div>
+            </div>
+        </div>
+
+        <!--模态框1-->
+        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header tjhead">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel1">添加学生</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <form action="#">
+                            <div class="form-1">
+                                <div>
+                                    <h5 class="kong1">姓名: <span>*</span></h5>
+                                    <input type="text" class="inputname">
+                                    <div class="nameyanzheng"></div>
+                                </div>
+                                <div>
+                                    <h5>性别: <span>*</span></h5>
+                                    <label class="label1">
+                                        <input type="radio" name="optionsRadios" class="optionsRadios1 inputman" value="男"
+                                            checked>
+                                        男
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="optionsRadios" class="optionsRadios2 inputman" value="女"
+                                            checked>
+                                        女
+                                    </label>
+                                </div>
+                                <div>
+                                    <h5>学号: </h5>
+                                    <input type="text" class="inputsID">
+                                    <div class="sIDyanzheng"></div>
+                                </div>
+                                <div>
+                                    <h5>所属班级: <span>*</span></h5>
+                                    <select name="" class="inputclassn">
+                                        <option value="">大1班</option>
+                                        <option value="">大2班</option>
+                                        <option value="">中1班</option>
+                                        <option value="">中2班</option>
+                                        <option value="">小1班</option>
+                                        <option value="">小2班</option>
+                                    </select>
+                                    <div class="classnyanzheng"></div>
+                                </div>
+                                <div>
+                                    <h5>出生日期: </h5>
+                                    <select name="sel1" id="sel1" class="time1 timekong">
+                                        <option value="year">1994</option>
+                                    </select>
+                                    <select name="sel2" id="sel2" class="time1">
+                                        <option value="month">1</option>
+                                    </select>
+                                    <select name="sel3" id="sel3" class="time1">
+                                        <option value="day">1</option>
+                                    </select>
+                                    <div class="ageyanzheng"></div>
+                                </div>
+                                <div>
+                                    <h5>家长姓名: </h5>
+                                    <input type="text" class="inputfname">
+                                    <div class="fnameyanzheng"></div>
+                                </div>
+                                <div>
+                                    <h5>关系: </h5>
+                                    <input type="text" class="inputguanxi">
+                                    <div class="guanxiyanzheng"></div>
+                                </div>
+                                <div>
+                                    <h5>家长电话: <span>*</span></h5>
+                                    <input type="text" class="inputfphone">
+                                    <div class="phoneyanzheng"></div>
+                                </div>
+                                <div>
+                                    <h5>住址: </h5>
+                                    <input type="text" class="inputaddress">
+                                    <div class="addressyanzheng"></div>
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="  chongzhi">重置</button>
+                        <button type="button" class="  tijiao tijiao2" data-dismiss="" onclick="addData()">提交</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--模态框2-->
+        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content ">
+                    <div class="modal-header xiugaixinxi">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel2">修改学生信息</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="#">
+                            <div class="form-2">
+                                <div>
+                                    <h5>姓名: <span>*</span></h5>
+                                    <input type="text" class="xiugainame">
+                                    <div class="nameyanzheng1"></div>
+                                </div>
+                                <div class="kongge">
+                                    <h5>性别: <span>*</span></h5>
+                                    <label class="label1">
+                                        <input type="radio" name="optionsRadios" class="optionsRadios1 xiugaiman" value="男"
+                                            checked>
+                                        男
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="optionsRadios" class="optionsRadios2 xiugaiman" value="女"
+                                            checked>
+                                        女
+                                    </label>
+                                </div>
+                                <div class="kongge">
+                                    <h5>学号: </h5>
+                                    <input type="text" class="xiugaiid">
+                                    <div class="sIDyanzheng1"></div>
+                                </div>
+                                <div class="kongge">
+                                    <h5>所属班级: <span>*</span></h5>
+                                    <select name="" class="inputclassn2">
+                                        <option value="大1班">大1班</option>
+                                        <option value="大2班">大2班</option>
+                                        <option value="中1班">中1班</option>
+                                        <option value="中2班">中2班</option>
+                                        <option value="小1班">小1班</option>
+                                        <option value="小2班">小2班</option>
+                                    </select>
+                                </div>
+                                <div class="kongge">
+                                    <h5>出生日期: </h5>
+                                    <select name="sel4" id="sel4" class="time2 timekong">
+                                        <option value="year" class="time4"></option>
+                                    </select>
+                                    <select name="sel5" id="sel5" class="time2">
+                                        <option value="month"></option>
+                                    </select>
+                                    <select name="sel6" id="sel6" class="time2">
+                                        <option value="day"></option>
+                                    </select>
+                                    <div class="ageyanzheng1"></div>
+                                </div>
+                                <div class="kongge">
+                                    <h5>家长姓名: </h5>
+                                    <input type="text" class="xiugaifname">
+                                    <div class="fnameyanzheng1"></div>
+                                </div>
+                                <div class="kongge">
+                                    <h5>关系: </h5>
+                                    <input type="text" class="xiugaiguanxi">
+                                    <div class="guanxiyanzheng1"></div>
+                                </div>
+                                <div class="kongge">
+                                    <h5>家长电话: <span>*</span></h5>
+                                    <input type="text" class="xiugaimyphone">
+                                    <div class="phoneyanzheng1"></div>
+                                </div>
+                                <div class="kongge">
+                                    <h5>住址: </h5>
+                                    <input type="text" class="xiugaiaddress">
+                                    <div class="addressyanzheng1"></div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="  chongzhi">重置</button>
+                        <button type="button" class="  tijiao tijiao3" onclick='tijiao()'>提交</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--模态框3-->
+
+        <div class="modal fade" id="myModal22" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content ">
+                    <div class="modal-header xiugaixinxi">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel22">查看学生信息</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="#">
+                            <div class="form-2">
+                                <div class="kongge">
+                                    <h5>姓名: <span>*</span></h5>
+                                    <input type="text" class="xiugainame" readonly="readonly">
+                                </div>
+                                <div class="kongge">
+                                    <h5>性别: <span>*</span></h5>
+                                    <label class="label1">
+                                        <input type="radio" name="optionsRadios" class="optionsRadios1 xiugaiman" value="男"
+                                            checked readonly="readonly">
+                                        男
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="optionsRadios" class="optionsRadios2 xiugaiman" value="女"
+                                            checked readonly="readonly">
+                                        女
+                                    </label>
+                                </div>
+                                <div class="kongge">
+                                    <h5>学号: </h5>
+                                    <input type="text" class="xiugaiid" readonly="readonly">
+                                    <div></div>
+                                </div>
+                                <div class="kongge">
+                                    <h5>所属班级: <span>*</span></h5>
+                                    <select name="" class="inputclassn1">
+                                        <option value="大1班">大1班</option>
+                                        <option value="大2班">大2班</option>
+                                        <option value="中1班">中1班</option>
+                                        <option value="中2班">中2班</option>
+                                        <option value="小1班">小1班</option>
+                                        <option value="小2班">小2班</option>
+                                    </select>
+                                    <div></div>
+                                </div>
+                                <div class="kongge">
+                                    <h5>出生日期: </h5>
+                                    <input type="text" class="xiugairiqi" readonly="readonly">
+                                </div>
+                                <div class="kongge">
+                                    <h5>家长姓名: </h5>
+                                    <input type="text" class="xiugaifname" readonly="readonly">
+                                </div>
+                                <div class="kongge">
+                                    <h5>关系: </h5>
+                                    <input type="text" class="xiugaiguanxi" readonly="readonly">
+                                    <div class="guanxiyanzheng1"></div>
+                                </div>
+                                <div class="kongge">
+                                    <h5>家长电话: <span>*</span></h5>
+                                    <input type="text" class="xiugaimyphone" readonly="readonly">
+                                </div>
+                                <div class="kongge">
+                                    <h5>住址: </h5>
+                                    <input type="text" class="xiugaiaddress" readonly="readonly">
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--模态框查询-->
+
+        <div class="modal fade" id="myModal23" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content ">
+                    <div class="modal-header xiugaixinxi">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel23">查看学生信息</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="#">
+                            <div class="form-2">
+                                <div class="kongge">
+                                    <h5>姓名: <span>*</span></h5>
+                                    <input type="text" class="xiugainame">
+                                </div>
+                                <div class="kongge">
+                                    <h5>性别: <span>*</span></h5>
+                                    <label class="label1">
+                                        <input type="radio" name="optionsRadios" class="optionsRadios1 xiugaiman" value="男"
+                                            checked>
+                                        男
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="optionsRadios" class="optionsRadios2 xiugaiman" value="女"
+                                            checked>
+                                        女
+                                    </label>
+                                </div>
+                                <div class="kongge">
+                                    <h5>学号: </h5>
+                                    <input type="text" class="xiugaiid">
+                                    <div></div>
+                                </div>
+                                <div class="kongge">
+                                    <h5>所属班级: <span>*</span></h5>
+                                    <select name="" class="inputclassn1">
+                                        <option value="大1班">大1班</option>
+                                        <option value="大2班">大2班</option>
+                                        <option value="中1班">中1班</option>
+                                        <option value="中2班">中2班</option>
+                                        <option value="小1班">小1班</option>
+                                        <option value="小2班">小2班</option>
+                                    </select>
+                                    <div></div>
+                                </div>
+                                <div class="kongge">
+                                    <h5>出生日期: </h5>
+                                    <input type="text" class="xiugairiqi">
+                                </div>
+                                <div class="kongge">
+                                    <h5>家长姓名: </h5>
+                                    <input type="text" class="xiugaifname">
+                                </div>
+                                <div class="kongge">
+                                    <h5>家长电话: <span>*</span></h5>
+                                    <input type="text" class="xiugaimyphone">
+                                </div>
+                                <div class="kongge">
+                                    <h5>住址: </h5>
+                                    <input type="text" class="xiugaiaddress">
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--模态框退学-->
+    <div class="modal fade" id="myModa6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">提示</h4>
+                </div>
+                <div class="modal-body shifou">
+                    是否确定退学！
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn queding1" data-dismiss="modal">确定</button>
+                    <button type="button" class="btn quxiao1" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var arr1;
+        var arr2;
+        var arr3;
+        var studengdate = [
+            { len: false, name: "春春", sex: "男", age: "1994-2-13", classn: "中2班", sID: "stupid", fname: "春哥", guanxi: "妈妈", myphone: "13568426597", zhuzhi: "火星之上" },
+            { len: false, name: "龙傲天", sex: "男", age: "1994-2-13", classn: "大2班", sID: "kbkzdb", fname: "龙傲天", guanxi: "爸爸", myphone: "13954678591", zhuzhi: "水星之上" },
+            { len: false, name: "马云", sex: "男", age: "1994-2-13", classn: "大2班", sID: "yjflxs", fname: "马化腾", guanxi: "舅舅", myphone: "15146952678", zhuzhi: "土星之上" },
+            { len: false, name: "刘亦菲", sex: "男", age: "1994-2-13", classn: "大2班", sID: "yjflxs", fname: "刘备", guanxi: "爸爸", myphone: "13562486579", zhuzhi: "金星之上" },
+            { len: false, name: "徐润", sex: "男", age: "1994-2-13", classn: "大2班", sID: "yjflxs", fname: "徐门吹雪", guanxi: "爸爸", myphone: "13956487512", zhuzhi: "冥王星之上" },
+            { len: false, name: "擎天柱", sex: "男", age: "1994-2-13", classn: "大2班", sID: "yjflxs", fname: "威震天", guanxi: "爸爸", myphone: "15145876952", zhuzhi: "天王星之上" }
+        ];
+        window.onload = showData;
+        function showData() {
+            var mytable = $(".table tbody").get(0);
+            mytable.innerHTML = "";
+            for (var i = 0; i < studengdate.length; i++) {
+                mytable.innerHTML += "<tr class='tr1'>" +
+                    "<td class='col-lg-1 td1 dxk'><input class='danxuankuang' type='checkbox' onclick='ss(" + i + ")'></td>" +
+                    "<td class='col-lg-1 td1'>" + studengdate[i].name + "</td>" +
+                    "<td class='col-lg-1 td1'>" + studengdate[i].sex + "</td>" +
+                    "<td class='col-lg-1 td1'>" + studengdate[i].age + "</td>" +
+                    "<td class='col-lg-1 td1'>" + studengdate[i].classn + "</td>" +
+                    "<td class='col-lg-1 td1'>" + studengdate[i].sID + "</td>" +
+                    "<td class='col-lg-1 td1'>" + studengdate[i].fname + "</td>" +
+                    "<td class='col-lg-1 td1'>" + studengdate[i].guanxi + "</td>" +
+                    "<td class='col-lg-1 td1'>" + studengdate[i].myphone + "</td>" +
+                    "<td class='col-lg-1 td1'>" + studengdate[i].zhuzhi + "</td>" +
+                    "<td class='col-lg-3 td2'><button    type='button' class=' tuixue' data-toggle='modal' data-target='#myModa6' onclick='deleteData(" + i + ")'>退学</button>" +
+                    "<button type='button' class=' xiugai' data-toggle='modal' data-target='#myModal2' onclick='xiugaixinxi(" + i + ")'>修改</button>" +
+                    "<button type='button' class=' chakan' data-toggle='modal' data-target='#myModal22'" +
+                    " onclick='dianjichakan(" + i + ")'>查看</button></td>" +
+                    "<tr>";
+                var arr = (studengdate[i].age.split("-"));
+                arr1 = arr[0];
+                arr2 = arr[1];
+                arr3 = arr[2];
+            }
+        }
+
+        //模态框查看
+
+
+
+
+        function nnnn(obj) {
+            //        document.getElementById('date0').value = obj.value.replace(/T/g, " ");
+            console.log("11111");
+        }
+
+
+        var date = new Date;
+        var year = date.getFullYear();
+        console.log(year);
+
+        var scc;
+        var qbsc = 0;
+
+        function deleteData(num) {
+            //        if (confirm("确定退学吗？")){
+            //        console.log(num);
+            var shifou = document.getElementsByClassName("shifou")[0];
+            shifou.innerText = "是否确定退学!";
+            scc = num;
+            //        }
+            console.log(qbsc)
+        }
+        $(".queding1").click(function () {
+            for (var i = 0; i < studengdate.length; i++) {
+                if (i == scc) {
+                    studengdate.splice(scc, 1);
+                }
+
+            }
+            for (var j = 0; j < studengdate.length; j++) {
+                if (studengdate[j].len) {
+                    studengdate.splice(j, 1);
+                    j = -1;
+                }
+            }
+
+            showData();
+        });
+        var nm = 0;
+        //修改学生
+        function xiugaixinxi(num1) {
+            nm = num1;
+            //        console.log(studengdate[num1].name);
+            $(".xiugainame").val(studengdate[num1].name);
+            //        console.log(studengdate[num1].sex=="男");
+            if (studengdate[num1].sex == "男") {
+                $(".xiugaiman").get(0).checked = true
+            } else {
+                $(".xiugaiman").get(1).checked = true
+            }
+
+            var hh = $(".inputclassn2 option");
+            console.log(hh);
+
+            $(".xiugaiid").val(studengdate[num1].sID);
+            $(".inputclassn1").val(studengdate[num1].classn);
+            //        $(".xiugairiqi").val(studengdate[num1].age);
+            $("#sel4").find("option:selected").text(arr1);
+            $("#sel5").find("option:selected").text(arr2);
+            $("#sel6").find("option:selected").text(arr3);
+            console.log(arr1);
+            $(".xiugaifname").val(studengdate[num1].fname);
+            $(".xiugaiguanxi").val(studengdate[num1].guanxi);
+            $(".xiugaimyphone").val(studengdate[num1].myphone);
+            $(".xiugaiaddress").val(studengdate[num1].zhuzhi);
+            for (var j = 0; j < hh.length; j++) {
+                if (studengdate[num1].classn == hh[j].value) {
+                    hh[j].selected = true
+                }
+            }
+            //        showData();
+
+        }
+
+
+        function tijiao() {
+           
+            
+            console.log(
+                $(".xiugainame").val(),
+                $(".xiugaiid").val(),
+                $(".xiugaifname").val(),
+                $(".xiugaiguanxi").val(),
+                $(".xiugaimyphone").val(),
+                ($(".xiugainame").val() != "") && ($(".xiugaimyphone").val() != ""),
+                '是否可以提交')
+            if (($(".xiugainame").val() != "") && ($(".xiugaimyphone").val() != "")) {
+                var xiugainame = $(".xiugainame").val();
+                var xiugaiman = $(".xiugaiman:checked").val();
+                var xiugaiid = $(".xiugaiid").val();
+                var inputclassn1 = $(".inputclassn2").find("option:selected").text();
+                var xiugairiqi = $("#sel4").find("option:selected").text() + "-" + $("#sel5").find("option:selected").text() + "-" + $("#sel6").find("option:selected").text();
+                var xiugaifname = $(".xiugaifname").val();
+                var xiugaiguanxi = $(".xiugaiguanxi").val();
+                var xiugaimyphone = $(".xiugaimyphone").val();
+                var xiugaiaddress = $(".xiugaiaddress").val();
+                //        if (aaaaa&&bbbbb&&ccccc&&ddddd&&eeeee&&fffff){
+                studengdate[nm] = {
+                    name: xiugainame,
+                    sex: xiugaiman,
+                    age: xiugairiqi,
+                    classn: inputclassn1,
+                    sID: xiugaiid,
+                    fname: xiugaifname,
+                    guanxi: xiugaiguanxi,
+                    myphone: xiugaimyphone,
+                    zhuzhi: xiugaiaddress
+                };
+                var tijiao3 = document.getElementsByClassName("tijiao3")[0];
+                console.log('传入数据')
+                tijiao3.setAttribute("data-dismiss", "modal");
+            }else{
+                console.log('?可以提交')
+                return
+            }
+
+
+            //       console.log(studengdate[num1]);
+
+            console.log(studengdate[nm].name,  studengdate[nm].myphone, '对象里的值')
+            if (studengdate[nm].name != "" && studengdate[nm].myphone != "") {
+
+                //            studengdate.unshift(studengdate[nm]);
+                showData();
+            }
+
+        }
+
+        //姓名正则
+        var reg = /^[\u4E00-\u9FA5\uf900-\ufa2d·s]{2,20}$/;//姓名正则
+        var aaaaa;
+        $(".inputname").focusout(function () {
+            var aaa = reg.test($(".inputname").val());
+            console.log(aaa);
+            var $span = "<span style='color: red'>请输入正确姓名</span>";
+            if (!aaa) {
+                $(".nameyanzheng").append($span);
+                $(".nameyanzheng").css("opacity", "1")
+            } else {
+                $(".nameyanzheng").css("opacity", "0")
+            }
+        });
+        $(".xiugainame").focusout(function () {
+            var aaa = reg.test($(".xiugainame").val());
+            console.log(aaa);
+
+            var $span = "<span style='color: red'>请输入正确姓名</span>";
+            var tijiao3 = document.getElementsByClassName("tijiao3")[0];
+            aaaaa = aaa;
+            if (!aaa) {
+                $(".nameyanzheng1").append($span);
+                tijiao3.setAttribute("data-dismiss","");
+                $(".nameyanzheng1").css("opacity", "1");
+            } else {
+                $(".nameyanzheng1").css("opacity", "0");
+                //tijiao3.setAttribute("data-dismiss","modal");
+            }
+        });
+
+        //学号正则,6-10位数字字母
+        var reg1 = /^[a-zA-Z0-9]{6,10}$/;
+        var bbbbb;
+        $(".inputsID").focusout(function () {
+            var bbb = reg1.test($(".inputsID").val());
+            console.log(bbb);
+            var $span = "<span style='color: red'>请输入正确学号</span>";
+            if (!bbb) {
+                $(".sIDyanzheng").append($span);
+                //$(".sIDyanzheng").css("opacity","1")
+            } else {
+                //$(".sIDyanzheng").css("opacity","0")
+            }
+        });
+        $(".xiugaiid").focusout(function () {
+            var bbb = reg1.test($(".xiugaiid").val());
+            console.log(bbb);
+            var $span = "<span style='color: red'>请输入正确学号</span>";
+            var tijiao3 = document.getElementsByClassName("tijiao3")[0];
+            bbbbb = bbb;
+            if (!bbb) {
+                $(".sIDyanzheng1").append($span);
+                //tijiao3.setAttribute("data-dismiss","");
+                $(".sIDyanzheng1").css("opacity", "1");
+            } else {
+                $(".sIDyanzheng1").css("opacity", "0");
+                //tijiao3.setAttribute("data-dismiss","modal");
+            }
+        });
+        function dianjichakan(num1) {
+            nm = num1;
+            //        console.log(studengdate[num1].name);
+            $(".xiugainame").val(studengdate[num1].name);
+            //        console.log(studengdate[num1].sex=="男");
+            if (studengdate[num1].sex == "男") {
+                $(".xiugaiman").get(0).checked = true
+            } else {
+                $(".xiugaiman").get(1).checked = true
+            }
+
+            var hh = $(".inputclassn2 option");
+            console.log(hh);
+
+            $(".xiugaiid").val(studengdate[num1].sID);
+            $(".inputclassn1").val(studengdate[num1].classn);
+            $(".xiugairiqi").val(studengdate[num1].age);
+            //        $("#sel4").find("option:selected").text(arr1);
+            //        $("#sel5").find("option:selected").text(arr2);
+            //        $("#sel6").find("option:selected").text(arr3);
+
+            $(".xiugaifname").val(studengdate[num1].fname);
+            $(".xiugaiguanxi").val(studengdate[num1].guanxi);
+            $(".xiugaimyphone").val(studengdate[num1].myphone);
+            $(".xiugaiaddress").val(studengdate[num1].zhuzhi);
+            for (var j = 0; j < hh.length; j++) {
+                if (studengdate[num1].classn == hh[j].value) {
+                    hh[j].selected = true
+                }
+            }
+        }
+
+
+
+        function addData() {
+            var inputname = $(".inputname").val();
+            var inputman = $(".inputman:checked").val();
+            var inputsID = $(".inputsID").val();
+            var inputclassn = $(".inputclassn").find("option:selected").text();
+            var inputage = yearc + "-" + yuec + "-" + ric;
+            var inputfname = $(".inputfname").val();
+            var inputfphone = $(".inputfphone").val();
+            var inputaddress = $(".inputaddress").val();
+            var tijiao2 = document.getElementsByClassName("tijiao2")[0];
+            var newobj = {
+                name: inputname,
+                sex: inputman,
+                age: inputage,
+                classn: inputclassn,
+                sID: inputsID,
+                fname: inputfname,
+                myphone: inputfphone,
+                zhuzhi: inputaddress
+            };
+            if (newobj.name != "" && newobj.age != "" && newobj.fname != "" && newobj.myphone != "") {
+                console.log('提交2')
+                tijiao2.setAttribute("data-dismiss", "modal");
+                studengdate.unshift(newobj);
+                showData();
+            }
+
+        }
+        $(".btntj").click(function () {
+            $(".inputname").val("");
+            $(".inputsID").val("");
+            $(".inputage").val("");
+            $(".inputfphone").val("");
+            $(".inputfname").val("");
+            $(".inputaddress").val("");
+            $(".nameyanzheng").css("opacity", "0");
+            $(".sIDyanzheng").css("opacity", "0");
+            $(".ageyanzheng").css("opacity", "0");
+            $(".fnameyanzheng").css("opacity", "0");
+            $(".phoneyanzheng").css("opacity", "0");
+            $(".addressyanzheng").css("opacity", "0");
+        })
+
+        //修改信息
+
+        //搜索
+        function ccc() {
+
+
+            for (var j = 0; j < studengdate.length; j++) {
+                console.log(studengdate[j].classn);
+                if (studengdate[j].name.indexOf($(".iptcx").val()) && studengdate[j].classn.indexOf($(".iptcx").val())) {
+                    var tr = $(".tr1").get(j);
+                    tr.style.display = "none";
+                } else {
+                    $(".tr1").get(j).style.display = "table-row";
+                }
+            }
+        }
+        //        出生日期正则
+
+
+        //家长姓名正则
+        var reg3 = /^[\u4E00-\u9FA5\uf900-\ufa2d·s]{2,20}$/;//姓名正则
+        var ddddd;
+        $(".inputfname").focusout(function () {
+            var ddd = reg3.test($(".inputfname").val());
+            console.log(ddd);
+            var $span = "<span style='color: red'>请输入正确姓名</span>";
+
+            if (!ddd) {
+                $(".fnameyanzheng").append($span);
+                $(".fnameyanzheng").css("opacity", "1")
+            } else {
+                $(".fnameyanzheng").css("opacity", "0")
+            }
+        });
+        $(".xiugaifname").focusout(function () {
+            var ddd = reg3.test($(".xiugaifname").val());
+            console.log(ddd);
+            var $span = "<span style='color: red'>请输入正确姓名</span>";
+            ddddd = ddd;
+            console.log(ddddd);
+            var tijiao3 = document.getElementsByClassName("tijiao3")[0];
+            if (!ddd) {
+                $(".fnameyanzheng1").append($span);
+                //tijiao3.setAttribute("data-dismiss","");
+                $(".fnameyanzheng1").css("opacity", "1");
+            } else {
+                $(".fnameyanzheng1").css("opacity", "0");
+                //tijiao3.setAttribute("data-dismiss","modal");
+            }
+        });
+        //关系正则
+        var reg3 = /^[\u4E00-\u9FA5\uf900-\ufa2d·s]{2,20}$/;//姓名正则
+        var ggggg;
+        $(".inputguanxi").focusout(function () {
+            var ggg = reg3.test($(".inputguanxi").val());
+            console.log(ggg);
+            var $span = "<span style='color: red'>请输入正确关系</span>";
+
+            if (!ggg) {
+                $(".guanxiyanzheng").append($span);
+                $(".guanxiyanzheng").css("opacity", "1")
+            } else {
+                $(".guanxiyanzheng").css("opacity", "0")
+            }
+        });
+        $(".xiugaiguanxi").focusout(function () {
+            var ggg = reg3.test($(".xiugaiguanxi").val());
+            console.log(ggg);
+            var $span = "<span style='color: red'>请输入正确姓名</span>";
+            ggggg = ggg;
+            console.log(ggggg);
+            var tijiao3 = document.getElementsByClassName("tijiao3")[0];
+            if (!ggg) {
+                $(".guanxiyanzheng1").append($span);
+                //tijiao3.setAttribute("data-dismiss","");
+                $(".guanxiyanzheng1").css("opacity", "1");
+            } else {
+                $(".guanxiyanzheng1").css("opacity", "0");
+                //tijiao3.setAttribute("data-dismiss","modal");
+            }
+        });
+        //  电话正则
+        var reg4 = /^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/;//姓名正则
+        var eeeee;
+        $(".inputfphone").focusout(function () {
+            var eee = reg4.test($(".inputfphone").val());
+            console.log(eee);
+            var $span = "<span style='color: red'>请输入正确电话</span>";
+
+            if (!eee) {
+                $(".phoneyanzheng").append($span);
+                $(".phoneyanzheng").css("opacity", "1")
+            } else {
+                $(".phoneyanzheng").css("opacity", "0")
+            }
+        }); $(".xiugaimyphone").focusout(function () {
+            var eee = reg4.test($(".xiugaimyphone").val());
+            console.log(eee);
+            var $span = "<span style='color: red'>请输入正确电话</span>";
+            var tijiao3 = document.getElementsByClassName("tijiao3")[0];
+            eeeee = eee;
+            if (!eee) {
+                $(".phoneyanzheng1").append($span);
+                tijiao3.setAttribute("data-dismiss","");
+                $(".phoneyanzheng1").css("opacity", "1");
+            } else {
+                $(".phoneyanzheng1").css("opacity", "0");
+                //tijiao3.setAttribute("data-dismiss","modal");
+            }
+        });
+        //住址正则
+
+        var reg5 = /^[\u4E00-\u9FA5\uf900-\ufa2d·s]{2,50}$/;//姓名正则
+        var fffff;
+        $(".inputaddress").focusout(function () {
+            var fff = reg5.test($(".inputaddress").val());
+            console.log(fff);
+            var $span = "<span style='color: red'>请输入正确住址</span>";
+
+            if (!fff) {
+                $(".addressyanzheng").append($span);
+                $(".addressyanzheng").css("opacity", "1")
+            } else {
+                $(".addressyanzheng").css("opacity", "0")
+            }
+        });
+        $(".xiugaiaddress").focusout(function () {
+            var fff = reg5.test($(".xiugaiaddress").val());
+            var tijiao3 = document.getElementsByClassName("tijiao3")[0];
+            console.log(fff);
+            var $span = "<span style='color: red'>请输入正确住址</span>";
+            fffff = fff;
+            if (!fff) {
+                $(".addressyanzheng1").append($span);
+                //tijiao3.setAttribute("data-dismiss","");
+                $(".addressyanzheng1").css("opacity", "1");
+            } else {
+                $(".addressyanzheng1").css("opacity", "0");
+                //tijiao3.setAttribute("data-dismiss","modal");
+            }
+        });
+        var la;
+        $(".quanxuan").click(function () {
+            var di = $(".danxuankuang");
+            for (var i = 0; i < di.length; i++) {
+                di[i].checked = true;
+                studengdate[i].len = true;
+            }
+            la = true;
+            //        la=1;
+        });
+        var mm = 0;
+        function ss(num111) {
+
+            var di = $(".danxuankuang");
+
+            if (la) {
+                if (studengdate[num111].len = true) {
+                    studengdate[num111].len = false
+                }
+            } else {
+                studengdate[num111].len = true;
+            }
+
+
+
+        }
+
+
+
+
+        $(".shanchu").click(function () {
+            //              var xinxi=document.createElement("span");
+            var shifou = document.getElementsByClassName("shifou")[0];
+            shifou.innerText = "是否全部删除!";
+        });
+
+        $(".chongzhi").click(function () {
+            //      document.getElementsByClassName("inputname")[0].value = "";
+            $(".inputname").val("");
+            $(".inputsID").val("");
+            $(".inputage").val("");
+            $(".inputfphone").val("");
+            $(".inputfname").val("");
+            $(".inputaddress").val("");
+            $(".nameyanzheng").css("opacity", "0");
+            $(".sIDyanzheng").css("opacity", "0");
+            $(".ageyanzheng").css("opacity", "0");
+            $(".fnameyanzheng").css("opacity", "0");
+            $(".phoneyanzheng").css("opacity", "0");
+            $(".addressyanzheng").css("opacity", "0");
+            $(".xiugainame").val("");
+            $(".xiugaiid").val("");
+            $(".xiugairiqi").val("");
+            $(".xiugaimyphone").val("");
+            $(".xiugaifname").val("");
+            $(".xiugaiaddress").val("");
+            $(".nameyanzheng1").css("opacity", "0");
+            $(".sIDyanzheng1").css("opacity", "0");
+            $(".ageyanzheng1").css("opacity", "0");
+            $(".fnameyanzheng1").css("opacity", "0");
+            $(".phoneyanzheng1").css("opacity", "0");
+            $(".addressyanzheng1").css("opacity", "0");
+        })
+        //生成1994年-2100年
+        for (var i = 1994; i <= 2100; i++) {
+            var option = document.createElement('option');
+            option.setAttribute('value', i);
+            option.innerHTML = i;
+            sel1.appendChild(option);
+        }
+        //生成1月-12月
+        for (var i = 1; i <= 12; i++) {
+            var option = document.createElement('option');
+            option.setAttribute('value', i);
+            option.innerHTML = i;
+            sel2.appendChild(option);
+        }
+        //生成1日—31日
+        for (var i = 1; i <= 31; i++) {
+            var option = document.createElement('option');
+            option.setAttribute('value', i);
+            option.innerHTML = i;
+            sel3.appendChild(option);
+        }
+        //生成1994年-2100年
+        for (var i = 1994; i <= 2100; i++) {
+            var option = document.createElement('option');
+            option.setAttribute('value', i);
+            option.innerHTML = i;
+            sel4.appendChild(option);
+        }
+        //生成1月-12月
+        for (var i = 1; i <= 12; i++) {
+            var option = document.createElement('option');
+            option.setAttribute('value', i);
+            option.innerHTML = i;
+            sel5.appendChild(option);
+        }
+        //生成1日—31日
+        for (var i = 1; i <= 31; i++) {
+            var option = document.createElement('option');
+            option.setAttribute('value', i);
+            option.innerHTML = i;
+            sel6.appendChild(option);
+        }
+
+        var yearc = "";
+        $("#sel1").change(function () {
+            var yeart = $("#sel1").find("option:selected").text();
+            yearc = yeart;
+            console.log(yearc + "-" + yuec + "-" + ric);
+        });
+        var yuec = "";
+        $("#sel2").change(function () {
+            var yuet = $("#sel2").find("option:selected").text();
+            yuec = yuet
+        });
+        var ric = "";
+        $("#sel3").change(function () {
+            var rit = $("#sel3").find("option:selected").text();
+            ric = rit
+        });
+
+
+
+        //aaaaaaaaaaaa
+
+        var yeard = "";
+        $("#sel4").change(function () {
+            var yearg = $("#sel4").find("option:selected").text();
+            yeard = yearg;
+            console.log(yeard + "-" + yued + "-" + rid);
+        });
+
+        var yued = "";
+        $("#sel5").change(function () {
+            var yueg = $("#sel5").find("option:selected").text();
+            yued = yueg
+        });
+        var rid = "";
+        $("#sel6").change(function () {
+            var rig = $("#sel6").find("option:selected").text();
+            rid = rig
+        });
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <!--IE-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--移动端-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap引入-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--HTML5的IE兼容-->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .xkuang {
+            width: 1000px;
+            text-align: center;
+            margin: auto;
+            font-size: x-large;
+        }
+
+        .kuang {
+            width: 1200px;
+            text-align: center;
+            margin: auto;
+            border: solid 1px #FC9D9A;
+        }
+
+        .pd {
+            line-height: 50px !important;
+            padding: 0;
+        }
+
+        .t1 {
+            padding-bottom: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .th1, .th2, .th3 {
+            margin: 20px auto;
+            text-align: center;
+            font-size: 10px;
+            background-color: #FFF2F1;
+            padding: 0 !important;
+            font-weight: lighter;
+        }
+
+        .th2 {
+            border-radius: 20px 0 0 20px;
+        }
+
+        .th3 {
+            border-radius: 0 20px 20px 0;
+        }
+
+        #myTable {
+            width: 1000px;
+            margin: auto;
+        }
+
+        .bt1, .bt2 {
+            width: 90px;
+            height: 36px;
+            border-radius: 20px;
+        }
+
+        .bt2 {
+            background-color: #F99999;
+            color: white;
+        }
+
+        .bt1 {
+            padding: 0;
+            background-color: #89B189;
+            color: white;
+        }
+
+        .btb {
+            margin: 10px auto;
+        }
+
+        .ts1, .ts2 {
+            color: red;
+            opacity: 0;
+        }
+
+        .sbt {
+            width: 92px;
+            height: 30px;
+            font-size: 13px;
+            border-radius: 4px;
+            border: none;
+        }
+
+        .bt3, .bt4 {
+            width: 51px;
+            height: 34px;
+            border: 0;
+            border-radius: 4px;
+        }
+
+        .xl1 {
+            background-color: #F99999;
+            color: white;
+            margin-top: 20px;
+        }
+
+        .xl2 {
+            text-align: left;
+            background-color: #F99999;
+        }
+
+        .x1 {
+            color: red;
+            font-size: 13px;
+            font-weight: 900;
+        }
+        .po{
+            text-align: left;
+        }
+        .wz{
+            font-weight: 900;
+        }
+        .lp{
+            margin-left: -48px;
+        }
+    </style>
+</head>
+<body>
+<section class="container-fluid">
+    <div>
+        <div class="row we">
+            <button class="col-md-1 col-md-offset-2 sbt xl1">考勤管理</button>
+        </div>
+        <div class="row xkuang">
+            <div class="col-md-2 col-md-offset-2 t1">
+                班级
+            </div>
+            <div class="col-md-2 t1">
+                姓名
+            </div>
+            <div class="col-md-2 t1">
+                学号
+            </div>
+            <div class="col-md-2 t1">
+                入园时间
+            </div>
+            <div class="col-md-2 t1">
+                离园时间
+            </div>
+        </div>
+        <div class="kuang">
+            <table id="myTable">
+                <thead>
+                <tr class="row ">
+                    <th class="col-md-2 pd">
+                        <div class="th2">
+                            <input type="checkbox">
+                        </div>
+                    </th>
+                    <th class="col-md-2 pd">
+                        <div class="th1">
+                            大班一班
+                        </div>
+                    </th>
+                    <th class="col-md-2 pd">
+                        <div class="th1">
+                            王定双
+                        </div>
+                    </th>
+                    <th class="col-md-2 pd">
+                        <div class="th1">
+                            123456
+                        </div>
+                    </th>
+                    <th class="col-md-2 pd">
+                        <div class="th1">
+                            2018.1.2 7:50
+                        </div>
+                    </th>
+                    <th class="col-md-2 pd">
+                        <div class="th3">
+                            2018.1.2 7:50
+                        </div>
+                    </th>
+                </tr>
+                </thead>
+            </table>
+            <div class="row btb">
+                <button class="bt1 col-md-2 col-md-offset-5 sbt"><span>推送邮箱</span></button>
+                <button class="bt2 col-md-2 col-md-offset-1 sbt" data-toggle="modal" data-target="#myModal">
+                    <span>请假录入</span></button>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade mtk" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header xl2">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true" class="xl3">&times;</span></button>
+                            <h4 class="modal-title wz" id="myModalLabel">请假录入</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row btb">
+                                <span class="col-md-2 col-md-offset-1 po">班级</span>
+                                <select name="sclass" id="xl" class="col-md-3 lr" onchange="xz()">
+                                    <option value="1">大班一班</option>
+                                    <option value="2">大班二班</option>
+                                    <option value="3">大班三班</option>
+                                    <option value="4">中班一班</option>
+                                    <option value="5">中班二班</option>
+                                </select>
+                            </div>
+                            <div class="row btb ">
+                                <span class="col-md-2 col-md-offset-1 po">姓名<span class="x1">*</span></span>
+                                <select name="" id="" class="col-md-3 lr">
+                                    <option value="1">王定双</option>
+                                    <option value="2">王定单</option>
+                                    <option value="3">王定一</option>
+                                    <option value="4">王定二</option>
+                                    <option value="5">王定三</option>
+                                    <option value="6">王定四</option>
+                                    <option value="7">王定五</option>
+                                    <option value="8">王定六</option>
+                                    <option value="8">王定七</option>
+                                </select>
+                            </div>
+                            <div class="row btb ">
+                                <span class="col-md-3 col-md-offset-1 po">请假事由 <span class="x1">*</span></span>
+                                <select name="" class="col-md-3 lr lp">
+                                    <option value="1">病假</option>
+                                    <option value="2">事假</option>
+                                </select>
+                            </div>
+                            <div class="row btb">
+                                <span class="col-md-2 col-md-offset-1 po">备注 <span class="x1">*</span></span>
+                                <textarea id="amend-describe" style="width: 300px;height: 150px;resize: none;"  class="lr  col-md-8"></textarea>
+                                <span class="ts1">请输入不超过20个汉字</span>
+                            </div>
+                        </div>
+                        <div class="modal-footer ">
+                            <button type="button" class="bt4 bt1">重置</button>
+                            <button type="button" class="bt3 bt2 " id="bt5">完成</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="jquery-3.3.1.min.js"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+<script>
+    var std = [
+        {
+            tx: "<input type='checkbox'>",
+            sclass: "大班一班",
+            name: "王定双",
+            snumber: "123456",
+            time: "2018.1.2 7:50",
+            outtime: "2018.1.2 7:50"
+        },
+        {
+            tx: "<input type='checkbox'>",
+            sclass: "大班一班",
+            name: "王定双",
+            snumber: "123456",
+            time: "2018.1.2 7:50",
+            outtime: "2018.1.2 7:50"
+        },
+        {
+            tx: "<input type='checkbox'>",
+            sclass: "大班一班",
+            name: "王定双",
+            snumber: "123456",
+            time: "2018.1.2 7:50",
+            outtime: "2018.1.2 7:50"
+        },
+        {
+            tx: "<input type='checkbox'>",
+            sclass: "大班一班",
+            name: "王定双",
+            snumber: "123456",
+            time: "2018.1.2 7:50",
+            outtime: "2018.1.2 7:50"
+        },
+        {
+            tx: "<input type='checkbox'>",
+            sclass: "大班一班",
+            name: "王定双",
+            snumber: "123456",
+            time: "2018.1.2 7:50",
+            outtime: "2018.1.2 7:50"
+        },
+        {
+            tx: "<input type='checkbox'>",
+            sclass: "大班一班",
+            name: "王定双",
+            snumber: "123456",
+            time: "2018.1.2 7:50",
+            outtime: "2018.1.2 7:50"
+        }
+    ];
+    function as() {
+        var mtb = document.getElementById("myTable");
+        mtb.innerHTML = "";
+        for (var i = 0; i < std.length; i++) {
+            mtb.innerHTML +=
+                "<tr class='row'>" +
+                "<th class='col-md-2 pd'>" + "<div class='th2'>" + std[i].tx + "</div>" + "</th>" +
+                "<th class='col-md-2 pd'>" + "<div class='th1'>" + std[i].sclass + "</div>" + "</th >" +
+                "<th class='col-md-2 pd'>" + "<div class='th1'>" + std[i].name + "</div>" + "</th>" +
+                "<th class='col-md-2 pd'>" + "<div class='th1'>" + std[i].snumber + "</div>" + "</th>" +
+                "<th class='col-md-2 pd'>" + "<div class='th1'>" + std[i].time + "</div>" + "</th>" +
+                "<th class='col-md-2 pd'>" + "<div class='th3'>" + std[i].outtime + "</div>" + "</th>" +
+                "</tr>"
+        }
+    }
+    as();
+    var f = false;
+    document.getElementsByClassName("bt3")[0].addEventListener("click", function () {
+        var a = document.getElementById("xl");
+        var g = a.options[a.selectedIndex].innerText;
+        console.log(g);
+        var b = document.getElementsByClassName("lr")[1];
+        var j = b.options[b.selectedIndex].innerText;
+        console.log(j);
+        var d = document.getElementsByClassName("lr")[2];
+        var u= d.options[d.selectedIndex].innerText;
+        var e = document.getElementsByClassName("lr")[3].value;
+        var zz = /^[\u4e00-\u9fa5]{1,20}$/;
+        var zzjg1 = zz.test(e);
+        if (zzjg1 == true) {
+            f = true
+        }
+        if (zzjg1 == false) {
+            $(".ts1").css("opacity", "1");
+            aaa.setAttribute("data-dismiss", "");
+            f = false
+        }
+        if (f == true) {
+            var aaa = document.getElementById("bt5");
+            aaa.setAttribute("data-dismiss", "modal");
+            var s = {
+                tx: "<input type='checkbox'>",
+                sclass: g,
+                name: j,
+                snumber: std[1].snumber,
+                time: u,
+                outtime: e
+            };
+            std.push(s);
+            as();
+            document.getElementsByClassName("lr")[0].value = "1";
+            document.getElementsByClassName("lr")[1].value = "";
+            document.getElementsByClassName("lr")[2].value = "";
+            document.getElementsByClassName("lr")[3].value = "";
+        }
+    }, false);
+    document.getElementsByClassName("bt4")[0].addEventListener("click", function () {
+        document.getElementsByClassName("lr")[0].value = "1";
+        document.getElementsByClassName("lr")[3].value = "";
+        $(".ts2").css("opacity", "0");
+        $(".ts1").css("opacity", "0")
+    }, false);
+    document.getElementsByClassName("xl3")[0].addEventListener("click", function () {
+        document.getElementsByClassName("lr")[0].value = "1";
+        document.getElementsByClassName("lr")[3].value = "";
+        $(".ts2").css("opacity", "0");
+        $(".ts1").css("opacity", "0")
+    }, false);
+    function xz() {
+        console.log(2);
+        var c = document.getElementsByClassName("lr")[0];
+        var b = document.getElementsByClassName("lr")[1];
+        var jz = ["王定双", "王定单"];
+        var lss = ["王定一", "王定二", "王定三", "王定四"];
+        var lss1 = ["王定一", "王定二", "王定三", "王定四", "王定五"];
+        var lss2 = ["王一", "王二", "王三", "王四", "王五"];
+        var lss3 = ["定一", "定二", "定三", "定四", "定五"];
+        b.innerHTML = "";
+        if (c.value == 1) {
+            for (var i = 0; i < jz.length; i++) {
+                b.innerHTML += " <option value='1'>" + jz[i] + "</option>"
+            }
+        }
+        else if (c.value == 2) {
+            for (var j = 0; j < lss.length; j++) {
+                b.innerHTML += " <option value='2'>" + lss[j] + "</option>"
+            }
+        }
+        else if (c.value == 3) {
+            for (var p = 0; p < lss1.length; p++) {
+                b.innerHTML += " <option value='3'>" + lss1[p] + "</option>"
+            }
+        }
+        else if (c.value == 4) {
+            for (var l = 0; l < lss2.length; l++) {
+                b.innerHTML += " <option value='3'>" + lss2[l] + "</option>"
+            }
+        }
+        else if (c.value == 5) {
+            for (var o = 0; o < lss3.length; o++) {
+                b.innerHTML += " <option value='3'>" + lss3[o] + "</option>"
+            }
+        }
+    }
+</script>
+</body>
+</html>

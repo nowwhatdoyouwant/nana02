@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="dapacss.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<section class="section">
+    <div class="div-top">
+        <div class="div-left" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus" aria-hidden="true" ></i>
+            新增部门</div>
+        <div class="div-right">
+            <input contenteditable="true" class="div-search" id="search" placeholder="输入部门">
+            <div class="div-button" onclick="search2();">查询</div>
+        </div>
+    </div>
+    <div>
+        <table class="table  col-lg-12" id="mytable">
+            <thead>
+            <tr class="table-tr table-hea">
+                <th class="col-lg-1">编号</th>
+                <th class="col-lg-2">部门名称</th>
+                <th class="col-lg-4">部门描述</th>
+                <th class="col-lg-1">部门人员</th>
+                <th class="col-lg-4">操作</th>
+            </tr>
+            </thead>
+            <tbody >
+
+            </tbody>
+
+        </table>
+    </div>
+    <div class="footer">
+        <div class="footer-1">
+            <span>第</span>
+            <select name="" id="" class="footer-sele">
+                <option value="">1</option>
+                <option value="">2</option>
+            </select>
+            <span>页</span>
+            <span class="footer-ma">共2页</span>
+            <span class="footer-ma">&lt&lt</span>
+            <span>&gt&gt</span>
+        </div>
+    </div>
+</section>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">添加部门</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <label for="">部门名称</label>
+                    <input type="text" class="pa-name"><span id="pa-name"></span>
+                </div>
+                <div>
+                    <label for="" class="pa-label1">部门描述</label>
+                    <textarea class="pa-text"></textarea><span id="pa-text"></span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="mydefault" onclick="result2();" >重置</button>
+                <button type="button" class="myprimary submit" onclick="result();" data-dismiss="">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Small modal -->
+<div class="modal fade bs-example-modal-sm" id="smalModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="mySmallModalLabel">提示信息</h4>
+            </div>
+            <div class="modal-body small-div">
+                <div class="sma-moda-size"></div>
+                <div class="sma-moda-color"></div>
+                <div></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Small modal2 -->
+<!--<div class="modal fade bs-example-modal-sm1" id="smalModal2" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="mySmallModalLabel2"></h4>
+            </div>
+            <div class="modal-body small-div">
+                <div  id="tilezi"></div>
+            </div>
+
+        </div>
+    </div>
+</div>-->
+<!-- 详情Modal -->
+<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel3">Modal title</h4>
+            </div>
+            <div class="modal-body small-div">
+                <div  id="tilezi"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="mydefault" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Large modal -->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="close-div">
+                <button type="button" class="close large-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <table class=" col-lg-12 large-table" id="largeTable">
+                <thead>
+                <tr>
+                    <th class="col-lg-3">姓名</th>
+                    <th class="col-lg-3">手机号码</th>
+                    <th class="col-lg-3">所在部门</th>
+                    <th class="col-lg-3">激活状态</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel2">提示信息</h4>
+            </div>
+            <div class="modal-body">
+               <div>
+                   <p>是否确认删除？</p>
+               </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="mydefault" data-dismiss="modal" >取消</button>
+                <button type="button" class="myprimary " data-dismiss="modal" data-target='.bs-example-modal-sm' data-toggle='modal' onclick="deleteSure();">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="dist/js/jquery-3.3.1.js"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="dist/js/bootstrap.min.js"></script>
+<script>
+    var dapatmentArry=[
+        {no1:0,dapaName:"行政办",describe:"下设组织科",people:5,inroduce:"下设组织科，组织老师和家长沟通，老师和孩子沟通，让家长放心，孩子开学"},
+        {no1:1,dapaName:"财务部",describe:"负责园内的",people:15,inroduce:"负责园内的各项开支，计划孩子们的春秋游消费，负责保障优质校园生活"},
+        {no1:2,dapaName:"后勤部",describe:"管理师生生",people:20,inroduce:"管理师生生活，为全校的师生提供优质的早中晚餐，保障师生健康成长"},
+        {no1:3,dapaName:"教育部",describe:"进行教育工作",people:20,inroduce:"进行教育工作，实施信息公开、新闻宣传、在线互动的学校与家长沟通窗口。同时进行学生德智体美的全方面监控。"},
+        {no1:4,dapaName:"保卫科",describe:"负责全园安全",people:10,inroduce:"负责全园安全管理工作，保护师生员工人身安全、财产安全，维护学校稳定和校园正常秩序，根据内部治安保卫条例，结合社会治安形式的要求，进行校园安全保卫工作。"}
+    ];
+    var newDapaName=document.getElementsByClassName("pa-name")[0];
+    var newDapadesc=document.getElementsByClassName("pa-text")[0];
+    var sign3=true;
+    //时间记录
+    var num1=3;
+    var num2=3;
+    //清除时间变量减少
+    var clearne;
+    var clearne1;
+    var clearne2;
+    //判断是否单击是编辑还是新增部门
+    var edit1=false;
+    //原来部门里面的编号
+    var editNum;
+    //原来部门里面的人数
+    var editPeople;
+    //输错提示
+    var daNameSpan=document.getElementById("pa-name");
+    var daDesSpan=document.getElementById("pa-text");
+    window.onload=showData;
+    /*将数组动态添加数据进表格*/
+    function showData() {
+        var mytable=$("#mytable tbody").get(0);
+        mytable.innerHTML="";
+        for(var i=0;i<dapatmentArry.length;i++){
+            mytable.innerHTML+="<tr class='table-tr look-tr'>"+"<td>"+(i+1)+"</td>"+
+                    "<td class='dapaName'>"+dapatmentArry[i].dapaName+"</td>"+"<td class='table-over'>"+dapatmentArry[i].describe+"..."+
+                "<span class='span' data-target='#myModal3' data-toggle='modal' onclick='seeDapa("+i+");'>"+"详情"+"</span>"+"</td>"+"<td>"+dapatmentArry[i].people+"</td>"+
+                    "<td class='table-div'>"+"<div class='tedit' onclick='edit("+i+")' data-toggle='modal' data-target='#myModal'>"+"编辑"+"</div>"+
+                "<div class='del' onclick='delDapa("+i+")' data-target='#myModal2' data-toggle='modal'>"+"删除"+"</div>"+
+                "<div class='see' onclick='examine("+i+")'data-toggle='modal' data-target='.bs-example-modal-lg'>"+"查看"+"</div>"+"</td>"+"</tr>"
+        }
+    }
+
+    /*点击详情时的操作*/
+    function seeDapa(str4) {
+        var title=document.getElementById("myModalLabel3");
+        var titleText=document.getElementById("tilezi");
+        title.innerText=dapatmentArry[str4].dapaName;
+        titleText.innerText=dapatmentArry[str4].inroduce;
+    }
+
+
+
+    var delNum;
+    /*点击删除按钮时的判断*/
+    function delDapa(num) {
+        num1=3;
+        num2=3;
+        delNum=num;
+    }
+
+
+    /*删除提示后选择确认后的操作*/
+    function deleteSure() {
+        var div1=document.getElementsByClassName("small-div")[0];
+        var modaldiv=div1.getElementsByTagName("div");
+        if(dapatmentArry[delNum].people>0){
+            modaldiv[0].innerText="操作失败";
+            modaldiv[1].innerText="该部门还存在人员，无法删除！！！";
+            modaldiv[2].innerText="页面自动跳转，等待时间:"+num1;
+            clearne=setInterval(function () {
+                num1--;
+                console.log(num1);
+                modaldiv[2].innerText="页面自动跳转，等待时间:"+num1;
+                if(num1<=0){
+                    num1=3;
+                }
+            },1000);
+        }else if(dapatmentArry[delNum].people===0){
+            modaldiv[0].innerText="操作成功";
+            modaldiv[1].innerText="";
+            modaldiv[2].innerText="页面自动跳转，等待时间:"+num2;
+            clearne1=setInterval(function () {
+                num2--;
+                console.log(num2);
+                modaldiv[2].innerText="页面自动跳转，等待时间:"+num2;
+                if(num2<0){
+                    num2=3;
+                }
+            },1000);
+            dapatmentArry.splice(delNum,1);
+            showData();
+        }
+    }
+
+
+    /*删除模态框的显示转换为隐藏状态*/
+    $("#smalModal").on("shown.bs.modal",function () {
+        clearne2=setTimeout(function () {
+            $("#smalModal").modal("hide");
+        },3000);
+    });
+    $("#smalModal").on("hidden.bs.modal",function () {
+        clearInterval(clearne);
+        clearInterval(clearne1);
+        clearInterval(clearne2);
+        num1=3;
+        num2=3;
+    });
+    $("#myModal").on("hidden.bs.modal",function () {
+        $(".pa-name").eq(0).val("");
+        $(".pa-text").eq(0).val("");
+        $("#pa-name").text("");
+        $("#pa-text").text("");
+        edit1=false;
+        sign3=false;
+        editNum=null;
+    });
+    $(".div-left").click(function () {
+        $("#myModalLabel").html("添加部门")
+    });
+
+
+
+
+
+    /*提交新增部门时的判断和操作*/
+    function result() {
+        //提交的时候初始化设置
+        sign3=true;
+        daNameSpan.innerText="";
+        daDesSpan.innerText="";
+
+
+        var submit=document.getElementsByClassName("submit")[0];
+        var dapadesc=(newDapadesc.value).slice(0,5);
+        var newobj={dapaName:newDapaName.value,describe:dapadesc,people:0,inroduce:newDapadesc.value};
+        //输入框正则
+         var reg = /^[\u4e00-\u9fa5]{2,20}$/;
+         var reg1 = /^[\u3001-\uffff]{2,50}$/;
+         //正则和输入的值判断结果的存储变量
+        var result;
+        var result1;
+        for(var i=0;i<dapatmentArry.length;i++){
+            if(newDapaName.value===dapatmentArry[i].dapaName&&i!==editNum){
+                daNameSpan.innerText = "该部门已存在！";
+                submit.setAttribute("data-dismiss","");
+                console.log(111);
+                sign3=false;
+            }
+        }
+        result=reg.test(newDapaName.value);
+        result1=reg1.test(newDapadesc.value);
+        console.log(newDapaName.value);
+        console.log(newDapadesc.value);
+        if(!result) {
+            daNameSpan.innerText = "名称必须在2-20个文字以内！";
+            submit.setAttribute("data-dismiss","");
+        }
+        if(!result1){
+            daDesSpan.innerText="描述必须在2-50个文字以内！";
+            submit.setAttribute("data-dismiss","");
+        }
+        console.log(sign3);
+        if(result&&result1&&sign3){
+            if(edit1){
+                newobj.people=editPeople;
+                dapatmentArry.splice(editNum,1,newobj);
+                edit1=false;
+            }else {
+                dapatmentArry.unshift(newobj);
+            }
+            showData();
+            submit.setAttribute("data-dismiss","modal");
+
+        }
+
+    }
+
+
+
+
+
+    /*单击重置时的操作*/
+    function result2(){
+        newDapaName.value="";
+        newDapadesc.value="";
+        daNameSpan.innerText="";
+        daDesSpan.innerText="";
+    }
+
+
+
+
+    /*单击编辑的操作*/
+    var edH4=document.getElementById("myModalLabel");
+    function edit(str) {
+        edH4.innerText="编辑部门";
+        console.log();
+        editPeople=dapatmentArry[str].people;
+        newDapaName.value=dapatmentArry[str].dapaName;
+        newDapadesc.value=dapatmentArry[str].inroduce;
+        editNum=dapatmentArry[str].no1;
+        edit1=true;
+    }
+
+
+
+    /*查看成员*/
+    var adminArry=[
+        {name:"张三",tel:"15215164646",alive:"是"},
+        {name:"李四",tel:"18522146464",alive:"是"},
+        {name:"王五",tel:"18522146464",alive:"是"},
+        {name:"劳尔",tel:"18522146464",alive:"是"},
+        {name:"溥仪",tel:"18522146464",alive:"否"}
+    ];
+    var financeArry=[
+        {name:"蒲南",tel:"15215164646",alive:"否"},
+        {name:"陈浩南",tel:"18522146464",alive:"是"},
+        {name:"陈浩北",tel:"18522146464",alive:"是"},
+        {name:"陈浩东",tel:"18522146464",alive:"是"},
+        {name:"陈浩西",tel:"18522146464",alive:"是"}
+    ];
+    var logistArry=[
+        {name:"方大同",tel:"15215164646",alive:"是"},
+        {name:"方仁",tel:"18522146464",alive:"否"},
+        {name:"方万",tel:"18522146464",alive:"是"},
+        {name:"胡三万",tel:"18522146464",alive:"是"},
+        {name:"胡刘同",tel:"18522146464",alive:"是"}
+    ];
+    var educaArry=[
+        {name:"林子墨",tel:"15215164646",alive:"是"},
+        {name:"林晨",tel:"18522146464",alive:"是"},
+        {name:"林俊杰",tel:"18522146464",alive:"是"},
+        {name:"林宇",tel:"18522146464",alive:"否"},
+        {name:"向步道",tel:"18522146464",alive:"是"}
+    ];
+    var defendArry=[
+        {name:"徐南古",tel:"15215164646",alive:"是"},
+        {name:"王菊",tel:"18522146464",alive:"是"},
+        {name:"陈晓武",tel:"18522146464",alive:"否"},
+        {name:"玛依拉",tel:"18522146464",alive:"是"},
+        {name:"董华",tel:"18522146464",alive:"是"}
+    ];
+    var allArry=[adminArry,financeArry,logistArry,educaArry,defendArry];
+    var newArry=[];
+    function examine(str2) {
+        newArry=allArry[str2];
+        console.log(newArry[0].tel);
+       var mytable2=$("#largeTable tbody").get(0);
+        mytable2.innerHTML="";
+        for(var i=0;i<newArry.length;i++){
+            mytable2.innerHTML+="<tr>"+"<td>"+newArry[i].name+"</td>"+
+                "<td>"+newArry[i].tel+"</td>"+"<td>"+dapatmentArry[str2].dapaName+"</td>"+
+                    "<td>"+newArry[i].alive+"</td>"+"</tr>"
+        }
+    }
+    /*查询功能*/
+    var mysearch=document.getElementById("search");
+    var mylook=document.getElementsByClassName("dapaName");
+    function search2() {
+        var con=mysearch.value;
+        for(var i=0;i<mylook.length;i++){
+            mylook[i].parentNode.style.display="none";
+            if(mylook[i].innerText.indexOf(con)!==-1){
+                mylook[i].parentNode.style.display="table-row";
+            }
+        }
+    }
+
+
+
+</script>
+</body>
+</html>

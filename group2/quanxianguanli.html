@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--移动端用1:1的比例换算px-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/htmleaf-demo.css">
+    <link rel="stylesheet" type="text/css" href="zhezhaoceng/css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" type="text/css" href="sanDgundong/css/css.css">
+
+
+    <!--引入bootstrap CSS文件-->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .xiala{
+            width: 100px;
+            height: 30px;
+            margin-top: 5px;
+        }
+        .anniu{
+            height: 30px;
+            width: 50px;
+            border-radius: 3px;
+            background-color:  #679767;
+            border: solid 1px  #679767;
+            color: white;
+        }
+        .img-thumbnail{
+            width: 420px;
+            height: 300px;
+        }
+        .wenzishuoming{
+            display: block;
+            width: 420px;
+            height: 50px;
+            text-align: center;
+            margin: 0;
+            font-size: 25px;
+            color:  #FF7F21;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+
+        }
+        #wenzishuoming1{
+            display: block;
+            width: 420px;
+            height: 50px;
+            text-align: center;
+            margin: 0;
+            font-size: 40px;
+            color:  #FF7F21;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        #wenzishuoming2{
+            display: block;
+            width: 420px;
+            height: 50px;
+            text-align: center;
+            margin: 0;
+            font-size: 40px;
+            color:  #FF7F21;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        #wenzishuoming3{
+            display: block;
+            width: 420px;
+            height: 50px;
+            text-align: center;
+            margin: 0;
+            font-size: 40px;
+            color:  #FF7F21;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        .dianjitianjia{
+            display: block;
+            width: 420px;
+            height: 50px;
+            text-align: center;
+            margin: 0;
+            font-size: 25px;
+            color:  #FF7F21;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        .dianjitianjia:hover{
+            cursor: pointer;
+        }
+        .nianji{
+            margin: 10px 10px;
+            width: 420px;
+            height: 300px;
+            font-size: 0;
+            float: left;
+            position: relative;
+            transition: all .3s linear;
+            z-index: 20;
+        }
+        .nianji:hover :after{
+            content: "";
+            width: 380px;
+            height: 260px;
+            background-color: black;
+            opacity: .5;
+            display: block;
+            position: absolute;
+            left: 20px;
+            bottom: 20px;
+            transition: all .3s linear;
+            cursor: pointer;
+        }
+
+        #tianjiabeijing{
+            margin: 10px 10px;
+            width: 420px;
+            height: 280px;
+            font-size: 0;
+            float: left;
+            position: relative;
+            border: solid 2px gray;
+            background-color: gray;
+            overflow: hidden;
+        }
+        #tianjiabeijing1{
+             margin: 10px 10px;
+             width: 420px;
+             height: 280px;
+             font-size: 0;
+             float: left;
+             position: relative;
+             border: solid 2px gray;
+             background-color: gray;
+             overflow: hidden;
+         }
+        #tianjiabeijing2{
+            margin: 10px 10px;
+            width: 420px;
+            height: 280px;
+            font-size: 0;
+            float: left;
+            position: relative;
+            border: solid 2px gray;
+            background-color: gray;
+            overflow: hidden;
+        }
+        .hr1{
+            width: 500px;
+            height: 3px;
+            background-color: black;
+            margin-top: 139px;
+            margin-left: -40px;
+            transform: rotate(34deg);
+        }
+        .hr2{
+            width: 500px;
+            height: 3px;
+            background-color: black;
+            margin-left: -40px;
+            transform: rotate(-34deg);
+        }
+        .form{
+
+           margin: 10px 12px;
+
+        }
+        #zhaopianqiang{
+            display: none;
+            height: 1700px;
+            width: 100%;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: url("tutu/timg.jpg");
+            z-index: 50;
+        }
+        .container{
+            max-width: 1000px;
+            margin:100px auto;
+            position: relative;
+        }
+        .container img{
+            width: 280px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            box-shadow:2px 2px 3px rgba(50,50,50,.4);
+            position: absolute;
+            z-index: 1;
+            background: #fff; }
+        .container img:nth-child(1){
+            left: 0;
+            top:0;
+            transform:rotate(-5deg);
+        }
+        .container img:nth-child(2){
+            left: 300px;
+            top: 0;
+            transform:rotate(4deg);
+        }
+        .container img:nth-child(3){
+            left:600px;
+            top:0;
+            transform:rotate(-6deg);
+        }
+        .container img:nth-child(4){
+            left:0;
+            top: 200px;
+            transform:rotate(3deg);
+        }
+        .container img:nth-child(5){
+            left: 310px;
+            top: 200px;
+            transform:rotate(-20deg);
+        }
+        .container img:nth-child(6){
+            left: 600px;
+            top:200px;
+            transform:rotate(3deg);
+        }
+        .container img:nth-child(7){
+            left: 0;
+            top:400px;
+            transform:rotate(-3deg);
+        }
+        .container img:nth-child(8){
+            left: 310px;
+            top:400px;
+            transform:rotate(3deg);
+        }
+        .container img:nth-child(9){
+            left: 600px;
+            top:400px;
+            transform:rotate(-3deg);
+        }
+        .container img:hover{
+            transform:rotate(0deg) scale(1.5);
+            transition:all 0.5s ease-in;
+            z-index: 2;
+        }
+        .container .tianjiazhaopian{
+            width: 280px;
+            padding: 10px;
+            height: 200px;
+            border: solid 2px gray;
+            box-shadow:2px 2px 3px rgba(50,50,50,.4);
+            position: absolute;
+            z-index: 1;
+            left: 0;
+            top:630px;
+            transform:rotate(-3deg);
+        }
+        #zhaopianqiang6{
+            display: none;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #FEC6DF;
+        }
+        #screen {
+            position: absolute;
+            left: 10%;
+            top: 10%;
+            width: 80%;
+            height: 80%;
+            background: rgb(252,157,154);
+        }
+        #screen img {
+            position: absolute;
+            cursor: pointer;
+            visibility: hidden;
+            width: 0;
+            height: 0;
+        }
+        #screen .tvover {
+            border: solid #876;
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+        #screen .tvout {
+            border: solid #fff;
+            opacity: 0.7;
+        }
+        #bankImages {
+            display: none;
+        }
+        .fanhui{
+            position: absolute;
+            left: 0;
+            top:0;
+            font-size: 20px;
+            color: mediumspringgreen;
+
+        }
+        .fanhui1{
+            display: none;
+            position: absolute;
+            z-index: 100;
+            right: 80px;
+            top: 60px;
+            font-size: 30px;
+            color: #679767;
+        }
+        #zhaopianqiang4{
+            display: none;
+            height: 1700px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: url("tutu/timg.jpg");
+            z-index: 50;
+        }
+        #zhaopianqiang1{
+            display: none;
+            height: 1700px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: url("tutu/timg.jpg");
+            z-index: 50;
+        }
+        #zhaopianqiangbeijing{
+            display: none;
+            height: 1700px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: url("tutu/timg.jpg");
+            z-index: 50;
+        }
+        #zhaopianqiang2{
+            display: none;
+            height: 1700px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: url("tutu/timg.jpg");
+            z-index: 50;
+        }
+        #zhaopianqiang3{
+            display: none;
+            height: 1700px;
+            width: 100%;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: url("tutu/timg.jpg");
+            z-index: 50;
+        }
+        .main{
+            position: relative;
+            left: 0;
+            top: 600px;
+            width: 100%;
+            margin: auto;
+            z-index: 100;
+        }
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .btn {
+            position: absolute;
+            left: -100px;
+            top: -80px;
+            width: 100px;
+            height: 30px;
+            background-color: #FF9999;
+            color: white;
+            border-radius: 3px;
+            border:solid 1px #FF9999;
+            z-index: 99;
+        }
+        .upimg {
+            left: 10px;
+            top: -25px;
+            position: absolute;
+            width: 250px;
+            height: 150px;
+            border-radius: 5px;
+            border: dashed #999999;
+            background-position: 33px;
+            transform:rotate(-8deg);
+
+        }
+        .input1 {
+            position: absolute;
+            left: -100px;
+            top:-80px;
+            width: 100px;
+            overflow: hidden;
+            height: 30px;
+            border-radius: 3px;
+            opacity: 0;
+            z-index: 100;
+        }
+        .input1:hover{
+            cursor: pointer;
+        }
+        #showui li {
+            width: 280px;
+            height: 200px;
+            position: relative;
+            z-index: 10;
+            top: -550px;
+            display: inline-block;
+            margin: 10px 10px;
+            transform:rotate(-3deg);
+        }
+        #showui li:hover{
+            transform:rotate(0deg) scale(1.1);
+            transition:all 0.5s ease-in;
+        }
+        #showimg{
+            max-width: 1200px;
+            margin: 30px auto;
+        }
+        .tianjiayincang{
+            display: none;
+        }
+        #baocun2{
+            position: absolute;
+            left: 250px;
+            top: 135px;
+            display: none;
+        }
+        #baocun3{
+            position: absolute;
+            left: 250px;
+            top: 135px;
+            display: none;
+            background-color: #669966;
+        }
+        #baocun{
+            position: absolute;
+            left: 250px;
+            top: 135px;
+            display: none;
+        }
+        .xinbanjidiv{
+            width: 400px;
+            height: 200px;
+            position: fixed;
+            left: 30%;
+            top: 40%;
+            background-color: #f2dede;
+            transition: all .2s linear;
+            opacity: 0;
+            z-index: 1;
+            text-align: center;
+            border-radius: 5px;
+        }
+        #wenzi11{
+            font-weight: 600;
+            font-size: 18px;
+        }
+        .xinbanjidiv1{
+            margin: 20px;
+        }
+        .xinbanjidiv2 input{
+            border-radius: 3px;
+        }
+        .xinbanjianniu{
+            text-align: right;
+            margin-top: 10px;
+        }
+        .xinbanjianniu button{
+           width: 60px;
+            height: 30px;
+            background-color: #D9524E;
+            color: white;
+            /*border: solid 1px #D9524E;*/
+            border: none;
+            border-radius: 3px;
+            margin-right: 10px;
+        }
+        .wenzishuoming:hover{
+            cursor: pointer;
+        }
+        .button1{
+            width: 420px;
+            height: 220px;
+            position: absolute;
+            border: solid 2px gray;
+            background-color: gray;
+            left: 0;
+            opacity: 0;
+            z-index: 3;
+        }
+        #upImg{
+            position: absolute;
+            left: 0;
+        }
+        #upImg1{
+            position: absolute;
+            left: 0;
+        }
+        #upImg2{
+            position: absolute;
+            left: 0;
+        }
+        .xiangcefengmian{
+            background-color: #FF9999;
+            width: 200px;
+            height: 40px;
+            border: solid 1px #FF9999;
+            border-radius: 3px;
+            color: white;
+            position: relative;
+        }
+        #dianjikuang{
+            width: 200px;
+            height: 40px;
+            border: solid 1px #FF9999;
+            border-radius: 3px;
+            color: white;
+            position: absolute;
+            left: 100px;
+            top: 70px;
+            display: none;
+        }
+        #dianjikuang1{
+            width: 200px;
+            height: 40px;
+            border: solid 1px #FF9999;
+            border-radius: 3px;
+            color: white;
+            position: absolute;
+            left: 100px;
+            top: 70px;
+            display: none;
+        }
+        #dianjikuang2{
+            width: 200px;
+            height: 40px;
+            border: solid 1px #FF9999;
+            border-radius: 3px;
+            color: white;
+            position: absolute;
+            left: 100px;
+            top: 70px;
+            display: none;
+        }
+        #quxiao{
+            background-color: #de7772;
+        }
+    </style>
+</head>
+<body>
+<div class="form">
+    <select name="" id="parent" class="xiala" onclick="changeParent()">
+        <option value="0">请选择年级</option>
+        <option value="1">大班</option>
+        <option value="2">中班</option>
+        <option value="3">小班</option>
+    </select>
+    <select name="" class="xiala" id="child">
+        <option value="0">请选择班级</option>
+        <option value="1">一班</option>
+        <option value="2">二班</option>
+    </select>
+    <button class="anniu" onclick="chazhaobanji()">确定</button>
+</div>
+<div class="nianji" onclick="dayiban()">
+    <img src="tupian/dayiban.jpg" alt="" class="img-thumbnail">
+    <h1 class="wenzishuoming">大一班</h1>
+</div>
+<div  class="nianji" onclick="daerban()">
+    <img src="tupian/daerban.jpg" alt="" class="img-thumbnail">
+    <h1 class="wenzishuoming">大二班</h1>
+</div>
+<div  class="nianji" onclick="zhongyiban()">
+    <img src="tupian/zhongyiban.jpg" alt="" class="img-thumbnail">
+    <h1 class="wenzishuoming">中一班</h1>
+</div>
+<div  class="nianji" onclick="zhongerban()">
+    <img src="tupian/zhongerban.jpg" alt="" class="img-thumbnail">
+    <h1 class="wenzishuoming">中二班</h1>
+</div>
+<div  class="nianji" onclick="xiaoban()">
+    <img src="tupian/xiaoyiban%20.jpg" alt="" class="img-thumbnail">
+    <h1 class="wenzishuoming">小一班</h1>
+</div >
+<div class="nianji" onclick="xiaoerban()">
+    <img src="tupian/xiaoerban.jpg" alt="" class="img-thumbnail">
+    <h1 class="wenzishuoming">小二班</h1>
+</div>
+<div id="tianjiabeijing">
+    <img id="shishi" src="" alt="" class="img-thumbnail">
+   <button class="button1" onclick="tianjiazhaopian1()">添加照片</button>
+   <div id="wenzishuoming1">
+        <h1 class="dianjitianjia" onclick="xiugaibanji1()">点击添加班级</h1>
+   </div>
+</div>
+<div id="tianjiabeijing1">
+    <img id="shishi1" src="" alt="" class="img-thumbnail">
+    <button class="button1" onclick="tianjiazhaopian2()">添加照片</button>
+    <div id="wenzishuoming2">
+    <h1 class="dianjitianjia" onclick="xiugaibanji2()">点击添加班级</h1>
+    </div>
+
+</div>
+<div id="tianjiabeijing2">
+    <img  id="shishi2" src="" alt="" class="img-thumbnail">
+    <button class="button1" onclick="tianjiazhaopian3()">添加照片</button>
+    <div id="wenzishuoming3">
+    <h1 class="dianjitianjia" onclick="xiugaibanji3()">点击添加班级</h1>
+    </div>
+
+</div>
+
+<!--添加照片-->
+<div class="container tianjiayincang">
+    <input type="file" id="upgteimg" class="input1" value="" multiple="">
+    <button class="btn" id="submit">点击上传</button>
+    <div class="main">
+        <div id="showimg">
+            <ul id="showui">
+            </ul>
+            <div class="upimg">
+            </div>
+        </div>
+    </div>
+</div>
+<!--大一班照片墙-->
+<div id="zhaopianqiang1">
+    <div class="container">
+        <img src="tupian/xiao1.jpg">
+        <img src="tupian/xiao2.jpg">
+        <img src="tupian/xiao3.jpg">
+        <img src="tupian/xiao4.jpg">
+        <img src="tupian/xiao5.jpg">
+        <img src="tupian/xiao6.jpg">
+        <img src="tupian/xiao7.jpg">
+        <img src="tupian/xiao8.jpg">
+        <img src="tupian/xiao9.jpg">
+    </div>
+</div>
+<!--大二班照片墙-->
+<div id="zhaopianqiang2">
+    <div class="container">
+        <img src="tupian/xiao10.jpg">
+        <img src="tupian/xiao11.jpg">
+        <img src="tupian/xiao12.jpg">
+        <img src="tupian/xiao13.jpg">
+        <img src="tupian/xiao14.jpg">
+        <img src="tupian/xiao15.jpg">
+        <img src="tupian/xiao16.jpg">
+        <img src="tupian/xiao17.jpg">
+        <img src="tupian/xiao18.jpg">
+    </div>
+</div>
+<!--中一班照片墙-->
+<div id="zhaopianqiang3">
+    <div class="container">
+        <img src="tupian/xiao19.jpg">
+        <img src="tupian/xiao20.jpg">
+        <img src="tupian/xiao21.jpg">
+        <img src="tupian/xiao22.jpg">
+        <img src="tupian/xiao23.jpg">
+        <img src="tupian/xiao1.jpg">
+        <img src="tupian/xiao2.jpg">
+        <img src="tupian/xiao5.jpg">
+        <img src="tupian/xiao6.jpg">
+    </div>
+</div>
+<!--中二班照片墙-->
+<div id="zhaopianqiang4" >
+    <a class="glyphicon glyphicon-share-alt icon-htmleaf-arrow-forward-outline fanhui1" href="http://localhost:63342/%E9%A1%B9%E7%9B%AE/last/guanlixitong/quanxianguanli.html" title="返回上一页" ></a>
+    <div id="jswbox">
+        <pre class="prev">prev</pre>
+        <pre class="next">next</pre>
+        <ul>
+            <li style="display: block; width: 262px; height: 389px; top: 152px; left: 0; z-index: 1; " ><img src="tupian/xiao1.jpg" class="img-thumbnail" style="opacity: 87; "></li>
+            <li style="display: block; width: 262px; height: 389px; top: 152px; left: 0px; z-index: 2; "><img src="tupian/xiao2.jpg" class="img-thumbnail" style="opacity: 87; "></li>
+            <li style="display: block; width: 262px; height: 389px; top: 152px; left: 200px; z-index: 3; "><img src="tupian/xiao10.jpg" class="img-thumbnail" style="opacity: 87; "></li>
+            <li style="display: block; width: 300px; height: 445px; left: 388px; z-index: 4; top: 124px; "><img src="tupian/xiao23.jpg" class="img-thumbnail" style="opacity: 87; "></li>
+            <li style="display: block; width: 262px; height: 389px; left: 668px; z-index: 3; top: 152px; "><img src="tupian/xiao5.jpg" class="img-thumbnail" style="opacity: 87; "></li>
+            <li style="display: block; width: 262px; height: 389px; left: 834px; z-index: 2; top: 152px; "><img src="tupian/xiao7.jpg" class="img-thumbnail" style="opacity: 87; "></li>
+            <li style="display: block; width: 262px; height: 389px; top: 152px; left: 450px; z-index: 1; "><img src="tupian/xiao9.jpg" class="img-thumbnail" style="opacity: 87; "></li>
+            <li style="display: block; width: 262px; height: 389px; top: 152px; left: 450px; z-index: 1; "><img src="tupian/xiao13.jpg" class="img-thumbnail" style="opacity: 87; "></li>
+            <li style="display: block; width: 262px; height: 389px; top: 152px; left: 450px; z-index: 1; "><img src="tupian/xiao14.jpg" class="img-thumbnail" style="opacity: 87; "></li>
+            <li style="display: block; width: 262px; height: 389px; top: 152px; left: 450px; z-index: 1; "><img src="tupian/xiao15.jpg" class="img-thumbnail"  style="opacity: 87; "></li>
+            <li style="display: block; width: 262px; height: 389px; top: 152px; left: 450px; z-index: 1; "><img src="tupian/xiao16.jpg" class="img-thumbnail" style="opacity: 87; "></li>
+        </ul>
+    </div>
+</div>
+<!--小一班的照片墙-->
+<a class="glyphicon glyphicon-share-alt icon-htmleaf-arrow-forward-outline fanhui1" href="http://localhost:63342/%E9%A1%B9%E7%9B%AE/last/guanlixitong/quanxianguanli.html" title="返回上一页" ></a>
+<div id="zhaopianqiang">
+    <div class="container">
+        <img src="tupian/xiao1.jpg">
+        <img src="tupian/xiao2.jpg">
+        <img src="tupian/xiao3.jpg">
+        <img src="tupian/xiao4.jpg">
+        <img src="tupian/xiao5.jpg">
+        <img src="tupian/xiao6.jpg">
+        <img src="tupian/xiao7.jpg">
+        <img src="tupian/xiao8.jpg">
+        <img src="tupian/xiao9.jpg">
+    </div>
+</div>
+<!--小二班的照片墙-->
+<div id="zhaopianqiang6">
+    <div id="screen">
+        <header class="htmleaf-header">
+            <h1 style="color: mediumspringgreen">小二班的日常生活部分记录</h1>
+            <a class="glyphicon glyphicon-share-alt icon-htmleaf-arrow-forward-outline fanhui" href="http://localhost:63342/%E9%A1%B9%E7%9B%AE/last/guanlixitong/quanxianguanli.html" title="返回上一页" ><span> 返回上一页</span></a>
+        </header>
+    </div>
+    <div id="bankImages">
+        <img alt="" src="tupian/xiao10.jpg">
+        <img alt="" src="tupian/xiao11.jpg">
+        <img alt="" src="tupian/xiao12.jpg">
+        <img alt="" src="tupian/xiao13.jpg">
+        <img alt="" src="tupian/xiao14.jpg">
+        <img alt="" src="tupian/xiao15.jpg">
+        <img alt="" src="tupian/xiao16.jpg">
+        <img alt="" src="tupian/xiao17.jpg">
+        <img alt="" src="tupian/xiao18.jpg">
+        <img alt="" src="tupian/xiao19.jpg">
+        <img alt="" src="tupian/xiao20.jpg">
+        <img alt="" src="tupian/xiao21.jpg">
+        <img alt="" src="tupian/xiao22.jpg">
+        <img alt="" src="tupian/xiao23.jpg">
+        <img alt="" src="tupian/xiao4.jpg">
+        <img alt="" src="tupian/xiao6.jpg">
+    </div>
+</div>
+
+<!--创建新班级名字-->
+<div class="xinbanjidiv">
+     <div class="xinbanjidiv1">
+         <div class="xinbanjidiv2">
+                <span id="wenzi11">新班级名称:</span>
+                <input id="xiugaiwenzi" type="text" value="">
+         </div>
+     </div>
+    <div class="yanzRight">
+        <button class="xiangcefengmian">添加相册封面</button>
+        <input id="dianjikuang" name="evidence" onchange="uploadImg(this,'preview')" type="file"/>
+        <input id="dianjikuang1" name="evidence" onchange="uploadImg1(this,'preview')" type="file"/>
+        <input id="dianjikuang2" name="evidence" onchange="uploadImg2(this,'preview')" type="file"/>
+        <span class="dui" id="imgOrder_dui" style="display: none;"></span>
+    </div>
+    <div id="preview">
+        <img src="" alt="" id="imghead5" height="200" width="200" />
+    </div>
+     <div class="xinbanjianniu">
+         <button id="quxiao" type="button" class="">取 消</button>
+         <button id="baocun" type="button" onclick="baocunwenzi()" class="" >保 存</button>
+         <button id="baocun2" type="button" onclick="baocunwenzi2()" class="" >保 存</button>
+         <button id="baocun3" type="button" onclick="baocunwenzi3()" class="" >保 存</button>
+     </div>
+</div>
+
+<div id="zhaopianqiangbeijing"></div>
+
+<script type="text/javascript" src="shangchuanchajian/uploadimg/js/updateimg.js"></script>
+<script src="sanDgundong/js/comm.js"></script>
+<script src="jquery-3.3.1.min.js"></script>
+<script src="dist/js/bootstrap.min.js"></script>
+<script src="js/3d-tv.js" type="text/javascript"></script>
+<script>
+    $(function(){
+        new ZoomPic("jswbox");
+    });
+    function dayiban() {
+        $("#tianjiabeijing").css("display","none");
+        $(".fanhui1").css("display","block");
+        $("#zhaopianqiang1").css("display","block");
+        $(".tianjiayincang").css("display","block");
+        $("#tianjiabeijing1").css("display","none");
+        $("#tianjiabeijing2").css("display","none");
+    }
+    function daerban() {
+        $("#tianjiabeijing").css("display","none");
+        $(".fanhui1").css("display","block");
+        $("#zhaopianqiang2").css("display","block");
+        $(".tianjiayincang").css("display","block")
+        $("#tianjiabeijing1").css("display","none");
+        $("#tianjiabeijing2").css("display","none");
+    }
+    function zhongyiban() {
+        $("#tianjiabeijing").css("display","none");
+        $(".fanhui1").css("display","block");
+        $("#zhaopianqiang3").css("display","block");
+        $(".tianjiayincang").css("display","block")
+        $("#tianjiabeijing1").css("display","none");
+        $("#tianjiabeijing2").css("display","none");
+    }
+    function zhongerban(){
+        $(".fanhui1").css("display","block");
+        $("#tianjiabeijing").css("display","none");
+        $("#zhaopianqiang4").css("display","block");
+        $("#tianjiabeijing1").css("display","none");
+        $("#tianjiabeijing2").css("display","none");
+
+    }
+    function xiaoban(){
+        var nianji = document.getElementsByClassName("nianji");
+        var zhaopianqiang = document.getElementById("zhaopianqiang");
+        zhaopianqiang.style.display="block";
+        $("#tianjiabeijing").css("display","none");
+        $(".fanhui1").css("display","block");
+        $(".tianjiayincang").css("display","block");
+        $("#tianjiabeijing1").css("display","none");
+        $("#tianjiabeijing2").css("display","none");
+    }
+    function xiaoerban(){
+        var nianji = document.getElementsByClassName("nianji");
+        var zhaopianqiang6 = document.getElementById("zhaopianqiang6");
+        $("#tianjiabeijing").css("display","none");
+        $("#tianjiabeijing1").css("display","none");
+        $("#tianjiabeijing2").css("display","none");
+        $("form").css("display","none");
+        zhaopianqiang6.style.display="block";
+        for(var i=0;i<nianji.length;i++){
+            nianji[i].style.display="none";
+        }
+        onresize = tv.resize;
+        tv.init();
+    }
+//创建新的相册
+    function xiugaibanji1(){
+        var baocun = document.getElementById("baocun");
+        baocun.style.display="block";
+        var xinbanjidiv = document.getElementsByClassName("xinbanjidiv")[0];
+        xinbanjidiv.style.opacity="1";
+        xinbanjidiv.style.zIndex="30";
+        xinbanjidiv.style.transition="all .2s linear";
+        var dianjikuang =  document.getElementById("dianjikuang");
+        var dianjikuang1 =  document.getElementById("dianjikuang1");
+        var dianjikuang2 =  document.getElementById("dianjikuang2");
+        dianjikuang.style.display="block";
+        dianjikuang1.style.display="none";
+        dianjikuang2.style.display="none";
+        dianjikuang.style.opacity="0";
+
+    }
+    function xiugaibanji2(){
+        var baocun2 = document.getElementById("baocun2");
+        baocun2.style.display="block";
+        var xinbanjidiv = document.getElementsByClassName("xinbanjidiv")[0];
+        xinbanjidiv.style.opacity="1";
+        xinbanjidiv.style.zIndex="30";
+        xinbanjidiv.style.transition="all .2s linear";
+        var dianjikuang =  document.getElementById("dianjikuang");
+        var dianjikuang1 =  document.getElementById("dianjikuang1");
+        var dianjikuang2 =  document.getElementById("dianjikuang2");
+        dianjikuang.style.display="none";
+        dianjikuang1.style.display="block";
+        dianjikuang2.style.display="none";
+        dianjikuang1.style.opacity="0";
+    }
+    function xiugaibanji3(){
+        var baocun3 = document.getElementById("baocun3");
+        baocun3.style.display="block";
+        var xinbanjidiv = document.getElementsByClassName("xinbanjidiv")[0];
+        xinbanjidiv.style.opacity="1";
+        xinbanjidiv.style.zIndex="30";
+        xinbanjidiv.style.transition="all .2s linear";
+        var dianjikuang =  document.getElementById("dianjikuang");
+        var dianjikuang1 =  document.getElementById("dianjikuang1");
+        var dianjikuang2 =  document.getElementById("dianjikuang2");
+        dianjikuang.style.display="none";
+        dianjikuang1.style.display="none";
+        dianjikuang2.style.display="block";
+        dianjikuang2.style.opacity="0";
+    }
+    $("#quxiao").click(function(){
+        var xinbanjidiv = document.getElementsByClassName("xinbanjidiv")[0];
+        xinbanjidiv.style.opacity="0";
+        xinbanjidiv.style.zIndex="1";
+    });
+    function baocunwenzi(){
+        var wenzishuoming = document.getElementsByClassName("wenzishuoming")[0];
+        var xiugaiwenzi = $("#xiugaiwenzi");
+        var xinbanjidiv = document.getElementsByClassName("xinbanjidiv")[0];
+        var wenzishuoming1 = document.getElementsByClassName("wenzishuoming1");
+        var dianjitianjia = document.getElementsByClassName("dianjitianjia")[0];
+
+        if (xiugaiwenzi.val()==""){
+            alert("输入不能为空");
+            return;
+        }
+        $("#wenzishuoming1").append(xiugaiwenzi.val());
+        dianjitianjia.remove();
+        xinbanjidiv.style.opacity="0";
+    }
+    function baocunwenzi2(){
+        var wenzishuoming = document.getElementsByClassName("wenzishuoming")[0];
+        var xiugaiwenzi = $("#xiugaiwenzi");
+        var xinbanjidiv = document.getElementsByClassName("xinbanjidiv")[0];
+        var wenzishuoming1 = document.getElementsByClassName("wenzishuoming1");
+        var dianjitianjia = document.getElementsByClassName("dianjitianjia")[0];
+        if (xiugaiwenzi.val()==""){
+            alert("输入不能为空");
+            return;
+        }
+        $("#wenzishuoming2").append(xiugaiwenzi.val());
+        dianjitianjia.remove();
+        xinbanjidiv.style.opacity="0";
+    }
+    function baocunwenzi3(){
+        var wenzishuoming = document.getElementsByClassName("wenzishuoming")[0];
+        var xiugaiwenzi = $("#xiugaiwenzi");
+        var xinbanjidiv = document.getElementsByClassName("xinbanjidiv")[0];
+        var wenzishuoming1 = document.getElementsByClassName("wenzishuoming1");
+        var dianjitianjia = document.getElementsByClassName("dianjitianjia")[0];
+        if (xiugaiwenzi.val()==""){
+            alert("输入不能为空");
+            return;
+        }
+        $("#wenzishuoming3").append(xiugaiwenzi.val());
+        dianjitianjia.remove();
+        xinbanjidiv.style.opacity="0";
+    }
+//新相册添加照片
+    function tianjiazhaopian1(){
+        $(".fanhui1").css("display","block");
+        $(".tianjiayincang").css("display","block");
+        $(".nianji").css("display","none");
+        $("#tianjiabeijing").css("display","none");
+        $("#tianjiabeijing1").css("display","none");
+        $("#tianjiabeijing2").css("display","none");
+        $(".xinbanjidiv").css("display","none");
+        $("#zhaopianqiangbeijing").css("display","block");
+    }
+    function tianjiazhaopian2(){
+        $(".fanhui1").css("display","block");
+        $(".tianjiayincang").css("display","block");
+        $(".nianji").css("display","none");
+        $("#tianjiabeijing").css("display","none");
+        $("#tianjiabeijing1").css("display","none");
+        $("#tianjiabeijing2").css("display","none");
+        $(".xinbanjidiv").css("display","none");
+        $("#zhaopianqiangbeijing").css("display","block");
+    }
+    function tianjiazhaopian3(){
+        $(".fanhui1").css("display","block");
+        $(".tianjiayincang").css("display","block");
+        $(".nianji").css("display","none");
+        $("#tianjiabeijing").css("display","none");
+        $("#tianjiabeijing1").css("display","none");
+        $("#tianjiabeijing2").css("display","none");
+        $(".xinbanjidiv").css("display","none");
+        $("#zhaopianqiangbeijing").css("display","block");
+    }
+
+    function uploadImg(file,imgNum){
+        var widthImg = 420; //显示图片的width
+        var heightImg = 300; //显示图片的height
+        var div = document.getElementById(imgNum);
+        if (file.files && file.files[0]){
+            div.innerHTML ='<img id="upImg">'; //生成图片
+            var img = document.getElementById('upImg'); //获得用户上传的图片节点
+            img.onload = function(){
+                img.width = widthImg;
+                img.height = heightImg;
+            }
+            var reader = new FileReader(); //判断图片是否加载完毕
+            reader.onload = function(evt){
+                if(reader.readyState === 2){ //加载完毕后赋值
+                    img.src = evt.target.result;
+                }
+            }
+            reader.readAsDataURL(file.files[0]);
+        }
+        $("#shishi").after($("#upImg"));
+    }
+    function uploadImg1(file,imgNum){
+        var widthImg = 420; //显示图片的width
+        var heightImg = 300; //显示图片的height
+        var div = document.getElementById(imgNum);
+        if (file.files && file.files[0]){
+            div.innerHTML ='<img id="upImg1">'; //生成图片
+            var img = document.getElementById('upImg1'); //获得用户上传的图片节点
+            img.onload = function(){
+                img.width = widthImg;
+                img.height = heightImg;
+            }
+            var reader = new FileReader(); //判断图片是否加载完毕
+            reader.onload = function(evt){
+                if(reader.readyState === 2){ //加载完毕后赋值
+                    img.src = evt.target.result;
+                }
+            }
+            reader.readAsDataURL(file.files[0]);
+        }
+        $("#shishi1").after($("#upImg1"));
+    }
+    function uploadImg2(file,imgNum){
+        var widthImg = 420; //显示图片的width
+        var heightImg = 300; //显示图片的height
+        var div = document.getElementById(imgNum);
+        if (file.files && file.files[0]){
+            div.innerHTML ='<img id="upImg2">'; //生成图片
+            var img = document.getElementById('upImg2'); //获得用户上传的图片节点
+            img.onload = function(){
+                img.width = widthImg;
+                img.height = heightImg;
+            }
+            var reader = new FileReader(); //判断图片是否加载完毕
+            reader.onload = function(evt){
+                if(reader.readyState === 2){ //加载完毕后赋值
+                    img.src = evt.target.result;
+                }
+            }
+            reader.readAsDataURL(file.files[0]);
+        }
+        $("#shishi2").after($("#upImg2"));
+    }
+    function  changeParent() {
+        var  child = document.getElementById("child");
+        var parent = document.getElementById("parent");
+        if(parent.value=="0"){
+            child.innerHTML="<option value='0'>请选择班级</option>"
+        }else if(parent.value=="1"){
+            child.innerHTML="<option value='1'>一班</option>"+"<option value='2'>二班</option>"
+        }else if(parent.value=="2"){
+            child.innerHTML="<option value='1'>一班</option>"+"<option value='2'>二班</option>"
+        }else if(parent.value=="3"){
+            child.innerHTML="<option value='1'>一班</option>"+"<option value='2'>二班</option>"
+        }
+
+    }
+    function chazhaobanji() {
+        var  child = document.getElementById("child");
+        var parent = document.getElementById("parent");
+        var nianji = document.getElementsByClassName("nianji") ;
+        var tianjiabeijing = document.getElementById("tianjiabeijing");
+        var tianjiabeijing1 = document.getElementById("tianjiabeijing1");
+        var tianjiabeijing2 = document.getElementById("tianjiabeijing2");
+        for (var i=0;i<nianji.length;i++){
+
+            if(parent.value=="1"&&child.value=="1"){
+//                console.log(parent.value);
+//                console.log(child.value);
+                nianji[0].style.display="block";
+                nianji[i].style.display="none";
+                tianjiabeijing.style.display="none";
+                tianjiabeijing1.style.display="none";
+                tianjiabeijing2.style.display="none";
+//                nianji[i++].style.display="none";
+
+            }
+            if(parent.value=="1"&&child.value=="2"){
+//                console.log(parent.value);
+//                console.log(child.value);
+                nianji[1].style.display="block";
+                nianji[i].style.display="none";
+                tianjiabeijing.style.display="none";
+                tianjiabeijing1.style.display="none";
+                tianjiabeijing2.style.display="none";
+//                nianji[i++].style.display="none";
+
+            }
+            if(parent.value=="2"&&child.value=="1"){
+//                console.log(parent.value);
+//                console.log(child.value);
+                nianji[2].style.display="block";
+                nianji[i].style.display="none";
+                tianjiabeijing.style.display="none";
+                tianjiabeijing1.style.display="none";
+                tianjiabeijing2.style.display="none";
+//                nianji[i++].style.display="none";
+
+            }
+            if(parent.value=="2"&&child.value=="2"){
+//                console.log(parent.value);
+//                console.log(child.value);
+                nianji[3].style.display="block";
+                nianji[i].style.display="none";
+                tianjiabeijing.style.display="none";
+                tianjiabeijing1.style.display="none";
+                tianjiabeijing2.style.display="none";
+//                nianji[i++].style.display="none";
+
+            }
+            if(parent.value=="3"&&child.value=="1"){
+//                console.log(parent.value);
+//                console.log(child.value);
+                nianji[4].style.display="block";
+                nianji[i].style.display="none";
+                tianjiabeijing.style.display="none";
+                tianjiabeijing1.style.display="none";
+                tianjiabeijing2.style.display="none";
+//                nianji[i++].style.display="none";
+
+            }
+            if(parent.value=="3"&&child.value=="2"){
+//                console.log(parent.value);
+//                console.log(child.value);
+                nianji[5].style.display="block";
+                nianji[4].style.display="none";
+                nianji[3].style.display="none";
+                nianji[2].style.display="none";
+                nianji[1].style.display="none";
+                nianji[0].style.display="none";
+                tianjiabeijing.style.display="none";
+                tianjiabeijing1.style.display="none";
+                tianjiabeijing2.style.display="none";
+//                nianji[i++].style.display="none";
+
+            }
+
+
+
+        }
+
+    }
+
+
+
+</script>
+
+
+</body>
+</html>
